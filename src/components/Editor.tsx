@@ -9,7 +9,7 @@ import TextareaAutosize from "react-textarea-autosize";
 import { z } from "zod";
 
 import { toast } from "@/hooks/use-toast";
-import { uploadFiles } from "@/lib/uploadthing";
+import { useUploadThing } from "@/lib/uploadthing";
 import { PostCreationRequest, PostValidator } from "@/lib/validators/post";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
@@ -67,6 +67,12 @@ export const Editor: React.FC<EditorProps> = ({ categoryId }) => {
     },
   });
 
+  const { startUpload } = useUploadThing("imageUploader", {
+    onUploadError: () => {
+      toast({ description: "upload has failed." });
+    },
+  });
+
   const initializeEditor = useCallback(async () => {
     const EditorJS = (await import("@editorjs/editorjs")).default;
     const Header = (await import("@editorjs/header")).default;
@@ -101,7 +107,7 @@ export const Editor: React.FC<EditorProps> = ({ categoryId }) => {
               uploader: {
                 async uploadByFile(file: File) {
                   // upload to uploadthing
-                  const res = await uploadFiles([file], "imageUploader");
+                  const res = await startUpload([file]);
                   return {
                     success: 1,
                     file: {

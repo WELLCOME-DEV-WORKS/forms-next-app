@@ -44,7 +44,7 @@ const page = async ({ params }: PageProps) => {
       {slug}
       <MiniCreatePost session={session}></MiniCreatePost>
 
-      <PostFeed></PostFeed>
+      <PostFeed initialPosts={[]}></PostFeed>
     </>
   );
 };
