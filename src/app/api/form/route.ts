@@ -1,25 +1,26 @@
-import { getAuthSession } from '@/lib/auth'
-import { db } from '@/lib/db'
-import { FormDataValidator } from '@/lib/validators/form'
-import { z } from 'zod'
+import { getAuthSession } from "@/lib/auth";
+import { db } from "@/lib/db";
+import { FormDataValidator } from "@/lib/validators/form";
+import { z } from "zod";
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json()
+    const body = await req.json();
 
-    const {   
+    const {
       wantsSkinImprovement,
       wantsSkinToneImprovement,
       wantsAcneTreatment,
       wantsImmediateEffect,
       wantsShortRecovery,
       wantsBudgetBelow100,
-      wantsLessIntensive } = FormDataValidator.parse(body)
+      wantsLessIntensive,
+    } = FormDataValidator.parse(body);
 
-    const session = await getAuthSession()
+    const session = await getAuthSession();
 
     if (!session?.user) {
-      return new Response('Unauthorized', { status: 401 })
+      return new Response("Unauthorized", { status: 401 });
     }
 
     await db.form.create({
@@ -33,17 +34,66 @@ export async function POST(req: Request) {
         wantsLessIntensive,
         userId: session.user.id,
       },
-    })
+    });
 
-    return new Response('OK')
+    return new Response("OK");
   } catch (error) {
     if (error instanceof z.ZodError) {
-      return new Response(error.message, { status: 400 })
+      return new Response(error.message, { status: 400 });
     }
 
     return new Response(
-      'Could not post this form at this time. Please try later',
+      "Could not post this form at this time. Please try later",
       { status: 500 }
-    )
+    );
+  }
+}
+
+export async function GET(req: Request) {
+  const url = new URL(req.url);
+
+  const session = await getAuthSession();
+
+  // if (session) {
+  //   const followedCommunities = await db.form.findMany({
+  //     where: {
+  //       userId: session.user.id,
+  //     },
+  //     include: {
+  //       subreddit: true,
+  //     },
+  //   })
+
+  //   followedCommunitiesIds = followedCommunities.map((sub) => sub.subreddit.id)
+  // }
+
+  try {
+    const { limit, page } = z
+      .object({
+        limit: z.string(),
+        page: z.string(),
+      })
+      .parse({
+        limit: url.searchParams.get("limit"),
+        page: url.searchParams.get("page"),
+      });
+
+    let whereClause = {};
+
+    const forms = await db.form.findMany({
+      take: parseInt(limit),
+      skip: (parseInt(page) - 1) * parseInt(limit), // skip should start from 0 for page 1
+      orderBy: {
+        createdAt: "desc",
+      },
+      include: {
+        user: true,
+      },
+      where: whereClause,
+    });
+
+    return new Response(JSON.stringify(forms));
+  } catch (error) {
+    return new Response("Could not fetch form(s)", { status: 500 });
   }
 }

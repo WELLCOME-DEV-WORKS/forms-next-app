@@ -18,6 +18,12 @@ const Navbar = async () => {
           </p>
         </Link>
         {/* {search bar} */}
+        {}
+        <div className="ml-auto">
+          <Link href="/admin" className={buttonVariants()}>
+            Admin Panel
+          </Link>
+        </div>
 
         {session ? (
           <div>
