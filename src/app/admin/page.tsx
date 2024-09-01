@@ -29,15 +29,9 @@ export default async function AdminPage() {
         <h1 className="font-bold text-3xl md:text-4xl">Admin Panel</h1>
 
         <div className="grid gap-10">
-          {forms.map((item: any) => (
-            <div key={item.id} className="p-4 border rounded-lg">
-              <h2 className="font-semibold text-xl">{item.user?.id}</h2>
-              <p>{item.wantsAcneTreatment}</p>
-              {/* You can display more fields as needed */}
-
-              <DataTable columns={columns} data={forms} />
-            </div>
-          ))}
+          <h2 className="font-semibold text-xl">{session.user?.id}</h2>
+          {/* You can display more fields as needed */}
+          <DataTable columns={columns} data={forms} />
         </div>
       </div>
     </div>
