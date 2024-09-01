@@ -61,6 +61,7 @@ model User {
   Comment     Comment[]
   CommentVote CommentVote[]
   Vote        Vote[]
+  Form        Form[]
 }
 
 model Category {
@@ -121,7 +122,8 @@ model Vote {
   post   Post   @relation(fields: [postId], references: [id])
   postId String
 
-  type VoteType
+  type   VoteType
+  formId String?
 
   @@id([userId, postId])
 }
@@ -134,4 +136,20 @@ model CommentVote {
   type      VoteType
 
   @@id([userId, commentId])
+}
+
+model Form {
+  id                       String   @id @default(cuid())
+  createdAt                DateTime @default(now())
+  updatedAt                DateTime @updatedAt
+  wantsSkinImprovement     Boolean
+  wantsSkinToneImprovement Boolean
+  wantsAcneTreatment       Boolean
+  wantsImmediateEffect     Boolean
+  wantsShortRecovery       Boolean
+  wantsBudgetBelow100      Boolean
+  wantsLessIntensive       Boolean
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
 }

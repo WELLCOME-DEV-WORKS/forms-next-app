@@ -29,13 +29,21 @@ export default function Home() {
               </p>
             </div>
 
-            <Link
+            {/* <Link
               className={buttonVariants({
                 className: "w-full mt-4 mb-6",
               })}
               href={`/community/create`}
             >
               Create Community
+            </Link> */}
+            <Link
+              className={buttonVariants({
+                className: "w-full mt-4 mb-6",
+              })}
+              href={`/form`}
+            >
+              Fill out the form
             </Link>
           </dl>
         </div>
