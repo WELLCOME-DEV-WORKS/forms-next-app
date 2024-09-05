@@ -3,6 +3,38 @@ import { db } from "@/lib/db";
 import { FormDataValidator } from "@/lib/validators/form";
 import { z } from "zod";
 
+/**
+ * @swagger
+ * /api/form:
+ *   post:
+ *     description: upload form to server
+ *     requestBody:
+ *        required: true
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: object
+ *              properties:
+ *                wantsSkinImprovement:
+ *                  type: boolean
+ *                wantsSkinToneImprovement:
+ *                  type: boolean
+ *                wantsAcneTreatment:
+ *                  type: boolean
+ *                wantsImmediateEffect:
+ *                  type: boolean
+ *                wantsShortRecovery:
+ *                  type: boolean
+ *                wantsBudgetBelow100:
+ *                  type: boolean
+ *                wantsLessIntensive:
+ *                  type: boolean
+ *     responses:
+ *       200:
+ *         description: Good
+ *       401:
+ *         description: Unauthorized
+ */
 export async function POST(req: Request) {
   try {
     const body = await req.json();
