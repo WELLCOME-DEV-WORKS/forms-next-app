@@ -6,11 +6,16 @@ import "swagger-ui-react/swagger-ui.css";
 
 type Props = {
   spec: Record<string, any>;
+  url: string;
 };
 
-function ReactSwagger({ spec }: Props) {
+function ReactSwagger({ spec, url }: Props) {
   // @ts-ignore - SwaggerUI is not typed
-  return <SwaggerUI spec={spec} />;
+  if (process.env.NODE_ENV === "development") {
+    return <SwaggerUI spec={spec} />;
+  } else {
+    return <SwaggerUI url={url} />;
+  }
 }
 
 export default ReactSwagger;
