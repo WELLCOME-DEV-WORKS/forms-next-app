@@ -1,0 +1,131 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Next Swagger API Example",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/category": {
+      "post": {
+        "description": "create a category",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Good"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "409": {
+            "description": "Category Already exists"
+          },
+          "422": {
+            "description": "Schema Error"
+          },
+          "500": {
+            "description": "Serverside error"
+          }
+        }
+      }
+    },
+    "/api/form": {
+      "post": {
+        "description": "upload form to server",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "wantsSkinImprovement": {
+                    "type": "boolean"
+                  },
+                  "wantsSkinToneImprovement": {
+                    "type": "boolean"
+                  },
+                  "wantsAcneTreatment": {
+                    "type": "boolean"
+                  },
+                  "wantsImmediateEffect": {
+                    "type": "boolean"
+                  },
+                  "wantsShortRecovery": {
+                    "type": "boolean"
+                  },
+                  "wantsBudgetBelow100": {
+                    "type": "boolean"
+                  },
+                  "wantsLessIntensive": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Good"
+          },
+          "401": {
+            "description": "Unauthorized"
+          }
+        }
+      }
+    },
+    "/api/user": {
+      "patch": {
+        "description": "change username",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Good"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "409": {
+            "description": "Username already exists"
+          },
+          "422": {
+            "description": "Schema Error"
+          },
+          "500": {
+            "description": "Serverside error"
+          }
+        }
+      }
+    }
+  },
+  "components": {},
+  "tags": []
+}

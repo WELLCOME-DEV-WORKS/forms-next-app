@@ -5,12 +5,12 @@ const nextConfig = {
   },
   experimental: {
     appDir: true,
-    transpilePackages: [
-      "react-syntax-highlighter",
-      "swagger-client",
-      "swagger-ui-react",
-    ],
   },
+  transpilePackages: [
+    "react-syntax-highlighter",
+    "swagger-client",
+    "swagger-ui-react",
+  ],
 };
 
 module.exports = nextConfig;
