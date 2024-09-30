@@ -1,9 +1,10 @@
-import Navbar from "@/components/Navbar";
+import Navbar from "@/components/ui/Navbar";
 import Providers from "@/components/Providers";
-import { Toaster } from "@/components/ui/Toaster";
+import { Toaster } from "@/components/ui/details/Toaster";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import { Inter } from "next/font/google";
+import WellcomeHeader from "@/components/ui/WellcomeHeader";
 
 export const metadata = {
   title: "Community-fe-app",
@@ -30,8 +31,9 @@ export default function RootLayout({
       <body className="min-h-screen bg-slate-50 antialiased">
         <Providers>
           {/* @ts-expect-error server component */}
-          <Navbar />
-          {authModal}
+          {/* <Navbar /> */}
+          {/* {authModal} */}
+          <WellcomeHeader title="Well-Come" buttonText="로그인" />
           <div className="container max-w-7xl mx-auto h-full pt-16">
             {children}
           </div>

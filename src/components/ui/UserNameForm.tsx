@@ -7,7 +7,7 @@ import * as React from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/details/Button";
 import {
   Card,
   CardContent,
@@ -15,9 +15,9 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/Card";
-import { Input } from "@/components/ui/Input";
-import { Label } from "@/components/ui/Label";
+} from "@/components/ui/details/Card";
+import { Input } from "@/components/ui/details/Input";
+import { Label } from "@/components/ui/details/Label";
 import { toast } from "@/hooks/use-toast";
 import { cn } from "@/lib/utils";
 import { UserNameValidator } from "@/lib/validators/username";

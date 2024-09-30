@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Icons } from "./ui/Icons";
-import { buttonVariants } from "./ui/Button";
+import { Icons } from "./details/Icons";
+import { buttonVariants } from "./details/Button";
 import { getAuthSession } from "@/lib/auth";
 import UserAccountNav from "./UserAccountNav";
 
@@ -18,7 +18,7 @@ const Navbar = async () => {
           </p>
         </Link>
         {/* {search bar} */}
-        {}
+        { }
         <div className="ml-auto">
           <Link href="/admin" className={buttonVariants()}>
             Admin Panel
