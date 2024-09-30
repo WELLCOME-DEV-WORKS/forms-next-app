@@ -6,7 +6,7 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/DropdownMenu";
+} from "@/components/ui/details/DropdownMenu";
 import { User } from "next-auth";
 import { FC } from "react";
 import UserAvatar from "./UserAvatar";

@@ -1,14 +1,14 @@
 import { FC } from "react";
-import { Icons } from "./ui/Icons";
+import { Icons } from "../ui/details/Icons";
 import Link from "next/link";
 import UserAuthForm from "./UserAuthForm";
 
-const SignUp: FC = () => {
+const SignIn: FC = () => {
   return (
     <div className="container mx-auto flex w-full flex-col justify-center space-y-6 sm:w-[400px]">
       <div className="flex flex-col space-y-2 text-center">
         <Icons.logo className="mx-auto h-6 w-6" />
-        <h1 className="text-2xl font-semibold tracking-tight">Sign Up</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Welcome back</h1>
         <p className="text-sm max-w-xs mx-auto">
           By continuing, you are setting up a community account and agree to our
           User Agreement and Privacy Policy.
@@ -17,16 +17,16 @@ const SignUp: FC = () => {
       <UserAuthForm />
 
       <p className="px-8 text-center text-sm text-muted-foreground">
-        Already a member?{" "}
+        New to community?{" "}
         <Link
-          href="/sign-in"
+          href="/sign-up"
           className="hover:text-brand text-sm underline underline-offset-4"
         >
-          Sign In
+          Sign Up
         </Link>
       </p>
     </div>
   );
 };
 
-export default SignUp;
+export default SignIn;

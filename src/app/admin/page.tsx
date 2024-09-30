@@ -2,7 +2,7 @@ import { notFound, redirect } from "next/navigation";
 
 import { authOptions, getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
-import { DataTable } from "@/components/DataTable";
+import { DataTable } from "@/components/common/DataTable";
 import { columns } from "@/types/form";
 
 export default async function AdminPage() {

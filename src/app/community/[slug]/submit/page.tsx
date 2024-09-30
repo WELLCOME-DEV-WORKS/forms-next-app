@@ -1,7 +1,7 @@
 import { db } from "@/lib/db";
 import { notFound } from "next/navigation";
-import { Editor } from "@/components/Editor";
-import { Button } from "@/components/ui/Button";
+import { Editor } from "@/components/common/Editor";
+import { Button } from "@/components/ui/details/Button";
 
 interface PageProps {
   params: {

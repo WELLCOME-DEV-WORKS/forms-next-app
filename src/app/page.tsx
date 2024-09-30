@@ -1,4 +1,4 @@
-import { buttonVariants } from "@/components/ui/Button";
+import { buttonVariants } from "@/components/ui/details/Button";
 import { HomeIcon } from "lucide-react";
 import Link from "next/link";
 

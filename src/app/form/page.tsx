@@ -2,7 +2,7 @@
 
 // import { UserNameForm } from "@/components/UserNameForm";
 // import { authOptions, getAuthSession } from "@/lib/auth";
-import Form from "@/components/Form";
+import Form from "@/components/common/Form";
 
 export const metadata = {
   title: "Settings",
