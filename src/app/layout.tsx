@@ -35,15 +35,14 @@ export default function RootLayout({
           {/* <Navbar /> */}
           {/* {authModal} */}
           <WellcomeHeader title="Well-Come" buttonText="로그인" />
-          <div className="container max-w-7xl mx-auto h-full pt-16">
+          <div className="container max-w-7xl mx-auto h-full pt-16 bg-wellcome-white">
             {children}
           </div>
 
-          {/* <WellcomeFooter
+          <WellcomeFooter
             text={
               <>
-                Company Name : Well-come Visa Co., Ltd. Representative : Inhyuk{' '}
-                <br />
+                Company Name : Well-come Visa Co., Ltd. Representative : Inhyuk
                 Lee Address : 11th Floor, room 1113 and 1115, 78 Mapo-daero,{' '}
                 <br />
                 Mapo-gu, Seoul Business Registration Number : 359-86-02092 Email{' '}
@@ -52,7 +51,7 @@ export default function RootLayout({
                 2023-Seoul Mapo-3768 Customer Service : +82-70-8655-2888"
               </>
             }
-          /> */}
+          />
           <Toaster />
         </Providers>
       </body>
