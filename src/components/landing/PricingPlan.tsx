@@ -1,16 +1,11 @@
 import React from 'react';
-import Header from './Header';
 import HeroSection from './HeroSection';
 import Button from './Button';
 import PricingPlan from './PricingPlan';
 
-const MyComponent: React.FC = () => {
+const MyComponent = () => {
   return (
     <div className="flex overflow-hidden flex-col items-center bg-gray-50">
-      <Header
-        logo="https://cdn.builder.io/api/v1/image/assets/TEMP/79f58222dea8a08782d31a3d0097d70e847bc7291bdb5fe7cd7606f9bb278ecc?placeholderIfAbsent=true&apiKey=5234d2e82f7b48648ec2ffba5221ceea"
-        title="WELL-COME"
-      />
       <HeroSection
         backgroundImage="https://cdn.builder.io/api/v1/image/assets/TEMP/1ac59c4a3d2b72d856b3b9cb7f220f7dca88f4c7109ead5731f8d5c660381126?placeholderIfAbsent=true&apiKey=5234d2e82f7b48648ec2ffba5221ceea"
         title="한국에서 가장 저렴한 가격으로 예뻐지고 싶나요?"
