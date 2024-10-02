@@ -11,7 +11,7 @@ const SurveyAnswer = ({ name, answer, value, onChange}: SurveyAnswerProps) => {
         <div className="flex gap-5 mt-5 items-center">
             <input
                 name={name}
-                type="radio"
+                type="checkbox"
                 value={value}
                 onChange={() => onChange(name, answer)}
                 className="shrink-0 w-5 h-5 bg-white rounded-full border-solid border-[3px] border-zinc-800"
