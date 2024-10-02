@@ -38,7 +38,8 @@ export default function RootLayout({
           <div className="container max-w-7xl mx-auto h-full pt-16">
             {children}
           </div>
-          <WellcomeFooter
+
+          {/* <WellcomeFooter
             text={
               <>
                 Company Name : Well-come Visa Co., Ltd. Representative : Inhyuk{' '}
@@ -51,7 +52,7 @@ export default function RootLayout({
                 2023-Seoul Mapo-3768 Customer Service : +82-70-8655-2888"
               </>
             }
-          />
+          /> */}
           <Toaster />
         </Providers>
       </body>
