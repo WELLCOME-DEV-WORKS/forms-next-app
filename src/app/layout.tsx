@@ -37,7 +37,6 @@ export default function RootLayout({
           <div className="container max-w-7xl mx-auto h-full pt-16">
             {children}
           </div>
-
           <Toaster />
         </Providers>
       </body>
