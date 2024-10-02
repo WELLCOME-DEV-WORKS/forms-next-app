@@ -8,7 +8,7 @@ interface WellcomeHeaderProps {
 
 const WellcomeHeader = ({ title, buttonText }: WellcomeHeaderProps) => {
   return (
-    <header className="flex  gap-5 justify-between w-full bg-wellcome-white text-center whitespace-nowrap  max-md:max-w-full">
+    <header className="flex  gap-5 justify-between w-full bg-wellcome-white text-center whitespace-nowrap  max-md:max-w-full px-8">
       <Link href="/">
         <div className="flex gap-7 p-2.5 text-xl font-extrabold text-rose-400">
           <img
