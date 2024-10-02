@@ -2,28 +2,36 @@
 import SurveyAnswer from '@/components/userSurvey/SurveyAnswer';
 import SurveyQuestion from '../../components/userSurvey/SurveyQuestion';
 import { useState } from 'react';
+import QuestionList from '@/components/userSurvey/QuestionList';
 
 const UserSurvey = () => {
-    const [selectedAnswer, setSelectedAnswer] = useState('');
+    const [selectedAnswer, setSelectedAnswer] = useState<string[]>([]);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
 
     // 질문/답변 리스트
-    const questions = [
-        { question: '피부입니까?', answers: ['항목1', '항목2', '항목3', '항목4'] },
-        { question: '나이는?', answers: ['항목1', '항목2', '항목3'] },
-        // 추가 질문을 여기에 정의
-    ];
+    const questions = QuestionList();
 
+    
     const handleAnswerChange = (name: string, value: string) => {
-        setSelectedAnswer(value);
-        console.log('name, value =>', name, ',', value); // 선택된 값 출력
-    };
+      setSelectedAnswer((prev) => {
+          const newSelectedAnswers = new Set(prev);
+          // 이미 선택된 경우 선택 해제
+          if (newSelectedAnswers.has(value)) {
+              newSelectedAnswers.delete(value);
+          } else {
+              newSelectedAnswers.add(value);
+          }
+          const updatedAnswers = Array.from(newSelectedAnswers);
+          console.log('name, selected answers =>', name, ',', updatedAnswers); // 선택된 값 출력
+          return updatedAnswers; // 업데이트된 배열 반환
+      });
+  };
 
     // 다음 버튼
     const handleNext = () => {
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
-            setSelectedAnswer(''); // 다음 질문으로 넘어갈 때 선택된 답변 초기화
+            setSelectedAnswer([]); // 다음 질문으로 넘어갈 때 선택된 답변 초기화
         }
     };
 
