@@ -1,8 +1,9 @@
-import HeroSection from '@/components/landing/HeroSection';
-import Button from '@/components/landing/Button';
-import PricingPlan from '@/components/landing/PricingPlan';
+import React from 'react';
+import HeroSection from './HeroSection';
+import Button from './Button';
+import PricingPlan from './PricingPlan';
 
-const LandingPage = () => {
+const MyComponent = () => {
   return (
     <div className="flex overflow-hidden flex-col items-center bg-gray-50">
       <HeroSection
@@ -119,7 +120,9 @@ const LandingPage = () => {
         text="나의 아름다운 여행 시작"
         className="mt-16 w-[312px] max-md:px-5 max-md:mt-10"
       />
+      <footer className="flex self-stretch mt-52 w-full bg-red-100 min-h-[476px] max-md:mt-10 max-md:max-w-full" />
     </div>
   );
 };
-export default LandingPage;
+
+export default MyComponent;
