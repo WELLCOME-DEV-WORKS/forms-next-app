@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroSection from './HeroSection';
+import HeroSection from './LandingSection1';
 import Button from './Button';
 import PricingPlan from './PricingPlan';
 
