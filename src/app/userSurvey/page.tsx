@@ -7,6 +7,7 @@ import QuestionList from '@/components/userSurvey/QuestionList';
 const UserSurvey = () => {
     const [selectedAnswer, setSelectedAnswer] = useState<string[]>([]);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+    const [savedAnswers, setSavedAnswers] = useState<string[]>([]);
 
     // 질문/답변 리스트
     const questions = QuestionList();
@@ -26,14 +27,24 @@ const UserSurvey = () => {
           return updatedAnswers; // 업데이트된 배열 반환
       });
   };
+  
 
     // 다음 버튼
     const handleNext = () => {
         if (currentQuestionIndex < questions.length - 1) {
+            setSavedAnswers((prev) => {
+                const newAnswers = [...prev];
+                newAnswers[currentQuestionIndex] = selectedAnswer.join(', '); // 선택된 답변을 저장
+            
+                return newAnswers;
+            });
             setCurrentQuestionIndex(currentQuestionIndex + 1);
-            setSelectedAnswer([]); // 다음 질문으로 넘어갈 때 선택된 답변 초기화
+            setSelectedAnswer([]);
         }
     };
+    useEffect(() => {
+        console.log('savedAnswers =>', savedAnswers);
+    }, [savedAnswers]);
     useEffect(() => {
         console.log('답변초기화');
     }, [currentQuestionIndex]);
