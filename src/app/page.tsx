@@ -1,9 +1,9 @@
-import { buttonVariants } from "@/components/ui/details/Button";
-import { HomeIcon } from "lucide-react";
-import Link from "next/link";
+import { buttonVariants } from '@/components/ui/details/Button';
+import { HomeIcon } from 'lucide-react';
+import Link from 'next/link';
 
-export const dynamic = "force-dynamic";
-export const fetchCache = "force-no-store";
+export const dynamic = 'force-dynamic';
+export const fetchCache = 'force-no-store';
 
 export default function Home() {
   return (
@@ -39,7 +39,7 @@ export default function Home() {
             </Link> */}
             <Link
               className={buttonVariants({
-                className: "w-full mt-4 mb-6",
+                className: 'w-full mt-4 mb-6',
               })}
               href={`/form`}
             >

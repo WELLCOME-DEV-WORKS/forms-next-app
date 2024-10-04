@@ -1,31 +1,25 @@
-import HeroSection from '@/components/landing/HeroSection';
+import LandingSection1 from '@/components/landing/LandingSection1';
+import LandingSection2 from '@/components/landing/LandingSection2';
 import Button from '@/components/landing/Button';
 import PricingPlan from '@/components/landing/PricingPlan';
 
 const LandingPage = () => {
   return (
     <div className="flex overflow-hidden flex-col items-center bg-gray-50">
-      <HeroSection
-        backgroundImage="https://cdn.builder.io/api/v1/image/assets/TEMP/1ac59c4a3d2b72d856b3b9cb7f220f7dca88f4c7109ead5731f8d5c660381126?placeholderIfAbsent=true&apiKey=5234d2e82f7b48648ec2ffba5221ceea"
-        title="한국에서 가장 저렴한 가격으로 예뻐지고 싶나요?"
+      <LandingSection1
+        backgroundImage="url('/main_banner.webp')"
+        title="想以最优惠的价格 在韩国变美？"
         subtitle="变美心动，Well-Come行动！"
       />
       <Button
-        text="나의 아름다운 여행 시작"
+        text="开始我的美丽之旅"
         className="mt-12 w-[312px] max-md:px-5 max-md:mt-10"
       />
-      <h2 className="self-stretch mt-11 w-full text-4xl font-extrabold text-center max-md:mt-10 max-md:max-w-full">
-        hi， <br /> 예뻐지는 길에서，이런 고민 있어요?
-      </h2>
-      <img
-        loading="lazy"
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/7c136cbb70fb0a9c30881b81c6d8232ec79636ae26994ead482ec779b5fd67d1?placeholderIfAbsent=true&apiKey=5234d2e82f7b48648ec2ffba5221ceea"
-        alt=""
-        className="object-contain mt-7 aspect-square w-[46px]"
+      <LandingSection2
+        text="hi，变美路上，你有过这些烦恼吗?"
+        subtext="对比了打折时间和价格, 却还是做贵了?"
       />
-      <p className="mt-16 text-3xl text-center text-black max-md:mt-10 max-md:max-w-full">
-        이벤트기간랑 가격을 대비했는데，그래도 비싸게 시술 받았어요?
-      </p>
+      <p className="mt-16 text-3xl text-center text-black max-md:mt-10 max-md:max-w-full"></p>
       <div className="flex shrink-0 mt-16 max-w-full rounded-3xl bg-neutral-100 h-[511px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[914px] max-md:mt-10" />
       <img
         loading="lazy"
