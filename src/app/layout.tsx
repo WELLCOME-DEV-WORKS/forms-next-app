@@ -29,13 +29,13 @@ export default function RootLayout({
         inter.className
       )}
     >
-      <body className="min-h-screen  antialiased">
+      <body className="min-h-screen  antialiased bg-wellcome-white">
         <Providers>
           {/* @ts-expect-error server component */}
           {/* <Navbar /> */}
           {/* {authModal} */}
           <WellcomeHeader title="Well-Come" buttonText="로그인" />
-          <div className="container max-w-7xl mx-auto h-full py-12 bg-wellcome-white">
+          <div className="container h-full py-16 bg-wellcome-white">
             {children}
           </div>
 
