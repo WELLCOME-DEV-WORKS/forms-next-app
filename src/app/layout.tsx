@@ -35,7 +35,7 @@ export default function RootLayout({
           {/* <Navbar /> */}
           {/* {authModal} */}
           <WellcomeHeader title="Well-Come" buttonText="로그인" />
-          <div className="container max-w-7xl mx-auto h-full pt-16 bg-wellcome-white">
+          <div className="container max-w-7xl mx-auto h-full py-12 bg-wellcome-white">
             {children}
           </div>
 
