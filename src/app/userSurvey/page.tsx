@@ -75,8 +75,7 @@ const UserSurvey = () => {
     return (
         <div className="flex overflow-hidden flex-col items-center px-20 pt-2.5 whitespace-nowrap bg-white max-md:px-5">
             <div className="flex flex-col w-full max-w-[1199px] max-md:max-w-full">
-                <div className="shrink-0 w-full h-1" />
-                <div className="flex flex-col self-center px-8 py-11 mt-28 max-w-full rounded-lg shadow-xl bg-white bg-opacity-30 w-[794px] max-md:px-5 max-md:mt-10">
+                <div className="flex flex-col self-center px-8 py-11  max-w-full rounded-lg shadow-xl bg-white bg-opacity-30 w-[794px] max-md:px-5 max-md:mt-10">
                     <SurveyQuestion question={questions[currentQuestionIndex].question} />
                     <div className="flex flex-col items-start px-16 py-9 mt-11 w-full font-bold text-black bg-white rounded-2xl border-2 border-rose-400 border-dashed max-md:px-5 max-md:mt-10 max-md:max-w-full">
                         {questions[currentQuestionIndex].answers.map((answer, index) => (
@@ -98,7 +97,7 @@ const UserSurvey = () => {
                               pointerEvents: currentQuestionIndex === 0 ? 'none' : 'auto'
                             }}
                         >
-       이전
+                            이전
                         </div>
                         <div 
                              className="px-10 py-3.5 text-rose-400 bg-white rounded border-2 border-rose-400 border-solid max-md:px-5"
