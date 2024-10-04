@@ -1,7 +1,7 @@
 'use client'
 import SurveyAnswer from '@/components/userSurvey/SurveyAnswer';
 import SurveyQuestion from '../../components/userSurvey/SurveyQuestion';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import QuestionList from '@/components/userSurvey/QuestionList';
 
 const UserSurvey = () => {
@@ -34,12 +34,15 @@ const UserSurvey = () => {
             setSelectedAnswer([]); // 다음 질문으로 넘어갈 때 선택된 답변 초기화
         }
     };
+    useEffect(() => {
+        console.log('답변초기화');
+    }, [currentQuestionIndex]);
 
     // 이전 버튼
     const handlePrevious = () => {
         if (currentQuestionIndex > 0) {
             setCurrentQuestionIndex(currentQuestionIndex - 1);
-            setSelectedAnswer(''); // 이전 질문으로 돌아갈 때 선택된 답변 초기화
+            setSelectedAnswer([]); // 이전 질문으로 돌아갈 때 선택된 답변 초기화
         }
     };
 
@@ -56,7 +59,8 @@ const UserSurvey = () => {
                                 name={questions[currentQuestionIndex].question} 
                                 answer={answer} 
                                 value={`item${index + 1}`} 
-                                onChange={handleAnswerChange} 
+                                onChange={handleAnswerChange}
+                                checked={selectedAnswer.includes(answer)}
                             />
                         ))}
                     </div>

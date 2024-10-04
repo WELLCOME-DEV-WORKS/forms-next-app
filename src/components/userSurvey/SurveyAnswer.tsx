@@ -4,9 +4,10 @@ interface SurveyAnswerProps {
     value: string; // 버튼의 값
     // eslint-disable-next-line no-unused-vars
     onChange: (name: string, value: string) => void;
+    checked: boolean;
 }
 
-const SurveyAnswer = ({ name, answer, value, onChange}: SurveyAnswerProps) => {
+const SurveyAnswer = ({ name, answer, value, onChange, checked}: SurveyAnswerProps) => {
     return (
         <div className="flex gap-5 mt-5 items-center">
             <input
@@ -14,6 +15,7 @@ const SurveyAnswer = ({ name, answer, value, onChange}: SurveyAnswerProps) => {
                 type="checkbox"
                 value={value}
                 onChange={() => onChange(name, answer)}
+                checked={checked}
                 className="shrink-0 w-5 h-5 bg-white rounded-full border-solid border-[3px] border-zinc-800"
             />
             <label htmlFor={value} className="align-middle">{answer}</label>
