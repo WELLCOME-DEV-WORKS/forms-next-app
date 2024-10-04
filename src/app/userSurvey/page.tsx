@@ -1,4 +1,5 @@
 'use client'
+import Swal from 'sweetalert2'
 import SurveyAnswer from '@/components/userSurvey/SurveyAnswer';
 import SurveyQuestion from '../../components/userSurvey/SurveyQuestion';
 import { useEffect, useState } from 'react';
@@ -11,7 +12,6 @@ const UserSurvey = () => {
 
     // 질문/답변 리스트
     const questions = QuestionList();
-
     
     const handleAnswerChange = (name: string, value: string) => {
       setSelectedAnswer((prev) => {
@@ -32,7 +32,13 @@ const UserSurvey = () => {
     // 다음 버튼
     const handleNext = () => {
         if (selectedAnswer.length === 0) {
-            window.alert('답변을 선택해야 다음으로 진행할 수 있습니다.');
+            // window.alert('답변을 선택해야 다음으로 진행할 수 있습니다.');
+            
+            // Swal.fire('안녕하세요!', 'SweetAlert2를 사용하고 있습니다.', 'success');
+            Swal.fire({
+                icon: "error",
+                text: "You need to select an answer to proceed!",
+              });
             return;
         }
 

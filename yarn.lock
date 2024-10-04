@@ -4428,6 +4428,11 @@ swagger-ui-react@^5.17.14:
     xml-but-prettier "^1.0.1"
     zenscroll "^4.0.2"
 
+sweetalert2@^11.14.1:
+  version "11.14.1"
+  resolved "https://registry.npmjs.org/sweetalert2/-/sweetalert2-11.14.1.tgz"
+  integrity sha512-xadhfcA4STGMh8nC5zHFFWURhRpWc4zyI3GdMDFH/m3hGWZeQQNWhX9xcG4lI9gZYsi/IlazKbwvvje3juL3Xg==
+
 synckit@^0.8.5:
   version "0.8.5"
   resolved "https://registry.npmjs.org/synckit/-/synckit-0.8.5.tgz"
