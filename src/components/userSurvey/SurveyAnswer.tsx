@@ -1,4 +1,3 @@
-import styles from '../../styles/styles.scss'
 interface SurveyAnswerProps {
     name: string; 
     answer: string;
@@ -7,20 +6,17 @@ interface SurveyAnswerProps {
     onChange: (name: string, value: string) => void;
 }
 
-const SurveyAnswer = ({ name, answer, value, onChange }: SurveyAnswerProps) => {
+const SurveyAnswer = ({ name, answer, value, onChange}: SurveyAnswerProps) => {
     return (
-        <div className={styles.survey_answer}>
+        <div className="flex gap-5 mt-5 items-center">
             <input
                 name={name}
                 type="checkbox"
                 value={value}
                 onChange={() => onChange(name, answer)}
-                className={styles.checkbox}
-                id={value} // id 추가 (label과 연결하기 위해)
+                className="shrink-0 w-5 h-5 bg-white rounded-full border-solid border-[3px] border-zinc-800"
             />
-            <label htmlFor={value} className={styles.label}>
-                {answer}
-            </label>
+            <label htmlFor={value} className="align-middle">{answer}</label>
         </div>
     );
 };
