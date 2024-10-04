@@ -1,0 +1,71 @@
+// UserSurvey.module.scss
+
+.container {
+  @apply flex overflow-hidden flex-col items-center px-20 pt-2.5 whitespace-nowrap bg-white max-md:px-5;
+
+  .inner_container {
+      @apply flex flex-col w-full max-w-[1199px] max-md:max-w-full;
+
+      .spacer {
+          @apply shrink-0 w-full h-1;
+      }
+
+      .survey_box {
+          @apply flex flex-col self-center px-8 py-11 mt-28 max-w-full rounded-lg shadow-xl bg-white bg-opacity-30 w-[794px] max-md:px-5 max-md:mt-10;
+
+          .question {
+              @apply font-bold text-black;
+          }
+
+          .answer_box {
+              @apply flex flex-col items-start px-16 py-9 mt-11 w-full rounded-2xl border-2 border-rose-400 border-dashed max-md:px-5 max-md:mt-10 max-md:max-w-full;
+
+              .answer {
+                  @apply cursor-pointer;
+              }
+          }
+
+          .navigation {
+              @apply flex justify-center gap-5 self-center mt-11 max-w-full text-center;
+
+              .previous_button {
+                  @apply px-10 py-3.5 text-white bg-rose-400 rounded max-md:px-5;
+              }
+
+              .next_button {
+                  @apply px-10 py-3.5 text-rose-400 bg-white rounded border-2 border-rose-400 border-solid max-md:px-5;
+              }
+          }
+      }
+  }
+}
+// SurveyAnswer.module.scss
+
+.survey_answer {
+  @apply flex gap-5 mt-5 items-center;
+
+  .checkbox {
+      @apply shrink-0 w-5 h-5 bg-white rounded-full border-solid border-[3px] border-zinc-800;
+  }
+
+  .label {
+      @apply align-middle;
+  }
+
+  @media (max-width: 768px) { // max-md
+      @apply flex-col items-start; // 세로로 쌓이도록 변경
+      gap: 2; // 간격 조정
+  }
+}
+
+// SurveyQuestion.module.scss
+
+.survey_question {
+  @apply px-16 py-8 text-2xl text-center text-white bg-rose-400 rounded-md max-md:px-5 max-md:max-w-full;
+
+  @media (max-width: 768px) { // max-md
+      @apply text-xl; // 텍스트 크기 조정
+      padding: 1rem; // 패딩 조정
+  }
+}
+
