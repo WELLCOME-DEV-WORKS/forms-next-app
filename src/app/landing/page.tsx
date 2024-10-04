@@ -11,11 +11,11 @@ const LandingPage = () => {
         subtitle="变美心动，Well-Come行动！"
       />
       <Button
-        text="나의 아름다운 여행 시작"
+        text="开始我的美丽之旅"
         className="mt-12 w-[312px] max-md:px-5 max-md:mt-10"
       />
       <h2 className="self-stretch mt-11 w-full text-4xl font-extrabold text-center max-md:mt-10 max-md:max-w-full">
-        hi， <br /> 예뻐지는 길에서，이런 고민 있어요?
+        hi， <br /> 在变美路上，你有过这些烦恼吗?
       </h2>
       <img
         loading="lazy"
