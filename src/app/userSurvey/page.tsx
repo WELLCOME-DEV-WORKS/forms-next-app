@@ -31,6 +31,11 @@ const UserSurvey = () => {
 
     // 다음 버튼
     const handleNext = () => {
+        if (selectedAnswer.length === 0) {
+            window.alert('답변을 선택해야 다음으로 진행할 수 있습니다.');
+            return;
+        }
+
         if (currentQuestionIndex < questions.length - 1) {
             setSavedAnswers((prev) => {
                 const newAnswers = [...prev];
