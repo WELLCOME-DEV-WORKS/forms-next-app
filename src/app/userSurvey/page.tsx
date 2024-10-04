@@ -32,9 +32,6 @@ const UserSurvey = () => {
     // 다음 버튼
     const handleNext = () => {
         if (selectedAnswer.length === 0) {
-            // window.alert('답변을 선택해야 다음으로 진행할 수 있습니다.');
-            
-            // Swal.fire('안녕하세요!', 'SweetAlert2를 사용하고 있습니다.', 'success');
             Swal.fire({
                 icon: "error",
                 text: "You need to select an answer to proceed!",
@@ -51,6 +48,13 @@ const UserSurvey = () => {
             });
             setCurrentQuestionIndex(currentQuestionIndex + 1);
             setSelectedAnswer([]);
+        } else {
+            // 마지막 질문 제출 처리
+            Swal.fire({
+                icon: "success",
+                text: "설문이 제출되었습니다!",
+            });
+            // 제출 로직 추가
         }
     };
     useEffect(() => {
@@ -92,17 +96,15 @@ const UserSurvey = () => {
                             onClick={handlePrevious}
                             style={{ visibility: currentQuestionIndex === 0 ? 'hidden' : 'visible',
                               pointerEvents: currentQuestionIndex === 0 ? 'none' : 'auto'
-                            }} // 첫 질문에서 이전 버튼 숨김
+                            }}
                         >
-                            이전
+       이전
                         </div>
                         <div 
-                             className={`px-10 py-3.5 text-rose-400 bg-white rounded border-2 border-rose-400 border-solid max-md:px-5 
-                              ${currentQuestionIndex === 0 ? 'fixed' : ''}
-                              `}
+                             className="px-10 py-3.5 text-rose-400 bg-white rounded border-2 border-rose-400 border-solid max-md:px-5"
                             onClick={handleNext}
                         >
-                            다음
+                            {currentQuestionIndex === questions.length - 1 ? '제출' : '다음'}
                         </div>
                     </div>
                 </div>
