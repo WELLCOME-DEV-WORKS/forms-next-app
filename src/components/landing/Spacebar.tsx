@@ -11,7 +11,7 @@ const Spacebar = ({ text, className }: SpacebarProps) => {
       className={className}
       style={{
         background:
-          'linear-gradient(101deg, #FFF -6.08%, #FFCCD3 -6.06%, #FFF 76%)',
+          'linear-gradient(90deg, #FFF -6.08%, #FFCCD3 -6.06%, #FFF 76%)',
         WebkitBackgroundClip: 'text',
         backgroundClip: 'text',
         color: 'transparent',
