@@ -7,17 +7,7 @@ type SpacebarProps = {
 
 const Spacebar = ({ text, className }: SpacebarProps) => {
   return (
-    <span
-      className={className}
-      style={{
-        background:
-          'linear-gradient(90deg, #FFF -6.08%, #FFCCD3 -6.06%, #FFF 76%)',
-        WebkitBackgroundClip: 'text',
-        backgroundClip: 'text',
-        color: 'transparent',
-        display: 'inline-block',
-      }}
-    >
+    <span className={className}>
       {text.split(' ').map((word, index) => (
         <React.Fragment key={index}>
           {word}
