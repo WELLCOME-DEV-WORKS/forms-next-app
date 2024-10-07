@@ -72,12 +72,8 @@ const UserSurvey = () => {
                 return 7; // 회복 기간 질문으로 이동
             case 7: // 회복 기간 질문
                 return 8; // 알레르기 경험 질문으로 이동
-            case 8: // 알레르기 경험 질문
-                return 9; // 부작용 경험 질문으로 이동
-            case 9: // 부작용 경험 질문
-                return 10; // 추가 상담 필요 질문으로 이동
-            case 10: // 추가 상담 질문
-                return questions.length; // 설문 종료
+            case 8: // 추가 상담 질문
+                return questions.length // 설문 종료
             default:
                 return index; // 기본적으로 현재 인덱스 유지
         }
