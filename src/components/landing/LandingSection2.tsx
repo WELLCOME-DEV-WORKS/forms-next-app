@@ -10,7 +10,7 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
   return (
     <section className="flex flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold">
       <h2
-        className="text-4xl font-extrabold mt-12"
+        className="text-4xl font-extrabold mt-12 leading-[72px]"
         style={{
           background: 'linear-gradient(90deg, #EA708A 0%, #DA2F47 100%)',
           WebkitBackgroundClip: 'text',
@@ -62,6 +62,12 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
           }}
         />
       </div>
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/6786e7ad294e568681d44d5b79e4ecf51bc48314360f5f10bab165893d920111?placeholderIfAbsent=true&apiKey=5234d2e82f7b48648ec2ffba5221ceea"
+        alt=""
+        className="object-contain mt-10 max-w-full aspect-square w-[124px]"
+      />
     </section>
   );
 };
