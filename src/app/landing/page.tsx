@@ -1,9 +1,10 @@
 import LandingSection1 from '@/components/landing/LandingSection1';
 import LandingSection2 from '@/components/landing/LandingSection2';
 import LandingSection3 from '@/components/landing/LandingSection3';
-
+import LandingSection4 from '@/components/landing/LandingSection4';
+// import LandingSection5 from '@/components/landing/LandingSection5';
 import Button from '@/components/landing/Button';
-import PricingPlan from '@/components/landing/PricingPlan';
+// import PricingPlan from '@/components/landing/PricingPlan';
 
 const LandingPage = () => {
   return (
@@ -37,16 +38,17 @@ const LandingPage = () => {
         text5="附加价格"
         text6="有时还有乱七八糟的额外费用"
       />
+      <LandingSection4
+        text1="千挑万选，对比了各个项目 还是不知道到底什么适合自己？"
+        text2="信息真实性"
+        text3="辨别困难 连"
+        text4="项目选择"
+        text5="也无从入手"
+        text6="在WELL-COME!"
+      />
       <Button
         text="查看我的最低价"
-        className="mt-12 w-[280px] max-md:px-5 max-md:mt-10"
-      />
-
-      <img
-        loading="lazy"
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/aeb75d781b075df8ff4ec7faa57c79183728b4ede2199bfc989e8fcd38957a96?placeholderIfAbsent=true&apiKey=5234d2e82f7b48648ec2ffba5221ceea"
-        alt=""
-        className="object-contain mt-12 max-w-full aspect-square w-[124px] max-md:mt-10"
+        className="w-[312px] max-md:px-5 max-md:mt-10"
       />
       <section className="flex flex-col items-center pt-16 pb-28 mt-12 w-full text-2xl font-semibold text-center bg-white rounded-3xl max-w-[996px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:pb-24 max-md:mt-10 max-md:max-w-full">
         <p className="text-rose-400 max-md:max-w-full">
@@ -60,7 +62,7 @@ const LandingPage = () => {
         </div>
       </section>
       <Button
-        text="나의 최저가 조회"
+        text="查看我的最低价"
         className="mt-12 w-56 max-md:px-5 max-md:mt-10"
       />
       <div className="shrink-0 mt-32 max-w-full h-px border border-rose-400 border-dashed w-[1084px] max-md:mt-10" />

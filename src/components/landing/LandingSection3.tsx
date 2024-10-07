@@ -1,7 +1,7 @@
 import React from 'react';
 import Spacebar from './Spacebar';
 
-type LandingSection2Props = {
+type LandingSection3Props = {
   text1: string;
   text2: string;
   text3: string;
@@ -18,7 +18,7 @@ type LandingSection2Props = {
   subtext8: string;
 };
 
-const LandingSection2 = ({
+const LandingSection3 = ({
   text1,
   text2,
   text3,
@@ -33,7 +33,7 @@ const LandingSection2 = ({
   subtext6,
   subtext7,
   subtext8,
-}: LandingSection2Props) => {
+}: LandingSection3Props) => {
   return (
     <section className="flex relative flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold">
       <div
@@ -144,4 +144,4 @@ const LandingSection2 = ({
   );
 };
 
-export default LandingSection2;
+export default LandingSection3;
