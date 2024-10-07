@@ -19,14 +19,7 @@ const LandingPage = () => {
         text="hi，变美路上，你有过这些烦恼吗?"
         subtext="对比了打折时间和价格, 却还是做贵了?"
       />
-      <p className="mt-16 text-3xl text-center text-black max-md:mt-10 max-md:max-w-full"></p>
-      <div className="flex shrink-0 mt-16 max-w-full rounded-3xl bg-neutral-100 h-[511px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[914px] max-md:mt-10" />
-      <img
-        loading="lazy"
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/1dc533f68616e7485e3b4a14b58ea80e40e8bce62b076cdf043e064f1929bccc?placeholderIfAbsent=true&apiKey=5234d2e82f7b48648ec2ffba5221ceea"
-        alt=""
-        className="object-contain mt-12 max-w-full aspect-square w-[125px] max-md:mt-10"
-      />
+
       <section className="flex flex-col items-center px-14 py-11 mt-12 max-w-full bg-white rounded-3xl shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[790px] max-md:px-5 max-md:mt-10">
         <h3 className="text-2xl font-semibold text-center text-zinc-900">
           WELL-COME 당신을 위해

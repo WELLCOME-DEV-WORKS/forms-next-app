@@ -36,7 +36,13 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
       >
         {subtext}
       </p>
-      <div className="flex shrink-0 mt-16 max-w-full rounded-3xl bg-neutral-100 h-[511px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[914px] max-md:mt-10">
+
+      <div
+        className="mt-16 my-5 max-w-full rounded-3xl bg-neutral-100 h-[511px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[794px] bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/main_pricebox.webp')",
+        }}
+      >
         <img
           loading="lazy"
           src="/main_sad_emoji.webp"
