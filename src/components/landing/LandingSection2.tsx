@@ -8,7 +8,7 @@ type LandingSection2Props = {
 
 const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
   return (
-    <section className="flex flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full ">
+    <section className="flex flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold">
       <h2
         className="text-4xl font-extrabold mt-12"
         style={{
@@ -29,7 +29,7 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
         alt="pink arrow"
       />
       <p
-        className="mt-16 text-3xl text-black max-md:mt-10 max-md:max-w-full"
+        className="mt-16 text-3xl text-black max-md:mt-10 max-md:max-w-full font-bold"
         style={{
           textShadow: '0px 4px 3.5px rgba(0, 0, 0, 0.25)',
         }}
@@ -38,7 +38,7 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
       </p>
 
       <div
-        className="mt-16 my-5 max-w-full rounded-3xl bg-neutral-100 h-[511px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[794px] bg-cover bg-center"
+        className="flex shrink-0 mt-16 max-w-full rounded-3xl bg-neutral-100 h-[511px]  w-[794px] max-md:mt-10 shadow-[0px_4px_4px_rgba(0,0,0,0.25)] bg-cover bg-center"
         style={{
           backgroundImage: "url('/main_pricebox.webp')",
         }}
@@ -46,7 +46,7 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
         <img
           loading="lazy"
           src="/main_sad_emoji.webp"
-          className="object-contain relative max-w-full aspect-square w-[120px] h-[120px] max-md:mt-10 top-[185px] left-[850px]"
+          className="object-contain relative max-w-full aspect-square w-[120px] h-[120px] max-md:mt-10 top-[185px] left-[740px]"
           alt="pink arrow"
           style={{
             filter: 'drop-shadow(0px 7px 2px rgba(0, 0, 0, 0.15))',
