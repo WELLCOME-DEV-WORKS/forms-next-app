@@ -43,6 +43,12 @@ enum UserRole {
   ADMIN
 }
 
+enum Gender {
+  MALE
+  FEMALE
+  UNSPECIFIED
+}
+
 model User {
   id            String    @id @default(cuid())
   name          String?
@@ -57,11 +63,69 @@ model User {
   roles       UserRole[]    @default([USER])
   accounts    Account[]
   sessions    Session[]
+  gender      Gender?       @default(UNSPECIFIED)
+  dateOfBirth DateTime?     @db.Date
+  country     String?
   Post        Post[]
   Comment     Comment[]
   CommentVote CommentVote[]
   Vote        Vote[]
   Form        Form[]
+  ActionLog   ActionLog[]
+}
+
+model UserPurpose {
+  id                 String   @id @default(cuid())
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @default(now()) @updatedAt
+  improvementPurpose String?
+  procedureType      String?
+  expectedCost       Int?
+  sensitivity        String?
+  recoveryPeriod     String?
+}
+
+model SurveyResult {
+  id            String    @id @default(cuid())
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @default(now()) @updatedAt
+  productName   String?
+  procedureDate DateTime? @db.Date
+  price         Int?
+}
+
+model PurchaseHistory {
+  id            String   @id @default(cuid())
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @default(now()) @updatedAt
+  procedureDate DateTime @db.Date
+  procedureType String?
+  price         Int?
+}
+
+model Product {
+  id              String   @id @default(cuid())
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @default(now()) @updatedAt
+  productName     String?
+  lowestPrice     Int?
+  highestPrice    Int?
+  procedureMethod String?
+  effectiveness   String?
+  sensitivity     String?
+  recoveryPeriod  Int?
+}
+
+model ActionLog {
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+
+  action  String? // maybe later add action type enum...
+  details String?
+
+  user   User   @relation(fields: [userId], references: [id])
+  userId String
 }
 
 model Category {
