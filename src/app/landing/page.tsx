@@ -1,7 +1,10 @@
 import LandingSection1 from '@/components/landing/LandingSection1';
 import LandingSection2 from '@/components/landing/LandingSection2';
+import LandingSection3 from '@/components/landing/LandingSection3';
+import LandingSection4 from '@/components/landing/LandingSection4';
+// import LandingSection5 from '@/components/landing/LandingSection5';
 import Button from '@/components/landing/Button';
-import PricingPlan from '@/components/landing/PricingPlan';
+// import PricingPlan from '@/components/landing/PricingPlan';
 
 const LandingPage = () => {
   return (
@@ -16,53 +19,36 @@ const LandingPage = () => {
         className="mt-12 w-[312px] max-md:px-5 max-md:mt-10"
       />
       <LandingSection2
-        text="hi，变美路上，你有过这些烦恼吗?"
+        text="hi, 变美路上，你有过这些烦恼吗?"
         subtext="对比了打折时间和价格, 却还是做贵了?"
       />
-      <p className="mt-16 text-3xl text-center text-black max-md:mt-10 max-md:max-w-full"></p>
-      <div className="flex shrink-0 mt-16 max-w-full rounded-3xl bg-neutral-100 h-[511px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[914px] max-md:mt-10" />
-      <img
-        loading="lazy"
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/1dc533f68616e7485e3b4a14b58ea80e40e8bce62b076cdf043e064f1929bccc?placeholderIfAbsent=true&apiKey=5234d2e82f7b48648ec2ffba5221ceea"
-        alt=""
-        className="object-contain mt-12 max-w-full aspect-square w-[125px] max-md:mt-10"
+      <LandingSection3
+        text1="WELL-COME 为您提供"
+        subtext1="最优选报价"
+        subtext2="根据您的访问时间和所需项目"
+        subtext3=" 分析各机构"
+        subtext4="活动情况"
+        subtext5="&"
+        subtext6="优惠力度"
+        subtext7="最低价"
+        subtext8="xx医院：30万"
+        text2="外国顾客需要配备"
+        text3="翻译职员"
+        text4=", 导致"
+        text5="附加价格"
+        text6="有时还有乱七八糟的额外费用"
       />
-      <section className="flex flex-col items-center px-14 py-11 mt-12 max-w-full bg-white rounded-3xl shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[790px] max-md:px-5 max-md:mt-10">
-        <h3 className="text-2xl font-semibold text-center text-zinc-900">
-          WELL-COME 당신을 위해
-        </h3>
-        <h2 className="mt-7 text-4xl font-black text-center">베스트 견적</h2>
-        <p className="mt-4 text-2xl font-semibold text-center text-zinc-900 max-md:max-w-full">
-          방문시간과 시술항목을 따라 <br />각 의료진의
-          <span className="text-3xl">이벤트 상황</span>&{' '}
-          <span className="text-3xl">할인 강도</span>{' '}
-          <span className="text-black">를 분석</span>
-        </p>
-        {/* Chart component would go here */}
-        <img
-          loading="lazy"
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/a75efcff4a4a63330564294e145b0d04957bbcc0a4fbcbc90747aa17a5979002?placeholderIfAbsent=true&apiKey=5234d2e82f7b48648ec2ffba5221ceea"
-          alt="Chart"
-          className="object-contain mt-8 max-w-full rounded-sm aspect-[1.45] w-[151px]"
-        />
-        <div className="mt-10 text-xs font-semibold text-center text-rose-400 w-[309px]">
-          <span className="text-3xl text-zinc-900">최저가</span> <br />
-          <span className="text-4xl font-black text-red-800">xx병원：30만</span>
-        </div>
-        <div className="flex shrink-0 mt-4 h-1 bg-red-800 w-[239px]" />
-      </section>
+      <LandingSection4
+        text1="千挑万选，对比了各个项目 还是不知道到底什么适合自己？"
+        text2="信息真实性"
+        text3="辨别困难 连"
+        text4="项目选择"
+        text5="也无从入手"
+        text6="在WELL-COME!"
+      />
       <Button
-        text="나의 최저가 조회"
-        className="mt-12 w-[227px] max-md:px-5 max-md:mt-10"
-      />
-      <section className="flex flex-col px-20 pt-9 pb-14 mt-16 max-w-full rounded-3xl bg-zinc-100 shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[794px] max-md:px-5 max-md:mt-10">
-        {/* Content for this section */}
-      </section>
-      <img
-        loading="lazy"
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/aeb75d781b075df8ff4ec7faa57c79183728b4ede2199bfc989e8fcd38957a96?placeholderIfAbsent=true&apiKey=5234d2e82f7b48648ec2ffba5221ceea"
-        alt=""
-        className="object-contain mt-12 max-w-full aspect-square w-[124px] max-md:mt-10"
+        text="查看我的最低价"
+        className="w-[312px] max-md:px-5 max-md:mt-10"
       />
       <section className="flex flex-col items-center pt-16 pb-28 mt-12 w-full text-2xl font-semibold text-center bg-white rounded-3xl max-w-[996px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:pb-24 max-md:mt-10 max-md:max-w-full">
         <p className="text-rose-400 max-md:max-w-full">
@@ -76,7 +62,7 @@ const LandingPage = () => {
         </div>
       </section>
       <Button
-        text="나의 최저가 조회"
+        text="查看我的最低价"
         className="mt-12 w-56 max-md:px-5 max-md:mt-10"
       />
       <div className="shrink-0 mt-32 max-w-full h-px border border-rose-400 border-dashed w-[1084px] max-md:mt-10" />
