@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang="cn"
       className={cn(
         'bg-wellcome-white text-slate-900 antialiased light',
         inter.className
