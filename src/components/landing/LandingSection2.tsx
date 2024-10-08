@@ -29,7 +29,7 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
         alt="pink arrow"
       />
       <p
-        className="mt-16 text-3xl text-black max-md:mt-10 max-md:max-w-full font-bold"
+        className="mt-16 text-3xl text-black max-md:mt-10 max-md:max-w-full font-normal"
         style={{
           textShadow: '0px 4px 3.5px rgba(0, 0, 0, 0.25)',
         }}
@@ -64,9 +64,9 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
       </div>
       <img
         loading="lazy"
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/6786e7ad294e568681d44d5b79e4ecf51bc48314360f5f10bab165893d920111?placeholderIfAbsent=true&apiKey=5234d2e82f7b48648ec2ffba5221ceea"
-        alt=""
-        className="object-contain mt-10 max-w-full aspect-square w-[124px]"
+        src="main_hand.webp"
+        alt="main_hand"
+        className="object-contain mt-12 max-w-full aspect-square w-[124px] max-md:mt-10"
       />
     </section>
   );
