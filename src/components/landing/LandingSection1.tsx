@@ -14,7 +14,7 @@ const LandingSection1 = ({
 }: LandingSection1Props) => {
   return (
     <section
-      className="flex relative flex-col justify-center items-start px-20 py-36 max-w-full min-h-[495px] rounded-[30px] w-[996px] max-md:px-5 max-md:py-24 bg-cover bg-center cursor-default"
+      className="flex relative flex-col justify-center items-start px-20 py-36 max-w-full min-h-[495px] rounded-[30px] w-[996px] max-md:px-5 max-md:py-24 bg-cover bg-center cursor-default font-Pretendard"
       style={{
         backgroundImage: "url('/main_banner.webp')",
       }}
