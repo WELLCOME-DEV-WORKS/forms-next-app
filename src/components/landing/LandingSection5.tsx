@@ -74,11 +74,11 @@ const LandingSection4 = ({
           </p>
         </div>
       </div>
-      <Link href="/userSurvey">
-        <button className="mt-14 px-11 py-3.5 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)">
-          开始我的美丽之旅
-        </button>
-      </Link>
+
+      <Button
+        text="开始我的美丽之旅"
+        className="w-[312px] max-md:px-5 max-md:mt-10 my-12"
+      />
     </section>
   );
 };
