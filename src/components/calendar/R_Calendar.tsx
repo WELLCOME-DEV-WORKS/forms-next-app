@@ -1,7 +1,8 @@
 'use client'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import { EventContentArg } from 'fullcalendar';
+import interactionPlugin from '@fullcalendar/interaction'
+import { DateClickArg, EventClickArg, EventContentArg } from 'fullcalendar';
 
 export default function Calendar() {
     const events = () => {
@@ -11,12 +12,29 @@ export default function Calendar() {
         { title: 'Event 3', start: new Date('2024-10-09'), end: new Date('2024-10-10')},
       ]}
 
+      const allowEvents = events().map(event => event.date);
+
+
+      const handleDateClick = (info:DateClickArg) => {
+        if (allowEvents.includes(info.dateStr) ) {
+          alert('Date is allowed: ' + info.dateStr);
+        }
+      };
+      const handleEventClick = (info: EventClickArg) => {
+        alert('Event clicked: ' + info.event.title);
+      };
+
     return (
       <FullCalendar
-        plugins={[ dayGridPlugin ]}
+        plugins={[ dayGridPlugin, interactionPlugin ]}
         initialView="dayGridMonth"
         events={events()}
         eventContent={renderEventContent}
+        dateClick={handleDateClick}
+        editable={true}
+        eventClick={handleEventClick}
+        // selectable={true}
+        // selectMirror={true}
       />
     )
 }
