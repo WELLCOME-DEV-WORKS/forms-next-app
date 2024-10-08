@@ -17,7 +17,7 @@ const LandingSection4 = ({
   text4,
 }: LandingSection4Props) => {
   return (
-    <section className="flex relative flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold">
+    <section className="flex relative flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold cursor-default">
       <img
         loading="lazy"
         src="main_hand.webp"

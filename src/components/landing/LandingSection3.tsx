@@ -35,7 +35,7 @@ const LandingSection3 = ({
   subtext8,
 }: LandingSection3Props) => {
   return (
-    <section className="flex relative flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold">
+    <section className="flex relative flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold cursor-default">
       <div
         className="flex flex-col text-2xl items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold bg-white rounded-3xl mt-10  w-[790px] h-[880px]"
         style={{

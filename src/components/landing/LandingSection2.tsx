@@ -8,7 +8,7 @@ type LandingSection2Props = {
 
 const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
   return (
-    <section className="flex flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold">
+    <section className="flex flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold cursor-default">
       <h2
         className="text-4xl font-extrabold mt-12 leading-[72px]"
         style={{
