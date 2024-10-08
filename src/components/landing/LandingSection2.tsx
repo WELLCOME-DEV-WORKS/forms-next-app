@@ -8,9 +8,9 @@ type LandingSection2Props = {
 
 const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
   return (
-    <section className="flex flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full ">
+    <section className="flex flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold">
       <h2
-        className="text-4xl font-extrabold mt-12"
+        className="text-4xl font-extrabold mt-12 leading-[72px]"
         style={{
           background: 'linear-gradient(90deg, #EA708A 0%, #DA2F47 100%)',
           WebkitBackgroundClip: 'text',
@@ -29,18 +29,24 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
         alt="pink arrow"
       />
       <p
-        className="mt-16 text-3xl text-black max-md:mt-10 max-md:max-w-full"
+        className="mt-16 text-3xl text-black max-md:mt-10 max-md:max-w-full font-bold"
         style={{
           textShadow: '0px 4px 3.5px rgba(0, 0, 0, 0.25)',
         }}
       >
         {subtext}
       </p>
-      <div className="flex shrink-0 mt-16 max-w-full rounded-3xl bg-neutral-100 h-[511px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[914px] max-md:mt-10">
+
+      <div
+        className="flex shrink-0 mt-16 max-w-full rounded-3xl bg-neutral-100 h-[511px]  w-[794px] max-md:mt-10 shadow-[0px_4px_4px_rgba(0,0,0,0.25)] bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/main_pricebox.webp')",
+        }}
+      >
         <img
           loading="lazy"
           src="/main_sad_emoji.webp"
-          className="object-contain relative max-w-full aspect-square w-[120px] h-[120px] max-md:mt-10 top-[185px] left-[850px]"
+          className="object-contain relative max-w-full aspect-square w-[120px] h-[120px] max-md:mt-10 top-[185px] left-[740px]"
           alt="pink arrow"
           style={{
             filter: 'drop-shadow(0px 7px 2px rgba(0, 0, 0, 0.15))',
@@ -56,6 +62,12 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
           }}
         />
       </div>
+      <img
+        loading="lazy"
+        src="https://cdn.builder.io/api/v1/image/assets/TEMP/6786e7ad294e568681d44d5b79e4ecf51bc48314360f5f10bab165893d920111?placeholderIfAbsent=true&apiKey=5234d2e82f7b48648ec2ffba5221ceea"
+        alt=""
+        className="object-contain mt-10 max-w-full aspect-square w-[124px]"
+      />
     </section>
   );
 };
