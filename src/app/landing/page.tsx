@@ -15,7 +15,8 @@ const LandingPage = () => {
       />
       <Button
         text="开始我的美丽之旅"
-        className="mt-12 w-[312px] max-md:px-5 max-md:mt-10"
+        className="mt-12 w-[312px] max-md:px-5 max-md:mt-10
+        max-md:w-[250px] max-md:text-lg max-sm:w-[200px] max-sm:text-lg"
       />
       <LandingSection2
         text="hi, 变美路上，你有过这些烦恼吗?"
