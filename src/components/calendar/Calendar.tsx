@@ -41,7 +41,6 @@ export default function Calendar() {
         plugins={[ dayGridPlugin, interactionPlugin ]}
         initialView="dayGridMonth"
         events={events()}
-        eventContent={renderEventContent}
         dateClick={handleDateClick}
         editable={true}
         eventClick={handleEventClick}
@@ -49,12 +48,3 @@ export default function Calendar() {
     // </div>
   )
 }
-
-  function renderEventContent(eventInfo: EventContentArg) {
-    return(
-      <>
-        {/* <b>{eventInfo.timeText}</b> */}
-        <i>{eventInfo.event.title}</i>
-      </>
-    )
-  }
