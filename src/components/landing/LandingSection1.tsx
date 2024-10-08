@@ -13,29 +13,37 @@ const LandingSection1 = ({
   subtitle,
 }: LandingSection1Props) => {
   return (
-    <section
-      className="flex relative flex-col justify-center items-start px-20 py-36 max-w-full min-h-[495px] rounded-[30px] w-[996px] max-md:px-5 max-md:py-24 bg-cover bg-center"
-      style={{
-        backgroundImage: "url('/main_banner.webp')",
-      }}
-    >
-      <div className="flex relative flex-col -mb-8 max-w-full w-[674px] max-md:mb-2.5">
-        <h1
-          className="text-6xl font-black leading-[72px] max-md:max-w-full max-md:text-4xl max-md:leading-[50px]"
-          style={{
-            background:
-              'linear-gradient(90deg, #FFF -6.08%, #FFCCD3 -6.06%, #FFF 76%)',
-            WebkitBackgroundClip: 'text',
-            backgroundClip: 'text',
-            color: 'transparent',
-            display: 'inline-block',
-          }}
-        >
-          <Spacebar text={title} />
-        </h1>
-        <p className="self-start mt-8 text-3xl font-semibold text-white">
-          {subtitle}
-        </p>
+    <section className="flex flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold cursor-default font-Pretendard">
+      <div
+        className="flex flex-col justify-center shrink-0 max-w-full rounded-3xl w-[996px] h-[510px]  bg-cover bg-center
+         max-sm:w-full max-sm:h-[294px] max-md:w-full max-md:h-[394px]"
+        style={{
+          backgroundImage: "url('/main_banner.webp')",
+          boxShadow: '0px 4px 43.5px 0px rgba(0, 0, 0, 0.25)',
+        }}
+      >
+        <div className="flex flex-col ml-[2.5em] -mb-8 max-w-full w-[674px] max-md:mb-2.5 text-left">
+          <h1
+            className="text-6xl font-black leading-[72px] 
+            max-md:max-w-full max-md:text-5xl max-sm:text-4xl"
+            style={{
+              background:
+                'linear-gradient(90deg, #FFF -6.08%, #FFCCD3 -6.06%, #FFF 76%)',
+              WebkitBackgroundClip: 'text',
+              backgroundClip: 'text',
+              color: 'transparent',
+              display: 'inline-block',
+            }}
+          >
+            <Spacebar text={title} />
+          </h1>
+          <p
+            className="mt-[1em] text-3xl font-semibold text-white
+          max-md:max-w-full max-md:text-lg max-sm:text-lg"
+          >
+            {subtitle}
+          </p>
+        </div>
       </div>
     </section>
   );
