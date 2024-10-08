@@ -5,7 +5,18 @@ import React from 'react'
 const ReservationPage = () => {
   return (
     <div className='flex  flex-col items-center justify-center '>
-        <h1 className='self-center text-center text-4xl font-extrabold mb-12'>예약 페이지</h1>
+        <h1 
+        // className="text-4xl mb-5 font-bold"
+         className="text-4xl mb-10 font-extrabold mt-12 leading-[72px]"
+         style={{
+           background: 'linear-gradient(90deg, #EA708A 0%, #DA2F47 100%)',
+           WebkitBackgroundClip: 'text',
+           backgroundClip: 'text',
+           color: 'transparent',
+           display: 'inline-block',
+           textShadow: '0px 4px 3.5px rgba(0, 0, 0, 0.25)',
+         }}
+        >예약 페이지</h1>
         <div className='flex flex-col md:flex-row md:items-center justify-between w-full max-w-4xl'>
           <div className='md:w-1/2 pr-4 content-center'>
             <ReservationForm />
