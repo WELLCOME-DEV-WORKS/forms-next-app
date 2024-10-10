@@ -44,8 +44,8 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
       </p>
 
       <div
-        className="flex shrink-0 mt-16 max-w-full rounded-3xl bg-neutral-100 h-[511px]  w-[794px] max-md:mt-10 shadow-[0px_4px_4px_rgba(0,0,0,0.25)] bg-cover bg-center
-        max-md:mt-10 max-md:w-full max-md:h-[395px] max-sm:mt-8 max-sm:w-full max-sm:h-[295px] "
+        className="flex shrink-0 mt-16 max-w-full rounded-3xl bg-neutral-100 h-[511px]  w-[794px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] bg-cover bg-center
+        max-md:mt-10 max-md:w-full max-md:h-[395px] max-sm:mt-8 max-sm:w-full max-sm:h-[295px]"
         style={{
           backgroundImage: "url('/CN_main_pricebox.webp')",
         }}
