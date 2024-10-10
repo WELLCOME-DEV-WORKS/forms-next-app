@@ -21,7 +21,7 @@ const WellcomeHeader = ({ title, buttonText }: WellcomeHeaderProps) => {
         rel="stylesheet"
       />
       <Link href="/">
-        <div className="flex gap-7 p-2.5 text-xl font-extrabold text-rose-400">
+        <div className="flex gap-2 p-2.5 text-xl font-extrabold text-rose-400">
           <img
             loading="lazy"
             src="logo.webp"
