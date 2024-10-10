@@ -7,16 +7,11 @@ import Button from '@/components/landing/Button';
 
 const LandingPage = () => {
   return (
-    <div className="flex overflow-hidden flex-col items-center bg-gray-50">
+    <div className="flex overflow-hidden flex-col items-center bg-gray-50 max-lg">
       <LandingSection1
         backgroundImage="url('/main_banner.webp')"
         title="想以最优惠的价格 在韩国变美？"
         subtitle="变美心动，Well-Come行动！"
-      />
-      <Button
-        text="开始我的美丽之旅"
-        className="mt-12 w-[312px] max-md:px-5 max-md:mt-10
-        max-md:w-[250px] max-md:text-lg max-sm:w-[200px] max-sm:text-lg"
       />
       <LandingSection2
         text="hi, 变美路上，你有过这些烦恼吗?"

@@ -9,8 +9,8 @@ type LandingSection2Props = {
 const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
   return (
     <section
-      className="flex flex-col items-center t-12 text-center font-bold cursor-default font-Pretendard p-[1rem]
-    max-lg:w-full max-lg:p-[1rem] max-md:w-full max-md:p-[1rem] max-md:mt-0 max-sm:mt-0"
+      className="flex flex-col items-center t-12 text-center font-bold cursor-default font-Pretendard px-[1rem]
+    max-lg:w-full max-lg:px-[1rem] max-md:w-full max-md:px-[1rem] max-md:mt-0 max-sm:mt-0"
     >
       <h2
         className="text-5xl font-extrabold mt-10 leading-[5rem]

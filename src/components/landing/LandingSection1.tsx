@@ -1,5 +1,6 @@
 import React from 'react';
 import Spacebar from './Spacebar';
+import Button from '@/components/landing/Button';
 
 type LandingSection1Props = {
   backgroundImage: string;
@@ -45,6 +46,11 @@ const LandingSection1 = ({
           </p>
         </div>
       </div>
+      <Button
+        text="开始我的美丽之旅"
+        className="mt-12 w-[312px] max-md:px-5 max-md:mt-10
+        max-md:w-[250px] max-md:text-lg max-sm:w-[200px] max-sm:text-lg"
+      />
     </section>
   );
 };
