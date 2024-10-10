@@ -1,5 +1,6 @@
 import React from 'react';
 import Spacebar from './Spacebar';
+import Button from '@/components/landing/Button';
 
 type LandingSection1Props = {
   backgroundImage: string;
@@ -16,7 +17,7 @@ const LandingSection1 = ({
     <section className="flex flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold cursor-default font-Pretendard">
       <div
         className="flex flex-col justify-center shrink-0 max-w-full rounded-3xl w-[996px] h-[510px]  bg-cover bg-center
-         max-sm:w-full max-sm:h-[294px] max-md:w-full max-md:h-[394px]"
+         max-sm:w-full max-sm:h-[294px] max-md:w-full max-md:h-[394px] max-lg:w-[805px] max-lg:h-[494px]"
         style={{
           backgroundImage: "url('/main_banner.webp')",
           boxShadow: '0px 4px 43.5px 0px rgba(0, 0, 0, 0.25)',
@@ -45,6 +46,11 @@ const LandingSection1 = ({
           </p>
         </div>
       </div>
+      <Button
+        text="开始我的美丽之旅"
+        className="mt-12 w-[312px] max-md:px-5 max-md:mt-10
+        max-md:w-[250px] max-md:text-lg max-sm:w-[200px] max-sm:text-lg"
+      />
     </section>
   );
 };
