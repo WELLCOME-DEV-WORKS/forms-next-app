@@ -8,7 +8,11 @@ interface WellcomeHeaderProps {
 
 const WellcomeHeader = ({ title, buttonText }: WellcomeHeaderProps) => {
   return (
-    <header className="flex  gap-5 justify-between w-full bg-wellcome-white text-center whitespace-nowrap  max-md:max-w-full px-8">
+    <header
+      className="flex gap-5 justify-between w-full bg-wellcome-white text-center whitespace-nowrap  max-md:max-w-full px-20
+    max-sm:px-0 max-md:px-0
+    "
+    >
       {/* 로고 폰트 적용 링크 */}
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
