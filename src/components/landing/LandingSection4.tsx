@@ -69,13 +69,13 @@ const LandingSection4 = ({
 
       <div
         className="flex flex-col p-9 mt-16 max-w-full rounded-3xl bg-zinc-100 shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[794px] h-[700px] text-2xl
-       max-md:mt-12 max-md:h-[600px] max-sm:mt-8 max-sm:h-[430px] max-sm:px-3"
+       max-md:mt-12 max-md:h-[600px] max-sm:mt-8 max-sm:h-[365px] max-sm:px-3"
       >
         <img
           loading="lazy"
           src="/CN_main_ad.webp"
           className="object-contain max-w-full w-[938px] h-[380px]
-          max-md:w-[839px] max-md:h-[320px] max-sm:w-[739px] max-sm:h-[280px]"
+          max-md:w-[839px] max-md:h-[320px] max-sm:w-[739px] max-sm:h-[150px]"
           alt="CN_main_ad"
         />
         <div
