@@ -44,29 +44,32 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
       </p>
 
       <div
-        className="flex shrink-0 mt-16 max-w-full rounded-3xl bg-neutral-100 h-[511px]  w-[794px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] bg-cover bg-center
-        max-md:mt-10 max-md:w-full max-md:h-[395px] max-sm:mt-8 max-sm:w-full max-sm:h-[295px]"
-        style={{
-          backgroundImage: "url('/CN_main_pricebox.webp')",
-        }}
+        className="flex shrink-0 mt-16 max-w-full rounded-3xl bg-neutral-100 h-[511px]  w-[794px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)]
+        max-md:overflow-hidden max-md:mt-10 max-md:w-full max-md:h-[395px] max-sm:overflow-hidden max-sm:mt-8 max-sm:w-full max-sm:h-[295px]"
       >
         <img
           loading="lazy"
-          src="/main_sad_emoji.webp"
-          className="object-contain relative max-w-full aspect-square w-[120px] h-[120px] top-[185px] left-[740px]
-          max-lg:h-[100px] max-lg:left-[720px] max-lg:hidden max-md:hidden max-sm:hidden"
-          alt="pink arrow"
+          src="CN_main_pricebox.webp"
+          alt="main_manypeople"
+          className="object-contain relative w-full h-auto transform
+           max-md:scale-110 max-sm:scale-105"
+        />
+        <img
+          loading="lazy"
+          src="main_sad_emoji.webp"
+          className="object-contain relative max-w-full aspect-square w-[120px] h-[120px] top-[185px] -left-[855px]
+          max-lg:hidden max-md:hidden max-sm:hidden"
+          alt="main_sad_emoji"
           style={{
             filter: 'drop-shadow(0px 7px 2px rgba(0, 0, 0, 0.15))',
           }}
         />
         <img
           loading="lazy"
-          src="/main_sad_emoji.webp"
+          src="main_sad_emoji.webp"
           className="object-contain relative max-w-full aspect-square w-[120px] h-[120px] top-[185px] -left-[180px]
-          max-lg:w-[100px] max-lg:h-[100px] max-lg:hidden max-md:hidden max-sm:hidden 
-          max-md:hidden max-sm:hidden"
-          alt="pink arrow"
+          max-lg:hidden max-md:hidden max-sm:hidden"
+          alt="main_sad_emoji"
           style={{
             filter: 'drop-shadow(0px 7px 2px rgba(0, 0, 0, 0.15))',
           }}

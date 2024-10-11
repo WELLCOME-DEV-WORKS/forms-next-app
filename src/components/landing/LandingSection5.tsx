@@ -17,19 +17,24 @@ const LandingSection4 = ({
   text4,
 }: LandingSection4Props) => {
   return (
-    <section className="flex relative flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold cursor-default font-Pretendard">
+    <section
+      className="flex flex-col items-center t-12 text-center cursor-default font-bold font-Pretendard px-[1rem]                   
+    max-lg:w-full max-lg:px-[1rem] max-md:w-full max-md:px-[1rem] max-sm:w-full max-sm:px-[1rem] max-md:mt-0 max-sm:mt-0"
+    >
       <img
         loading="lazy"
         src="main_hand.webp"
         alt="main_hand"
-        className="object-contain mt-2 max-w-full aspect-square w-[124px] max-md:mt-10"
+        className="object-contain mt-6 max-w-full aspect-square w-[124px]
+        max-md:mt-2 max-md:w-[94px] max-sm:mt-0 max-sm:w-[64px]"
       />
+
       <div
-        className="flex shrink-0 mt-10 max-w-full rounded-3xl bg-neutral-100 h-[819px]  w-[993px] max-md:mt-10 shadow-[0px_4px_4px_rgba(0,0,0,0.25)] bg-cover bg-center"
-        style={{
-          backgroundImage: "url('CN_main_result.webp')",
-        }}
-      ></div>
+        className="flex shrink-0 mt-10 max-w-full rounded-3xl bg-neutral-100 h-[819px]  w-[993px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] bg-cover bg-center
+        max-md:mt-10 max-md:w-full max-md:h-[395px] max-sm:mt-8 max-sm:w-full max-sm:h-[295px]"
+      >
+        <img loading="lazy" src="CN_main_result.webp" alt="main_hand" />
+      </div>
       <Button
         text="生成我的专属方案"
         className="w-[312px] max-md:px-5 max-md:mt-10 mt-12"

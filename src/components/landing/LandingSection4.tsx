@@ -35,12 +35,17 @@ const LandingSection4 = ({
       />
 
       <div
-        className="flex shrink-0 mt-10 max-w-full rounded-3xl bg-neutral-100 h-[610px] w-[996px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] bg-cover bg-center 
+        className="flex items-center ali shrink-0 mt-10 max-w-full rounded-3xl bg-white h-[610px] w-[996px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] overflow-hidden 
         max-md:mt-10 max-md:w-full max-md:h-[395px] max-sm:mt-8 max-sm:w-full max-sm:h-[295px]"
-        style={{
-          backgroundImage: "url('/CN_main_manypeople.webp')",
-        }}
-      ></div>
+      >
+        <img
+          loading="lazy"
+          src="CN_main_manypeople.webp"
+          alt="main_manypeople"
+          className="object-contain relative w-full h-auto transform
+           max-md:scale-110 max-sm:scale-105"
+        />
+      </div>
       <Button
         text="查看我的最低价"
         className="mt-12 w-[312px] max-md:px-5 max-md:mt-10
