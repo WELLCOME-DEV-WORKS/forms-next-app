@@ -41,7 +41,7 @@ const LandingSection3 = ({
     max-lg:w-full max-lg:px-[1rem] max-md:w-full max-md:px-[1rem] max-sm:w-full max-sm:px-[1rem] max-md:mt-0 max-sm:mt-0"
     >
       <div
-        className="flex flex-col items-center t-12 text-center text-2xl font-bold bg-white rounded-3xl mt-10 w-[790px] h-[880px]
+        className="flex flex-col items-center t-12 text-center text-2xl font-bold bg-white rounded-3xl mt-10 w-[790px] h-[880px] max-w-full
         max-lg:w-[800px] max-lg:px-[1rem] max-lg:text-lg max-lg:h-[780px] max-md:w-full max-md:px-[1rem] max-md:mt-8 max-md:h-[730px] max-sm:w-full max-sm:px-[1rem] max-sm:mt-6 max-sm:h-[590px]"
         style={{
           boxShadow:

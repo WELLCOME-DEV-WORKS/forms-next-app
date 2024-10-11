@@ -80,8 +80,7 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
         src="main_hand.webp"
         alt="main_hand"
         className="object-contain mt-12 max-w-full aspect-square w-[124px]
-        max-md:mt-8 max-md:w-[94px] max-sm:mt-6 max-sm:w-[64px]
-        "
+        max-md:mt-8 max-md:w-[94px] max-sm:mt-6 max-sm:w-[64px]"
       />
     </section>
   );
