@@ -18,8 +18,8 @@ const LandingSection4 = ({
 }: LandingSection4Props) => {
   return (
     <section
-      className="flex flex-col items-center t-12 text-center font-bold cursor-default font-Pretendard px-[1rem]
-    max-lg:w-full max-lg:px-[1rem] max-md:w-full max-md:px-[1rem] max-md:mt-0 max-sm:mt-0"
+      className="flex flex-col items-center t-12 text-center font-bold cursor-default font-Pretendard px-[1rem] pb-2
+    max-lg:w-full max-lg:px-[1rem] max-lg:pb-3 max-md:w-full max-md:px-[1rem] max-md:mt-0 max-sm:mt-0"
     >
       <img
         loading="lazy"
@@ -78,25 +78,25 @@ const LandingSection4 = ({
         }}
       >
         <div
-          className="flex flex-col  max-w-full text-2xl w-[757.627px] text-wellcome-pink
+          className="flex flex-col  max-w-full text-2xl w-[757.627px] text-wellcome-pink 
          max-lg:text-xl max-md:text-lg max-sm:text-base
         "
         >
           <p
-            className="p-7  bg-wellcome-peach rounded-[42px] 
+            className="p-7  bg-wellcome-peach rounded-[42px]  transition-all duration-300 ease-in-out hover:bg-[#FFD7A1] hover:text-[#DA2F47]
           max-lg:p-6 max-lg:m-5 max-md:p-5 max-sm:p-3"
           >
             {text2}
           </p>
           <p
-            className="px-7 py-7 mt-14 bg-wellcome-peach rounded-[42px] 
+            className="px-7 py-7 mt-14 bg-wellcome-peach rounded-[42px]  transition-all duration-300 ease-in-out hover:bg-[#FFD7A1] hover:text-[#DA2F47]
           max-lg:p-6 max-lg:m-5 max-md:p-5 max-sm:p-3 "
           >
             {text3}
           </p>
           <p
-            className="px-7 py-7 mt-14 bg-wellcome-peach rounded-[42px] 
-          max-lg:p-6 max-lg:m-5 max-md:p-5 max-sm:p-3 "
+            className="px-7 py-7 mt-14 bg-wellcome-peach rounded-[42px]  transition-all duration-300 ease-in-out hover:bg-[#FFD7A1] hover:text-[#DA2F47]
+          max-lg:p-6 max-lg:m-5 max-md:p-5 max-sm:p-3  max-sm:text-base"
           >
             {text4}
           </p>
