@@ -35,12 +35,17 @@ const LandingSection4 = ({
       />
 
       <div
-        className="flex shrink-0 mt-10 max-w-full rounded-3xl bg-neutral-100 h-[610px] w-[996px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] bg-cover bg-center 
+        className="flex items-center ali shrink-0 mt-10 max-w-full rounded-3xl bg-white h-[610px] w-[996px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] overflow-hidden 
         max-md:mt-10 max-md:w-full max-md:h-[395px] max-sm:mt-8 max-sm:w-full max-sm:h-[295px]"
-        style={{
-          backgroundImage: "url('/CN_main_manypeople.webp')",
-        }}
-      ></div>
+      >
+        <img
+          loading="lazy"
+          src="CN_main_manypeople.webp"
+          alt="main_manypeople"
+          className="object-contain relative w-full h-auto transform
+           max-md:scale-110 max-sm:scale-105"
+        />
+      </div>
       <Button
         text="查看我的最低价"
         className="mt-12 w-[312px] max-md:px-5 max-md:mt-10
@@ -64,13 +69,13 @@ const LandingSection4 = ({
 
       <div
         className="flex flex-col p-9 mt-16 max-w-full rounded-3xl bg-zinc-100 shadow-[0px_4px_4px_rgba(0,0,0,0.25)] w-[794px] h-[700px] text-2xl
-       max-md:mt-12 max-md:h-[600px] max-sm:mt-8 max-sm:h-[430px] max-sm:px-3"
+       max-md:mt-12 max-md:h-[600px] max-sm:mt-8 max-sm:h-[365px] max-sm:px-3"
       >
         <img
           loading="lazy"
           src="/CN_main_ad.webp"
           className="object-contain max-w-full w-[938px] h-[380px]
-          max-md:w-[839px] max-md:h-[320px] max-sm:w-[739px] max-sm:h-[280px]"
+          max-md:w-[839px] max-md:h-[320px] max-sm:w-[739px] max-sm:h-[150px]"
           alt="CN_main_ad"
         />
         <div
