@@ -27,7 +27,9 @@ const ReservationPage = () => {
           <Calendar />
         </div>
       </div>
-      <h2 className="mt-10">예약시 전문 통역사 동행 서비스를 제공합니다.</h2>
+      <h2 className="mt-12 text-2xl text-wellcome-pink font-bold">
+        예약시 전문 통역사 동행 서비스를 제공합니다.
+      </h2>
       <button
         className="px-11 py-3.5 my-8 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] 
         hover:text-[#EA708A] hover:bg-[#FEE4E3] transition-colors duration-300"

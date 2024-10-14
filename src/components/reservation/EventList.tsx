@@ -10,8 +10,6 @@ const events = () => {
   return eventDates.map((date) => ({
     title: '예약',
     date,
-    backgroundColor: '#FFE39C', // 배경색
-    textColor: '#000000',
   }));
 };
 

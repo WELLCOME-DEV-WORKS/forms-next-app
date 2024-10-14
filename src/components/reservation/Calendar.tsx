@@ -49,12 +49,7 @@ export default function Calendar() {
       dateClick={handleDateClick}
       editable={true}
       eventClick={handleEventClick}
-      eventClassNames={(arg) => {
-        // 조건에 따라 다른 Tailwind 클래스를 적용할 수도 있습니다.
-        return (
-          arg.event.extendedProps.className || 'bg-yellow-200 text-gray-800'
-        );
-      }}
+      eventClassNames={(arg) => {}}
     />
     // </div>
   );
