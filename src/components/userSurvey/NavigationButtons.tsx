@@ -20,8 +20,10 @@ const NavigationButtons = ({ currentQuestionIndex, totalQuestions, onNext, onPre
         console.log('session =>', session);
         
         if (currentQuestionIndex === totalQuestions - 1) {
+            // 로컬스토리지에 결과 저장 로직 추가
             if (!session) {
                 setRedirectToReservation(true);
+                // setSurveyComplete(true)
                 await router.push('/sign-in');
                 return ;
             }
