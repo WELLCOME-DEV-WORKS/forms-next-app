@@ -26,11 +26,12 @@ module.exports = {
         foreground: 'hsl(var(--foreground))',
 
         wellcome: {
+          red: '#900B0B',
           white: '#F9FAFB',
           pink: '#EA708A',
-          magenta: '#1E40AF',
-          peach: '#FF0036',
-          yellow: '#FEE4E3',
+          magenta: '#FF0036',
+          peach: '#FEE4E3',
+          yellow: '#FFE39C',
           black400: '#1A1A1A',
           black300: '#333333',
           black200: '#666666',
