@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html
-      lang="en"
+      lang="cn"
       className={cn(
         'bg-wellcome-white text-slate-900 antialiased light',
         inter.className
@@ -35,20 +35,25 @@ export default function RootLayout({
           {/* <Navbar /> */}
           {/* {authModal} */}
           <WellcomeHeader title="Well-Come" buttonText="로그인" />
-          <div className="container h-full py-16 bg-wellcome-white">
+          <div
+            className="container h-full py-16 bg-wellcome-white px-0
+          max-sm:py-2 max-md:py-5
+          "
+          >
             {children}
           </div>
-
           <WellcomeFooter
             text={
               <>
-                Company Name : Well-come Visa Co., Ltd. Representative : Inhyuk
-                Lee Address : 11th Floor, room 1113 and 1115, 78 Mapo-daero,{' '}
+                Company Name : Well-come Visa Co., Ltd. <br />
+                Representative : Inhyuk Lee <br />
+                Address : 11th Floor, room 1113 and 1115, 78 Mapo-daero,
+                Mapo-gu, Seoul <br />
+                Business Registration Number : 359-86-02092 <br />
+                Email : info@well-come.biz <br />
+                Mail Order Business Registration Number : 2023-Seoul Mapo-3768{' '}
                 <br />
-                Mapo-gu, Seoul Business Registration Number : 359-86-02092 Email{' '}
-                <br />: info@well-come.biz Mail Order Business Registration
-                Number : <br />
-                2023-Seoul Mapo-3768 Customer Service : +82-70-8655-2888"
+                Customer Service : +82-70-8655-2888"
               </>
             }
           />
