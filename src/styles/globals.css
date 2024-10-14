@@ -100,3 +100,90 @@
   font-weight: 400;
   font-style: normal;
 }
+
+/* fullcalendar 커스텀 */
+
+.fc fc-media-screen fc-direction-ltr fc-theme-standard {
+}
+
+/* 캘린더 헤더 */
+.fc .fc-toolbar.fc-header-toolbar {
+  @apply m-0;
+}
+
+/*  */
+.fc-toolbar {
+  @apply bg-wellcome-gradient text-white py-2 rounded-t-lg px-3;
+}
+
+.fc .fc-daygrid-day-frame {
+  @apply border border-gray-300 hover:bg-blue-100;
+}
+
+.fc .fc-daygrid-day-frame {
+  @apply border-none;
+}
+
+/* 년/월 글자 */
+.fc .fc-toolbar-title {
+  @apply text-2xl font-bold;
+}
+/* today 버튼 */
+.fc .fc-button-primary:disabled {
+  @apply bg-white border-none text-gray-950 font-semibold;
+}
+
+/* 월 넘기는 버튼 */
+.fc .fc-button-primary {
+  @apply bg-transparent border-none;
+}
+
+.fc .fc-button-primary:hover {
+  @apply bg-wellcome-white/50 border-none !important;
+}
+
+.fc .fc-button-primary:focus {
+  @apply border-none bg-wellcome-white/50 border-none !important;
+}
+
+.fc .fc-button-primary:active {
+  @apply bg-transparent border-none;
+}
+
+.fc .fc-button-primary:hover {
+  @apply bg-white border-none border-none;
+}
+
+/* 캘린더 일자 컨테이너 */
+.fc-daygrid-day-top {
+  @apply flex items-center justify-center;
+}
+
+/* 캘린더 일자 */
+.fc .fc-daygrid-day-number {
+  @apply text-center;
+}
+
+/* 예약 버튼 컨테이너*/
+.fc-event-title-container {
+  @apply flex items-center justify-center;
+}
+
+/* 예약 버튼 */
+.fc .fc-event {
+  @apply bg-wellcome-pink rounded-md p-1 border-none;
+}
+
+.fc .fc-event:hover {
+  @apply rounded-md border-none   hover:bg-wellcome-pink/70 transition-colors duration-300;
+}
+
+.fc-daygrid-block-event .fc-event-time,
+.fc-daygrid-block-event .fc-event-title {
+  @apply font-bold p-0 text-wellcome-white;
+}
+
+.fc-daygrid-block-event .fc-event-time,
+.fc-daygrid-block-event .fc-event-title {
+  @apply rounded-md  border-none  hover:text-[#EA708A] transition-colors duration-300;
+}
