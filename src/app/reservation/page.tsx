@@ -1,8 +1,18 @@
+'use client';
 import Calendar from '@/components/reservation/Calendar';
 import ReservationForm from '@/components/reservation/ReservationForm';
-import React from 'react';
+import React, { useState } from 'react';
 
 const ReservationPage = () => {
+  // 예약 날짜 상태 정의
+  const [selectedDate, setSelectedDate] = useState('');
+
+  // 날짜가 선택될 때 호출될 함수
+  const handleDateSelect = (date: string) => {
+    setSelectedDate(date); // 선택된 날짜 업데이트
+    console.log(date);
+  };
+
   return (
     <div className="flex  flex-col items-center justify-center ">
       <h1
@@ -21,10 +31,10 @@ const ReservationPage = () => {
       </h1>
       <div className="flex flex-col md:flex-row md:items-center justify-between w-full max-w-4xl">
         <div className="md:w-1/2 pr-4 content-center">
-          <ReservationForm />
+          <ReservationForm selectedDate={selectedDate} />
         </div>
         <div className="md:w-1/2 pl-4">
-          <Calendar />
+          <Calendar onDateSelect={handleDateSelect} />
         </div>
       </div>
       <h2 className="mt-12 text-2xl text-wellcome-pink font-bold">

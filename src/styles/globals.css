@@ -159,6 +159,10 @@
   @apply flex items-center justify-center;
 }
 
+.fc .fc-daygrid-day-frame:hover {
+  @apply hover:bg-transparent;
+}
+
 /* 캘린더 일자 */
 .fc .fc-daygrid-day-number {
   @apply text-center;
@@ -175,7 +179,7 @@
 }
 
 .fc .fc-event:hover {
-  @apply rounded-md border-none   hover:bg-wellcome-pink/70 transition-colors duration-300;
+  @apply rounded-md border-none  hover:bg-wellcome-magenta transition-colors duration-500;
 }
 
 .fc-daygrid-block-event .fc-event-time,
@@ -185,5 +189,5 @@
 
 .fc-daygrid-block-event .fc-event-time,
 .fc-daygrid-block-event .fc-event-title {
-  @apply rounded-md  border-none  hover:text-[#EA708A] transition-colors duration-300;
+  @apply rounded-md  border-none;
 }
