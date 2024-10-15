@@ -26,6 +26,6 @@ export const useLoadSurveyComplete = () => {
             setSurveyComplete(false);
             router.push('/reservation');
         }
-
+    }, [surveyComplete]);
 };
 
