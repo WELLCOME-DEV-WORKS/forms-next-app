@@ -1,8 +1,9 @@
-import { useStore } from "@/store/Store";
-import { Session } from "next-auth";
+
+// import { Session } from "next-auth";
+import { useStoreSurvey } from "@/store/Store";
 import { getSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 // import { useEffect, useState } from "react";
 
@@ -14,9 +15,16 @@ interface NavigationButtonsProps {
 }
 const NavigationButtons = ({ currentQuestionIndex, totalQuestions, onNext, onPrevious }: NavigationButtonsProps) => {
     const router = useRouter();
-    const [session, setSession] = useState<Session | null>(null);
-    const [redirectToReservation, setRedirectToReservation] = useState(false);
-    const setSurveyComplete = useStore((state) => state.setSurveyComplete);
+    // const [session, setSession] = useState<Session | null>(null);
+    // const [redirectToReservation, setRedirectToReservation] = useState(false);
+    const setSurveyComplete = useStoreSurvey((state) => state.setSurveyComplete);
+    const surveyComplete = useStoreSurvey((state) => state.surveyComplete);
+
+    useEffect(() => {
+        console.log('surveyComplete =>', surveyComplete);
+    }, [surveyComplete]);
+
+    
 
     const handleNext  = async () => {
         const session = await getSession();
@@ -25,9 +33,10 @@ const NavigationButtons = ({ currentQuestionIndex, totalQuestions, onNext, onPre
         if (currentQuestionIndex === totalQuestions - 1) {
             // 로컬스토리지에 결과 저장 로직 추가
             if (!session) {
-                setRedirectToReservation(true);
                 setSurveyComplete(true);
-                await router.push('/sign-in');
+                setTimeout(async () => {
+                    await router.push('/sign-in');
+                }, 5000);
                 return ;
             }
             await router.push('/reservation');
@@ -36,11 +45,6 @@ const NavigationButtons = ({ currentQuestionIndex, totalQuestions, onNext, onPre
         } 
     }
 
-    useEffect(() => {
-        if (redirectToReservation && session) {
-            router.push('/reservation');
-        }
-    }, [session, redirectToReservation, router]);
 
     return (
         <div className="flex justify-center gap-5 self-center mt-11 max-w-full text-center">
