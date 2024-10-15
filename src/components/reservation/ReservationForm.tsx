@@ -25,9 +25,13 @@ const FormField = ({ label, ans }: FormFieldProps) => {
   );
 };
 
-const ReservationForm = () => {
+interface ReservationFormProps {
+  selectedDate: string;
+}
+
+const ReservationForm = ({ selectedDate }: ReservationFormProps) => {
   const fields = ['시술 내역', '가격', '예약 일정'];
-  const ans = ['울쎄라TEST', 'TEST만원', '24년 10월 26일'];
+  const ans = ['울쎄라TEST', 'TEST만원', selectedDate || ''];
 
   return (
     <form className="flex flex-col  itmes-center  justify-">
