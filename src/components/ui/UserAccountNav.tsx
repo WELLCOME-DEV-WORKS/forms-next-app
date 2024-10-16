@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import {
   DropdownMenu,
@@ -6,15 +6,15 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/details/DropdownMenu";
-import { User } from "next-auth";
-import { FC } from "react";
-import UserAvatar from "./UserAvatar";
-import Link from "next/link";
-import { signOut } from "next-auth/react";
+} from '@/components/ui/details/DropdownMenu';
+import { User } from 'next-auth';
+import { FC } from 'react';
+import UserAvatar from './UserAvatar';
+import Link from 'next/link';
+import { signOut } from 'next-auth/react';
 
 interface UserAccountNavProps {
-  user: Pick<User, "name" | "image" | "email">;
+  user: Pick<User, 'name' | 'image' | 'email'>;
 }
 
 const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
@@ -23,7 +23,7 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
       <DropdownMenuTrigger>
         <UserAvatar
           user={{ name: user.name || null, image: user.image || null }}
-          className="h-8 w-8"
+          className="h-11 w-11 items-center justify-center"
         />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-white" align="end">

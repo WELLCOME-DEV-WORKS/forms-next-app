@@ -39,7 +39,7 @@ const ReservationForm = ({ selectedDate }: ReservationFormProps) => {
   ];
 
   return (
-    <form className="flex flex-col  itmes-center  justify-">
+    <form className="flex flex-col itmes-center justify-">
       {fields.map((field, index) => (
         <FormField key={index} label={field} ans={ans[index]} />
       ))}
