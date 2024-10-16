@@ -28,7 +28,7 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
       </h2>
       <img
         loading="lazy"
-        src="/main_pink_arrow.webp"
+        src="landingPage/main_pink_arrow.webp"
         className="object-contain mt-12 max-w-full aspect-square w-[46px] 
          max-md:mt-8 max-md:w-[30px] max-sm:mt-6 max-sm:w-[20px]"
         alt="pink arrow"
@@ -49,14 +49,14 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
       >
         <img
           loading="lazy"
-          src="CN_main_pricebox.webp"
+          src="landingPage/CN/CN_main_pricebox.webp"
           alt="main_manypeople"
           className="object-contain relative w-full h-auto transform
            max-md:scale-110 max-sm:scale-105"
         />
         <img
           loading="lazy"
-          src="main_sad_emoji.webp"
+          src="landingPage/main_sad_emoji.webp"
           className="object-contain relative max-w-full aspect-square w-[120px] h-[120px] top-[185px] -left-[855px]
           max-lg:hidden max-md:hidden max-sm:hidden"
           alt="main_sad_emoji"
@@ -66,7 +66,7 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
         />
         <img
           loading="lazy"
-          src="main_sad_emoji.webp"
+          src="landingPage/main_sad_emoji.webp"
           className="object-contain relative max-w-full aspect-square w-[120px] h-[120px] top-[185px] -left-[180px]
           max-lg:hidden max-md:hidden max-sm:hidden"
           alt="main_sad_emoji"
@@ -77,7 +77,7 @@ const LandingSection2 = ({ text, subtext }: LandingSection2Props) => {
       </div>
       <img
         loading="lazy"
-        src="main_hand.webp"
+        src="landingPage/main_hand.webp"
         alt="main_hand"
         className="object-contain mt-12 max-w-full aspect-square w-[124px]
         max-md:mt-8 max-md:w-[94px] max-sm:mt-6 max-sm:w-[64px]"

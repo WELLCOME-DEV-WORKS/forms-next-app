@@ -37,14 +37,14 @@ const WellcomeHeader = async () => {
       </Link>
 
       {session ? (
-          <div>
-            <UserAccountNav user={session.user} />
-          </div>
-        ) : (
-          <Link href="/sign-in" className={buttonVariants()}>
-            Sign in
-          </Link>
-        )}
+        <div className="flex">
+          <UserAccountNav user={session.user} />
+        </div>
+      ) : (
+        <Link href="/sign-in" className={buttonVariants()}>
+          Sign in
+        </Link>
+      )}
       {/* <button className="px-4 py-1 text-lg font-bold tracking-tight text-white bg-wellcome-pink rounded-sm shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:px-3">
         {buttonText}
       </button> */}
