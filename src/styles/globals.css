@@ -101,17 +101,16 @@
   font-style: normal;
 }
 
-/* fullcalendar 커스텀 */
+/** 
+fullcalendar 커스텀
+ **/
 
-.fc fc-media-screen fc-direction-ltr fc-theme-standard {
-}
-
-/* 캘린더 헤더 */
+/* 캘린더 헤더 간격 제거*/
 .fc .fc-toolbar.fc-header-toolbar {
   @apply m-0;
 }
 
-/*  */
+/*캘린더 헤더 컨테이너 */
 .fc-toolbar {
   @apply bg-wellcome-gradient text-white py-2 rounded-t-lg px-3;
 }
@@ -120,6 +119,7 @@
   @apply border border-gray-300 hover:bg-blue-100;
 }
 
+/* 예약버튼 */
 .fc .fc-daygrid-day-frame {
   @apply border-none;
 }
@@ -182,6 +182,7 @@
   @apply rounded-md border-none  hover:bg-wellcome-magenta transition-colors duration-500;
 }
 
+/* 예약 버튼 title */
 .fc-daygrid-block-event .fc-event-time,
 .fc-daygrid-block-event .fc-event-title {
   @apply font-bold p-0 text-wellcome-white;
@@ -190,4 +191,14 @@
 .fc-daygrid-block-event .fc-event-time,
 .fc-daygrid-block-event .fc-event-title {
   @apply rounded-md  border-none;
+}
+
+/* 예약 버튼 컨테이너 */
+.fc-daygrid-day-events {
+  @apply mb-1 !important;
+}
+
+/* 일자별 박스 */
+.fc-daygrid-day-frame.fc-scrollgrid-sync-inner {
+  @apply h-[4.1rem];
 }
