@@ -51,7 +51,7 @@ export default function Calendar({ onDateSelect }: CalendarProps) {
       initialView="dayGridMonth"
       events={events()}
       dateClick={handleDateClick}
-      editable={true}
+      editable={false} // 이벤트 드래그 비활성화
       eventClick={handleEventClick}
     />
     // </div>
