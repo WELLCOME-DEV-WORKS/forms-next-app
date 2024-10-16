@@ -180,7 +180,7 @@ fullcalendar 커스텀
 }
 
 .fc .fc-event:hover {
-  @apply rounded-md border-none  hover:bg-wellcome-magenta transition-colors duration-500;
+  @apply rounded-md border-none  hover:bg-wellcome-magenta transition-colors duration-500 cursor-pointer;
 }
 
 /* 예약 버튼 title */
