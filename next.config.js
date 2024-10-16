@@ -1,7 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  i18n: {
+    locales: ['en-US', 'ko', 'zh-cn', 'vi'],
+    defaultLocale: 'ko', 
+  },
   images: {
     domains: ["uploadthing.com", "lh3.googleusercontent.com"],
+
   },
   experimental: {
     appDir: true,
