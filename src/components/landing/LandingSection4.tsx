@@ -28,7 +28,7 @@ const LandingSection4 = ({
     >
       <img
         loading="lazy"
-        src="main_hand.webp"
+        src="landingPage/main_hand.webp"
         alt="main_hand"
         className="object-contain mt-12 max-w-full aspect-square w-[124px]
         max-md:mt-8 max-md:w-[94px] max-sm:mt-6 max-sm:w-[64px]"
@@ -40,7 +40,7 @@ const LandingSection4 = ({
       >
         <img
           loading="lazy"
-          src="CN_main_manypeople.webp"
+          src="landingPage/CN/CN_main_manypeople.webp"
           alt="main_manypeople"
           className="object-contain relative w-full h-auto transform
            max-md:scale-110 max-sm:scale-105"
@@ -53,7 +53,7 @@ const LandingSection4 = ({
       />
       <img
         loading="lazy"
-        src="main__line.webp"
+        src="landingPage/main__line.webp"
         alt="main_hand"
         className="object-contain mt-[120px] max-w-full aspect-square w-[1084px] h-[1px] max-md:mt-10"
       />
@@ -73,7 +73,7 @@ const LandingSection4 = ({
       >
         <img
           loading="lazy"
-          src="/CN_main_ad.webp"
+          src="landingPage/CN/CN_main_ad.webp"
           className="object-contain max-w-full w-[938px] h-[380px]
           max-md:w-[839px] max-md:h-[320px] max-sm:w-[739px] max-sm:h-[150px]"
           alt="CN_main_ad"
@@ -109,7 +109,7 @@ const LandingSection4 = ({
         <div className=" flex items-center justify-center font-bold mt-2">
           <img
             loading="lazy"
-            src="/main__difficult_emoji.webp"
+            src="landingPage/main__difficult_emoji.webp"
             className="object-contain relative max-w-full w-[125px] h-[125px] mt-5 bg-cover bg-center
             max-md:w-[105px] max-md:h-[105px] max-sm:w-[65px] max-sm:h-[55px]"
             alt="CN_main_ad"
