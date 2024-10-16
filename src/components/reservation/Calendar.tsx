@@ -53,6 +53,7 @@ export default function Calendar({ onDateSelect }: CalendarProps) {
       dateClick={handleDateClick}
       editable={false} // 이벤트 드래그 비활성화
       eventClick={handleEventClick}
+      contentHeight="auto"
     />
     // </div>
   );

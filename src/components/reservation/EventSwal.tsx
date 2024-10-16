@@ -7,7 +7,7 @@ const eventSwal = (info: { dateStr: string; formattedDate: string }) => {
     // confirmButtonText: "Save",
     customClass: {
       confirmButton:
-        'px-11 py-3.5 my-5 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:text-[#EA708A] hover:bg-[#ffffff] transition-colors duration-300',
+        'px-11 py-3.5 my-5 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:text-[#EA708A] hover:bg-[#FEE4E3] transition-colors duration-300',
       // cancelButton:
       //   'mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto',
       // popup: "!relative !transform !overflow-hidden !rounded-lg !bg-white !text-left !shadow-xl !transition-all sm:!my-8 sm:!w-full sm:!max-w-lg !p-0 !grid-cols-none",
