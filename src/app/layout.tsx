@@ -33,8 +33,8 @@ export default function RootLayout({
         <Providers>
           {/* @ts-expect-error server component */}
           {/* <Navbar /> */}
-          {/* {authModal} */}
-          <WellcomeHeader title="Well-Come" buttonText="로그인" />
+          {authModal}
+          <WellcomeHeader />
           <div
             className="container h-full py-16 bg-wellcome-white px-0
           max-sm:py-2 max-md:py-5

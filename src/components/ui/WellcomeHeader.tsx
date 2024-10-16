@@ -1,12 +1,16 @@
+import { getAuthSession } from '@/lib/auth';
 import Link from 'next/link';
 import React from 'react';
+import { buttonVariants } from './details/Button';
+import UserAccountNav from './UserAccountNav';
 
 interface WellcomeHeaderProps {
   title: string;
   buttonText: string;
 }
 
-const WellcomeHeader = ({ title, buttonText }: WellcomeHeaderProps) => {
+const WellcomeHeader = async () => {
+  const session = await getAuthSession();
   return (
     <header
       className="flex gap-5 justify-between w-full bg-wellcome-white text-center whitespace-nowrap  max-md:max-w-full px-20
@@ -28,12 +32,22 @@ const WellcomeHeader = ({ title, buttonText }: WellcomeHeaderProps) => {
             className="object-contain shrink-0 aspect-[1.95] w-[78px]"
             alt="Well-come logo"
           />
-          <div className="my-auto basis-auto font-museo ">{title}</div>
+          <div className="my-auto basis-auto font-museo ">Well-Come</div>
         </div>
       </Link>
-      <button className="px-4 py-1 text-lg font-bold tracking-tight text-white bg-wellcome-pink rounded-sm shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:px-3">
+
+      {session ? (
+          <div>
+            <UserAccountNav user={session.user} />
+          </div>
+        ) : (
+          <Link href="/sign-in" className={buttonVariants()}>
+            Sign in
+          </Link>
+        )}
+      {/* <button className="px-4 py-1 text-lg font-bold tracking-tight text-white bg-wellcome-pink rounded-sm shadow-[0px_4px_4px_rgba(0,0,0,0.25)] max-md:px-3">
         {buttonText}
-      </button>
+      </button> */}
     </header>
   );
 };

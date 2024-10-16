@@ -6,7 +6,7 @@ export default function Redirect() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push('/userflow');
+    // router.push('/userSurvey');
   }, [router]);
 
   return null;

@@ -5,7 +5,7 @@ import SurveyAnswer from '@/components/userSurvey/SurveyAnswer';
 
 interface QuestionDisplayProps {
     questions: Question;
-    selectedAnswer: string[];
+    selectedAnswer: string;
     onAnswerChange: (value: string) => void;
 }
 
