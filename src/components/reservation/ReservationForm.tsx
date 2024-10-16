@@ -30,8 +30,13 @@ interface ReservationFormProps {
 }
 
 const ReservationForm = ({ selectedDate }: ReservationFormProps) => {
-  const fields = ['추천 시술', '비용', '예약일'];
-  const ans = ['울쎄라', '10만원', selectedDate || ''];
+  const fields = ['추천 시술', '유사 시술', '비용', '예약일'];
+  const ans = [
+    '울쎄라',
+    '가나다라마바사아자차카타파하',
+    '10만원',
+    selectedDate || '',
+  ];
 
   return (
     <form className="flex flex-col  itmes-center  justify-">

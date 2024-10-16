@@ -126,7 +126,8 @@ fullcalendar 커스텀
 
 /* 년/월 글자 */
 .fc .fc-toolbar-title {
-  @apply text-2xl font-bold;
+  @apply text-2xl font-bold 
+   max-sm:text-lg;
 }
 /* today 버튼 */
 .fc .fc-button-primary:disabled {

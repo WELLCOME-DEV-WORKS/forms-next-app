@@ -29,11 +29,17 @@ const ReservationPage = () => {
       >
         예약 페이지
       </h1>
-      <div className="flex flex-col md:flex-row md:items-center justify-between w-full max-w-4xl">
-        <div className="md:w-1/2 pr-4 content-center">
+      <div className="flex flex-col md:flex-row md:items-center justify-between w-full max-w-6xl">
+        <div
+          className="md:w-1/2 mr-11 content-center
+        max-lg:px-4 max-lg:mr-0"
+        >
           <ReservationForm selectedDate={selectedDate} />
         </div>
-        <div className="md:w-1/2 pl-4">
+        <div
+          className="md:w-1/2 ml-11
+        max-lg:px-4 max-lg:ml-0"
+        >
           <Calendar onDateSelect={handleDateSelect} />
         </div>
       </div>
