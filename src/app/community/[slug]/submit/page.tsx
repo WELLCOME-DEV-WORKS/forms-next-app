@@ -1,6 +1,5 @@
 import { db } from "@/lib/db";
 import { notFound } from "next/navigation";
-import { Editor } from "@/components/common/Editor";
 import { Button } from "@/components/ui/details/Button";
 
 interface PageProps {
@@ -35,7 +34,7 @@ const page = async ({ params }: PageProps) => {
       </div>
 
       {/* form */}
-      <Editor categoryId={category.id} />
+      {/* <Editor categoryId={category.id} /> */}
 
       <div className="w-full flex justify-end">
         <Button type="submit" className="w-full" form="category-post-form">
