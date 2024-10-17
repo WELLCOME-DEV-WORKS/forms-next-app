@@ -23,7 +23,7 @@ const LandingSection4 = ({
     >
       <img
         loading="lazy"
-        src="main_hand.webp"
+        src="landingPage/main_hand.webp"
         alt="main_hand"
         className="object-contain mt-6 max-w-full aspect-square w-[124px]
         max-md:mt-2 max-md:w-[94px] max-sm:mt-0 max-sm:w-[64px]"
@@ -34,7 +34,7 @@ const LandingSection4 = ({
       >
         <img
           loading="lazy"
-          src="CN_main_result.webp"
+          src="landingPage/CN/CN_main_result.webp"
           className="object-contain w-full h-auto transform
           max-md:scale-105 max-sm:scale-105 "
           alt="main_result"
@@ -47,7 +47,7 @@ const LandingSection4 = ({
       />
       <img
         loading="lazy"
-        src="main__line.webp"
+        src="landingPage/main__line.webp"
         alt="main__line"
         className="object-contain mt-[120px] max-w-full aspect-square w-[1084px] h-[1px] max-md:mt-10"
       />
@@ -64,7 +64,7 @@ const LandingSection4 = ({
       </div>
       <img
         loading="lazy"
-        src="main_hand.webp"
+        src="landingPage/main_hand.webp"
         alt="main_hand"
         className="object-contain mt-12 max-w-full aspect-square w-[124px]
         max-md:mt-8 max-md:w-[94px] max-sm:mt-6 max-sm:w-[64px]"

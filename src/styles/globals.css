@@ -126,7 +126,8 @@ fullcalendar 커스텀
 
 /* 년/월 글자 */
 .fc .fc-toolbar-title {
-  @apply text-2xl font-bold;
+  @apply text-2xl font-bold 
+  max-lg:text-lg max-sm:text-lg;
 }
 /* today 버튼 */
 .fc .fc-button-primary:disabled {
@@ -179,7 +180,7 @@ fullcalendar 커스텀
 }
 
 .fc .fc-event:hover {
-  @apply rounded-md border-none  hover:bg-wellcome-magenta transition-colors duration-500;
+  @apply rounded-md border-none  hover:bg-wellcome-magenta transition-colors duration-500 cursor-pointer;
 }
 
 /* 예약 버튼 title */

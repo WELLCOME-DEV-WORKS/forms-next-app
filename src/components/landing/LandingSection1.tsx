@@ -19,7 +19,7 @@ const LandingSection1 = ({
         className="flex flex-col justify-center shrink-0 max-w-full rounded-3xl w-[996px] h-[510px]  bg-cover bg-center
          max-sm:w-full max-sm:h-[294px] max-md:w-full max-md:h-[394px] max-lg:w-[805px] max-lg:h-[494px]"
         style={{
-          backgroundImage: "url('/main_banner.webp')",
+          backgroundImage: "url('landingPage/main_banner.webp')",
           boxShadow: '0px 4px 43.5px 0px rgba(0, 0, 0, 0.25)',
         }}
       >

@@ -112,14 +112,14 @@ const LandingSection3 = ({
         </div>
         <img
           loading="lazy"
-          src="/CN_main_graph.webp"
+          src="landingPage/CN/CN_main_graph.webp"
           className="object-contain mt-12 max-w-full aspect-square w-[675.596px] h-[294.848px] 
            max-lg:mt-8 max-md:mt-6 max-md:h-[270px] max-sm:h-[200px]"
           alt="pink arrow"
         />
         <img
           loading="lazy"
-          src="/main_yellow_arrow.webp"
+          src="landingPage/main_yellow_arrow.webp"
           className="object-contain mt-12 max-w-full aspect-square w-[150.949px] h-[104.054px] 
           max-lg:mt-8 max-lg:w-[120px] max-lg:h-[80px] max-md:mt-6 max-md:w-[100px] max-md:h-[60px] max-sm:mt-4 max-sm:w-[80px] max-sm:h-[40px]"
           alt="pink arrow"
@@ -152,7 +152,7 @@ const LandingSection3 = ({
         >
           <img
             loading="lazy"
-            src="/CN_main_people1.webp"
+            src="landingPage/CN/CN_main_people1.webp"
             className="object-contain max-w-full aspect-square w-[260px] h-[277px]
            max-md:h-[250px] max-sm:h-[220px]"
             alt="pink arrow"
@@ -164,7 +164,7 @@ const LandingSection3 = ({
         >
           <img
             loading="lazy"
-            src="/CN_main_people2.webp"
+            src="landingPage/CN/CN_main_people2.webp"
             className="object-contain max-w-full aspect-square w-[260px] h-[277px] 
             max-md:h-[250px] max-sm:h-[220px]"
             alt="pink arrow"
