@@ -223,8 +223,8 @@ const recommended: Recommendation[] = [
   },
 ];
 
-const RecommendedList = () => {
+const RecommendationList = () => {
   return recommended;
 };
 
-export default RecommendedList;
+export default RecommendationList;
