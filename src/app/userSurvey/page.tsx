@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import QuestionList from '@/components/userSurvey/QuestionList';
 import QuestionDisplay from '@/components/userSurvey/QuestionDisplay';
 import NavigationButtons from '@/components/userSurvey/NavigationButtons';
+import { useSurveyResultsStore } from '@/store/Store';
 
 const UserSurvey = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
@@ -12,6 +13,7 @@ const UserSurvey = () => {
   const [savedAnswers, setSavedAnswers] = useState<string[]>([]);
 
   const questions = QuestionList();
+  const { setSurveyResults } = useSurveyResultsStore();
 
   const handleAnswerChange = (value: string) => {
     setSelectedAnswer(value);
@@ -31,25 +33,27 @@ const UserSurvey = () => {
     setSavedAnswers((prev) => {
       const newAnswers = [...prev];
       newAnswers[currentQuestionIndex] = selectedAnswer; // 현재 질문 인덱스에 답변 저장
-      return newAnswers;
+
+      const nextQuestionIndex = getNextQuestionIndex(
+        currentQuestionIndex,
+        selectedAnswer
+      );
+
+      // 마지막 질문에 도달한 경우
+      if (nextQuestionIndex === questions.length) {
+        setSurveyResults(newAnswers); // 업데이트된 newAnswers를 사용하여 저장
+        Swal.fire({
+          icon: 'success',
+          text: '설문이 제출되었습니다!',
+        });
+        // 여기서 제출 로직 추가
+      } else if (nextQuestionIndex !== undefined) {
+        // nextQuestionIndex가 undefined가 아닐 경우에만 상태 업데이트
+        setCurrentQuestionIndex(nextQuestionIndex);
+      }
+
+      return newAnswers; // 상태 업데이트
     });
-
-    const nextQuestionIndex = getNextQuestionIndex(
-      currentQuestionIndex,
-      selectedAnswer
-    );
-
-    // 마지막 질문에 도달한 경우
-    if (nextQuestionIndex === questions.length) {
-      Swal.fire({
-        icon: 'success',
-        text: '설문이 제출되었습니다!',
-      });
-      // 여기서 제출 로직 추가
-    } else if (nextQuestionIndex !== undefined) {
-      // nextQuestionIndex가 undefined가 아닐 경우에만 상태 업데이트
-      setCurrentQuestionIndex(nextQuestionIndex);
-    }
   };
 
   const getNextQuestionIndex = (index: number, answers: string) => {
