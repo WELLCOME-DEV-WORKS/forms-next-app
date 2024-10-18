@@ -18,6 +18,7 @@ const UserSurvey = () => {
   };
 
   const handleNext = () => {
+    // 답변이 선택되지 않은 경우 경고 메시지 표시
     if (selectedAnswer.length === 0) {
       Swal.fire({
         icon: 'error',
@@ -26,56 +27,34 @@ const UserSurvey = () => {
       return;
     }
 
-    if (currentQuestionIndex < questions.length - 1) {
-      setSavedAnswers((prev) => {
-        const newAnswers = [...prev];
-        newAnswers[currentQuestionIndex] = selectedAnswer;
-        return newAnswers;
-      });
+    // 선택한 답변을 저장
+    setSavedAnswers((prev) => {
+      const newAnswers = [...prev];
+      newAnswers[currentQuestionIndex] = selectedAnswer; // 현재 질문 인덱스에 답변 저장
+      return newAnswers;
+    });
 
-      const nextQuestionIndex = getNextQuestionIndex(
-        currentQuestionIndex,
-        selectedAnswer
-      );
-      if (
-        nextQuestionIndex !== undefined &&
-        nextQuestionIndex < questions.length
-      ) {
-        setCurrentQuestionIndex(nextQuestionIndex);
-      } else {
-        console.error('Invalid question index:', nextQuestionIndex);
-      }
-      setSelectedAnswer('');
-    } else {
+    const nextQuestionIndex = getNextQuestionIndex(
+      currentQuestionIndex,
+      selectedAnswer
+    );
+
+    // 마지막 질문에 도달한 경우
+    if (nextQuestionIndex === questions.length) {
       Swal.fire({
         icon: 'success',
         text: '설문이 제출되었습니다!',
       });
-      // 제출 로직 추가
+      // 여기서 제출 로직 추가
+    } else if (nextQuestionIndex !== undefined) {
+      // nextQuestionIndex가 undefined가 아닐 경우에만 상태 업데이트
+      setCurrentQuestionIndex(nextQuestionIndex);
     }
   };
 
-  const handlePrevious = () => {
-    if (currentQuestionIndex > 0) {
-      const prevIndex = currentQuestionIndex - 1;
-      if (currentQuestionIndex > 6) {
-        setCurrentQuestionIndex(prevIndex);
-        setSelectedAnswer(savedAnswers[prevIndex] || ''); // 이전 질문의 답변 복원
-      } else {
-        setCurrentQuestionIndex(0);
-        setSelectedAnswer(savedAnswers[prevIndex] || ''); // 이전 질문의 답변 복원
-        setSavedAnswers(['']);
-      }
-    }
-  };
-
-  useEffect(() => {
-    console.log('savedAnswers =>', savedAnswers);
-  }, [savedAnswers]);
-  // 질문 결정 로직
   const getNextQuestionIndex = (index: number, answers: string) => {
     switch (index) {
-      case 0: // 고민 사항 선택
+      case 0:
         if (answers === '주름 개선, 윤곽 개선, 리프팅') return 1;
         if (answers === '피부결 개선, 모공 축소, 잡티 제거') return 2;
         if (answers === '흉터 제거, 점 제거') return 3;
@@ -95,14 +74,22 @@ const UserSurvey = () => {
     }
   };
 
+  const handlePrevious = () => {
+    if (currentQuestionIndex > 0) {
+      const prevIndex = currentQuestionIndex - 1;
+      setCurrentQuestionIndex(prevIndex);
+      setSelectedAnswer(savedAnswers[prevIndex] || '');
+    }
+  };
+
   useEffect(() => {
     console.log('savedAnswers =>', savedAnswers);
   }, [savedAnswers]);
 
   return (
-    <div className="flex overflow-hidden flex-col items-center px-20 py-10 whitespace-nowrap max-md:px-5">
-      <div className="flex flex-col w-full max-w-[1199px] max-md:max-w-full">
-        <div className="flex flex-col self-center px-8 py-11 max-w-full rounded-lg shadow-xl bg-white bg-opacity-30 w-[794px] max-md:px-5 max-md:mt-10">
+    <div className='flex overflow-hidden flex-col items-center px-20 py-10 whitespace-nowrap max-md:px-5'>
+      <div className='flex flex-col w-full max-w-[1199px] max-md:max-w-full'>
+        <div className='flex flex-col self-center px-8 py-11 max-w-full rounded-lg shadow-xl bg-white bg-opacity-30 w-[794px] max-md:px-5 max-md:mt-10'>
           <QuestionDisplay
             questions={questions[currentQuestionIndex]}
             selectedAnswer={selectedAnswer}
