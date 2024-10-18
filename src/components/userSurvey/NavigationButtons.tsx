@@ -1,5 +1,5 @@
 // import { Session } from "next-auth";
-import { useStoreSurvey } from '@/store/Store';
+import { useSurveyCompleteStore, useSurveyResultsStore } from '@/store/Store';
 import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
@@ -21,8 +21,12 @@ const NavigationButtons = ({
   const router = useRouter();
   // const [session, setSession] = useState<Session | null>(null);
   // const [redirectToReservation, setRedirectToReservation] = useState(false);
-  const setSurveyComplete = useStoreSurvey((state) => state.setSurveyComplete);
-  const surveyComplete = useStoreSurvey((state) => state.surveyComplete);
+  const setSurveyComplete = useSurveyCompleteStore(
+    (state) => state.setSurveyComplete
+  );
+  const surveyComplete = useSurveyCompleteStore(
+    (state) => state.surveyComplete
+  );
 
   useEffect(() => {
     console.log('surveyComplete =>', surveyComplete);
