@@ -1,8 +1,8 @@
-interface treatmentPrices {
+interface TreatmentPrices {
   [key: string]: string;
 }
 
-export const treatmentPrices = {
+export const treatmentPrices: TreatmentPrices = {
   필러: '평균 10,000원',
   보톡스: '평균 150,000원',
   프락셀: '평균 230,000원',

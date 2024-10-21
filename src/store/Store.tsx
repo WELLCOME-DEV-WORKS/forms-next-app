@@ -1,6 +1,8 @@
 'use client';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
+import RecommendationList from '@/components/recFlow/RecommendationList';
+import { treatmentPrices } from '@/components/recFlow/TreatmentPrices';
 
 interface SurveyCompleteState {
   surveyComplete: boolean;
@@ -28,7 +30,7 @@ interface SurveyResultsState {
   price: string | undefined;
   injectionArea: string | undefined;
   sideEffects: string | undefined;
-  setSurveyResults: (answers: string[]) => void; // 결과를 설정하는 메서드
+  setSurveyResults: (answers: string[]) => void;
 }
 export const useSurveyResultsStore = create<SurveyResultsState>()(
   devtools(
@@ -46,18 +48,42 @@ export const useSurveyResultsStore = create<SurveyResultsState>()(
         const sideEffects = answers[5] || '없음'; // 기본값 설정
         const price = answers[6] || '미정'; // 기본값 설정
 
+        // 추천 로직 실행
+        const recommended = RecommendationList().find(
+          (rec) =>
+            rec.category === treatmentPurpose &&
+            rec.method === treatmentMethod &&
+            rec.budget === price
+        );
+
+        const similarTreatments = RecommendationList()
+          .filter(
+            (rec) =>
+              rec.category === treatmentPurpose &&
+              rec.budget === price &&
+              rec.method !== treatmentMethod
+          )
+          .map((rec) => rec.result.join(', '));
+
+        const treatmentCost =
+          recommended?.result
+            .map((treatment) => treatmentPrices[treatment] || '가격 미정')
+            .join(', ') || '가격 미정';
+
+        // 상태 업데이트
         set({
           treatmentPurpose: treatmentPurpose,
-          treatmentMethod: treatmentMethod,
-          injectionArea: injectionArea,
+          treatmentMethod: recommended?.result.join(', ') || '추천 시술 없음',
+          injectionArea: similarTreatments.join(', ') || '유사 시술 없음',
           sideEffects: sideEffects,
-          price: price,
+          price: treatmentCost,
         });
 
         // 결과를 로컬 스토리지에 키-값 형태로 저장
         const surveyResults = {
           treatmentPurpose,
-          treatmentMethod,
+          recommendedMethod: recommended?.result.join(', ') || '추천 시술 없음',
+          similarTreatments: similarTreatments.join(', ') || '유사 시술 없음',
           injectionArea,
           sideEffects,
           price,
