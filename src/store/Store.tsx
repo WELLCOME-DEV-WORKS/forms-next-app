@@ -30,6 +30,8 @@ interface SurveyResultsState {
   price: string | undefined;
   injectionArea: string | undefined;
   sideEffects: string | undefined;
+  recommendedMethod: string | undefined;
+  similarTreatments: string | undefined;
   setSurveyResults: (answers: string[]) => void;
 }
 export const useSurveyResultsStore = create<SurveyResultsState>()(
@@ -40,6 +42,8 @@ export const useSurveyResultsStore = create<SurveyResultsState>()(
       injectionArea: undefined,
       sideEffects: undefined,
       price: undefined,
+      recommendedMethod: undefined,
+      similarTreatments: undefined,
       setSurveyResults: (answers) => {
         const treatmentPurpose = answers[0] || '기본값'; // 기본값 설정
         const treatmentMethod =
@@ -73,8 +77,10 @@ export const useSurveyResultsStore = create<SurveyResultsState>()(
         // 상태 업데이트
         set({
           treatmentPurpose: treatmentPurpose,
-          treatmentMethod: recommended?.result.join(', ') || '추천 시술 없음',
-          injectionArea: similarTreatments.join(', ') || '유사 시술 없음',
+          treatmentMethod: treatmentMethod,
+          recommendedMethod: recommended?.result.join(', ') || '추천 시술 없음',
+          similarTreatments: similarTreatments.join(', ') || '유사 시술 없음',
+          injectionArea: injectionArea,
           sideEffects: sideEffects,
           price: treatmentCost,
         });
@@ -95,6 +101,8 @@ export const useSurveyResultsStore = create<SurveyResultsState>()(
         set({
           treatmentPurpose: undefined,
           treatmentMethod: undefined,
+          recommendedMethod: undefined,
+          similarTreatments: undefined,
           price: undefined,
           injectionArea: undefined,
           sideEffects: undefined,

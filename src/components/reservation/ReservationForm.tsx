@@ -1,3 +1,6 @@
+import { useSurveyResultsStore } from '@/store/Store';
+import { treatmentPrices } from '../recFlow/TreatmentPrices';
+
 interface FormFieldProps {
   label: string;
   ans: string;
@@ -14,7 +17,10 @@ const FormField = ({ label, ans }: FormFieldProps) => {
         >
           {label}
         </div>
-        <div className="w-2/3 z-10 text-center justify-center text-wellcome-pink text-xl font-bold">
+        <div
+          className="w-2/3 z-10 text-center justify-center text-wellcome-pink text-xl font-bold"
+          style={{ whiteSpace: 'pre-line' }}
+        >
           {ans}
         </div>
       </div>
@@ -30,12 +36,24 @@ interface ReservationFormProps {
 }
 
 const ReservationForm = ({ selectedDate }: ReservationFormProps) => {
+  const { recommendedMethod, similarTreatments, price } =
+    useSurveyResultsStore();
+
+  // 비용 계산 로직
+  const calculatePriceDetails = (methods: string) => {
+    if (!methods) return ''; // 값이 없으면 빈 문자열 반환
+    const methodList = methods.split(', ');
+    return methodList
+      .map((method) => `${method}: ${treatmentPrices[method] || '정보 없음'}`)
+      .join('\n');
+  };
+
   const fields = ['추천 시술', '유사 시술', '비용', '예약일'];
   const ans = [
-    '울쎄라',
-    '가나다라마바사아자차카타파하',
-    '10만원',
-    selectedDate || '',
+    recommendedMethod || '',
+    similarTreatments || '',
+    calculatePriceDetails(recommendedMethod || ''), // 비용 계산하여 표시
+    selectedDate || '예약일을 선택해주세요.',
   ];
 
   return (
