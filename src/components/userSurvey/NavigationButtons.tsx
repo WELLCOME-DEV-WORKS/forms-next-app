@@ -43,7 +43,7 @@ const NavigationButtons = ({
         setSurveyComplete(true);
         setTimeout(async () => {
           await router.push('/sign-in');
-        }, 3000);
+        }, 1100);
         return;
       }
       await router.push('/reservation');
@@ -53,10 +53,10 @@ const NavigationButtons = ({
   };
 
   return (
-    <div className='flex justify-center gap-5 self-center mt-11 max-w-full text-center'>
+    <div className="flex justify-center gap-5 self-center mt-11 max-w-full text-center">
       <div
-        className='px-10 py-3.5 text-white bg-wellcome-pink rounded max-md:px-5 cursor-pointer
-        hover:text-[#EA708A] hover:bg-[#FEE4E3] transition-colors duration-300'
+        className="px-10 py-3.5 text-white bg-wellcome-pink rounded max-md:px-5 cursor-pointer
+        hover:text-[#EA708A] hover:bg-[#FEE4E3] transition-colors duration-300"
         onClick={onPrevious}
         style={{
           visibility: currentQuestionIndex === 0 ? 'hidden' : 'visible',
@@ -66,8 +66,8 @@ const NavigationButtons = ({
         이전
       </div>
       <div
-        className='px-10 py-3.5 text-wellcome-pink bg-white rounded border-2 border-wellcome-pink border-solid max-md:px-5 cursor-pointer
-        hover:text-wellcome-peach hover:bg-wellcome-pink border-wellcome-pink transition-colors duration-300'
+        className="px-10 py-3.5 text-wellcome-pink bg-white rounded border-2 border-wellcome-pink border-solid max-md:px-5 cursor-pointer
+        hover:text-wellcome-peach hover:bg-wellcome-pink border-wellcome-pink transition-colors duration-300"
         onClick={handleNext}
       >
         {currentQuestionIndex === totalQuestions - 1 ? '예약' : '다음'}

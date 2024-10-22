@@ -45,6 +45,8 @@ const UserSurvey = () => {
         Swal.fire({
           icon: 'success',
           text: '설문이 제출되었습니다!',
+          showConfirmButton: false,
+          timer: 1000,
         });
         // 여기서 제출 로직 추가
       } else if (nextQuestionIndex !== undefined) {
@@ -91,9 +93,9 @@ const UserSurvey = () => {
   }, [savedAnswers]);
 
   return (
-    <div className='flex overflow-hidden flex-col items-center px-20 py-10 whitespace-nowrap max-md:px-5'>
-      <div className='flex flex-col w-full max-w-[1199px] max-md:max-w-full'>
-        <div className='flex flex-col self-center px-8 py-11 max-w-full rounded-lg shadow-xl bg-white bg-opacity-30 w-[794px] max-md:px-5 max-md:mt-10'>
+    <div className="flex overflow-hidden flex-col items-center pt-1 pb-20 py-10 whitespace-nowrap max-md:px-5">
+      <div className="flex flex-col w-full max-w-[1199px] max-md:max-w-full">
+        <div className="flex flex-col self-center px-8 py-11 max-w-full rounded-lg shadow-xl bg-white bg-opacity-30 w-[794px] max-md:px-5 max-md:mt-10">
           <QuestionDisplay
             questions={questions[currentQuestionIndex]}
             selectedAnswer={selectedAnswer}

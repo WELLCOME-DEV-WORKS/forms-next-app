@@ -1,18 +1,18 @@
-import Navbar from "@/components/ui/Navbar";
-import Providers from "@/components/Providers";
-import { Toaster } from "@/components/ui/details/Toaster";
-import { cn } from "@/lib/utils";
-import "@/styles/globals.css";
-import { Inter } from "next/font/google";
-import WellcomeHeader from "@/components/ui/WellcomeHeader";
-import WellcomeFooter from "@/components/ui/WellcomeFooter";
+import Navbar from '@/components/ui/Navbar';
+import Providers from '@/components/Providers';
+import { Toaster } from '@/components/ui/details/Toaster';
+import { cn } from '@/lib/utils';
+import '@/styles/globals.css';
+import { Inter } from 'next/font/google';
+import WellcomeHeader from '@/components/ui/WellcomeHeader';
+import WellcomeFooter from '@/components/ui/WellcomeFooter';
 
 export const metadata = {
-  title: "Community-fe-app",
-  description: "A Reddit clone built with Next.js and TypeScript.",
+  title: 'Community-fe-app',
+  description: 'A Reddit clone built with Next.js and TypeScript.',
 };
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
@@ -25,7 +25,7 @@ export default function RootLayout({
     <html
       lang="cn"
       className={cn(
-        "bg-wellcome-white text-slate-900 antialiased light",
+        'bg-wellcome-white text-slate-900 antialiased light',
         inter.className
       )}
     >

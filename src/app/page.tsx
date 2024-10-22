@@ -1,12 +1,14 @@
-'use client'
+'use client';
 import { SurveyComplete } from '@/components/SurveyComplete';
 import Redirect from '@/components/ui/Redirect';
 import { buttonVariants } from '@/components/ui/details/Button';
-import { useLoadSurveyComplete, useSurveyRedirect } from '@/hooks/useSurveyRedirect';
+import {
+  useLoadSurveyComplete,
+  useSurveyRedirect,
+} from '@/hooks/useSurveyRedirect';
 import { HomeIcon } from 'lucide-react';
 import Link from 'next/link';
-
-
+import Landing from './landing/page';
 export const dynamic = 'force-dynamic';
 export const fetchCache = 'force-no-store';
 
@@ -15,8 +17,9 @@ export default function Home() {
   useLoadSurveyComplete();
   return (
     <>
-      <Link href='/userSurvey'>설문 링크</Link>
-      <SurveyComplete />
+      <Landing />
+      {/* <Link href="/userSurvey">설문 링크</Link> */}
+      {/* <SurveyComplete /> */}
       {/* <Redirect /> */}
       {/* <h1 className="font-bold text-3xl md:text-4xl">Landing Page</h1> */}
       {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-y-4 md:gap-x-4 py-6">
