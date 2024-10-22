@@ -17,6 +17,7 @@ const SurveyAnswer = ({
   return (
     <div className="flex gap-5 mt-5 items-center">
       <input
+        id={value}
         name={name}
         type="checkbox"
         value={value}
