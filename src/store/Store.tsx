@@ -33,6 +33,7 @@ interface SurveyResultsState {
   recommendedMethod: string | undefined;
   similarTreatments: string | undefined;
   setSurveyResults: (answers: string[]) => void;
+  loadFromLocal: () => void; // localStorage에서 값 로드
 }
 export const useSurveyResultsStore = create<SurveyResultsState>()(
   devtools(
@@ -44,6 +45,7 @@ export const useSurveyResultsStore = create<SurveyResultsState>()(
       price: undefined,
       recommendedMethod: undefined,
       similarTreatments: undefined,
+
       setSurveyResults: (answers) => {
         const treatmentPurpose = answers[0] || '기본값'; // 기본값 설정
         const treatmentMethod =
@@ -97,6 +99,24 @@ export const useSurveyResultsStore = create<SurveyResultsState>()(
         localStorage.setItem('SurveyResults', JSON.stringify(surveyResults)); // 결과를 로컬 스토리지에 저장
         console.log('설문 결과 저장:', surveyResults);
       },
+
+      // 로컬스토리지에서 값 로드
+      loadFromLocal: () => {
+        const storedResults = localStorage.getItem('SurveyResults');
+        if (storedResults) {
+          const parsedResults = JSON.parse(storedResults);
+          set({
+            treatmentPurpose: parsedResults.treatmentPurpose,
+            treatmentMethod: parsedResults.treatmentMethod,
+            recommendedMethod: parsedResults.recommendedMethod,
+            similarTreatments: parsedResults.similarTreatments,
+            injectionArea: parsedResults.injectionArea,
+            sideEffects: parsedResults.sideEffects,
+            price: parsedResults.price,
+          });
+        }
+      },
+
       clearSurveyResults: () =>
         set({
           treatmentPurpose: undefined,
