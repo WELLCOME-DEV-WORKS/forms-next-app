@@ -25,7 +25,7 @@ const SurveyAnswer = ({
         checked={checked}
         className="shrink-0 w-5 h-5 bg-white rounded-full border-solid border-[3px] border-zinc-800 cursor-pointer"
       />
-      <label htmlFor={value} className="align-middle">
+      <label htmlFor={value} className="align-middle cursor-pointer">
         {answer}
       </label>
     </div>
