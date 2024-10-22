@@ -18,7 +18,7 @@ const LandingSection4 = ({
 }: LandingSection4Props) => {
   return (
     <section
-      className="flex flex-col items-center t-12 text-center font-bold cursor-default font-Pretendard px-[1rem] pb-2
+      className="flex flex-col items-center t-12 text-center font-bold cursor-default px-[1rem] pb-2
     max-lg:w-full max-lg:px-[1rem] max-lg:pb-3 max-md:w-full max-md:px-[1rem] max-md:mt-0 max-sm:mt-0"
     >
       <img

@@ -14,7 +14,7 @@ const LandingSection1 = ({
   subtitle,
 }: LandingSection1Props) => {
   return (
-    <section className="flex flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold cursor-default font-Pretendard">
+    <section className="flex flex-col items-center t-12 text-center max-md:mt-10 max-md:max-w-full font-bold cursor-default ">
       <div
         className="flex flex-col justify-center shrink-0 max-w-full rounded-3xl w-[996px] h-[510px]  bg-cover bg-center
          max-sm:w-full max-sm:h-[294px] max-md:w-full max-md:h-[394px] max-lg:w-[805px] max-lg:h-[494px]"

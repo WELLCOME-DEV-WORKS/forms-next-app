@@ -101,6 +101,16 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'NotoSansSC';
+  src: url('/fonts/NotoSansSC-SemiBold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  font-family: 'NotoSansSC', sans-serif;
+}
+
 /** 
 fullcalendar 커스텀
  **/
