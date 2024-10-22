@@ -122,25 +122,25 @@ const RecommendationList = (): Recommendation[] => {
       category: '피부결 개선, 모공 축소, 잡티 제거',
       method: '레이저',
       budget: '10만원 이하',
-      result: ['프락셀', '피코슈어', 'CO2 레이저', 'IPL'],
+      result: ['프락셀', '피코슈어', 'CO2레이저', 'IPL'],
     },
     {
       category: '피부결 개선, 모공 축소, 잡티 제거',
       method: '레이저',
       budget: '50만원 이하',
-      result: ['프락셀', '피코슈어', 'CO2 레이저', 'IPL'],
+      result: ['프락셀', '피코슈어', 'CO2레이저', 'IPL'],
     },
     {
       category: '피부결 개선, 모공 축소, 잡티 제거',
       method: '레이저',
       budget: '100만원 이하',
-      result: ['프락셀', '피코슈어', 'CO2 레이저', 'IPL'],
+      result: ['프락셀', '피코슈어', 'CO2레이저', 'IPL'],
     },
     {
       category: '피부결 개선, 모공 축소, 잡티 제거',
       method: '레이저',
       budget: '100만원 이상',
-      result: ['프락셀', '피코슈어', 'CO2 레이저', 'IPL'],
+      result: ['프락셀', '피코슈어', 'CO2레이저', 'IPL'],
     },
 
     // 피부결개선, 모공축소, 잡티제거
@@ -176,25 +176,25 @@ const RecommendationList = (): Recommendation[] => {
       category: '흉터 제거, 점 제거',
       method: '레이저',
       budget: '10만원 이하',
-      result: ['레이저 토닝', '피코슈어', 'CO2 레이저'],
+      result: ['레이저토닝', '피코슈어', 'CO2레이저'],
     },
     {
       category: '흉터 제거, 점 제거',
       method: '레이저',
       budget: '50만원 이하',
-      result: ['레이저 토닝', '피코슈어', 'CO2 레이저'],
+      result: ['레이저토닝', '피코슈어', 'CO2레이저'],
     },
     {
       category: '흉터 제거, 점 제거',
       method: '레이저',
       budget: '100만원 이하',
-      result: ['레이저 토닝', '피코슈어', 'CO2 레이저'],
+      result: ['레이저토닝', '피코슈어', 'CO2레이저'],
     },
     {
       category: '흉터 제거, 점 제거',
       method: '레이저',
       budget: '100만원 이상',
-      result: ['레이저 토닝', '피코슈어', 'CO2 레이저'],
+      result: ['레이저토닝', '피코슈어', 'CO2레이저'],
     },
   ];
 };
