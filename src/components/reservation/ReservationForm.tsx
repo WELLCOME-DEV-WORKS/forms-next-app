@@ -1,6 +1,6 @@
 import { useSurveyResultsStore } from '@/store/Store';
 import { treatmentPrices } from '../recFlow/TreatmentPrices';
-
+import { useEffect } from 'react';
 interface FormFieldProps {
   label: string;
   ans: string;
@@ -36,8 +36,13 @@ interface ReservationFormProps {
 }
 
 const ReservationForm = ({ selectedDate }: ReservationFormProps) => {
-  const { recommendedMethod, similarTreatments, price } =
+  const { recommendedMethod, similarTreatments, price, loadFromLocal } =
     useSurveyResultsStore();
+
+  // 페이지 로드 시 localStorage에서 값 불러오기
+  useEffect(() => {
+    loadFromLocal();
+  }, [loadFromLocal]);
 
   // 비용 계산 로직
   const calculatePriceDetails = (methods: string) => {
