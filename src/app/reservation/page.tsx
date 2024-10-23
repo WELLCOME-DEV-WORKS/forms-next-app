@@ -47,7 +47,7 @@ const RecPage = () => {
       <h2 className="mt-12 text-2xl text-wellcome-pink font-bold">
         예약 시 전문 통역사 동행하여 상담이 진행됩니다!
       </h2>
-      <div className="flex flex-row">
+      <div className="flex justify-center gap-5 self-center max-w-full text-center">
         <Link href="/recommendation">
           <button
             className="px-11 py-3.5 my-8 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] 
