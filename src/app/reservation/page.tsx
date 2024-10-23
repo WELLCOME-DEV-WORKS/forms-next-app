@@ -2,8 +2,9 @@
 import Calendar from '@/components/reservation/Calendar';
 import ReservationForm from '@/components/reservation/ReservationForm';
 import React, { useState } from 'react';
+import Link from 'next/link';
 
-const ReservationPage = () => {
+const RecPage = () => {
   // 예약 날짜 상태 정의
   const [selectedDate, setSelectedDate] = useState('');
 
@@ -44,19 +45,28 @@ const ReservationPage = () => {
         </div>
       </div>
       <h2 className="mt-12 text-2xl text-wellcome-pink font-bold">
-        예약시 전문 통역사 동행 서비스를 제공합니다.
+        예약 시 전문 통역사 동행하여 상담이 진행됩니다!
       </h2>
-      <button
-        className="px-11 py-3.5 my-8 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] 
+      <div className="flex justify-center gap-5 self-center max-w-full text-center">
+        <Link href="/recommendation">
+          <button
+            className="px-11 py-3.5 my-8 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] 
         hover:text-[#EA708A] hover:bg-[#FEE4E3] transition-colors duration-300"
-      >
-        예약하기
-      </button>
-      {/* <div className='flex-row self-center px-16 py-6 mt-[4rem] w-1/3 font-extrabold text-white whitespace-nowrap text-center bg-wellcome-pink hover:bg-wellcome-peach  rounded-xl  max-md:px-5 max-md:mt-10'>
-          예약하기
-        </div> */}
+          >
+            이전
+          </button>
+        </Link>
+        <Link href="/reservation">
+          <button
+            className="px-11 py-3.5 my-8 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] 
+        hover:text-[#EA708A] hover:bg-[#FEE4E3] transition-colors duration-300"
+          >
+            예약하기
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
 
-export default ReservationPage;
+export default RecPage;

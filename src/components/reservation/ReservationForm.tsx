@@ -1,5 +1,5 @@
 import { useSurveyResultsStore } from '@/store/Store';
-import { treatmentPrices } from '../recFlow/TreatmentPrices';
+import { PricesList } from '../recFlow/PricesList';
 import { useEffect } from 'react';
 interface FormFieldProps {
   label: string;
@@ -36,30 +36,15 @@ interface ReservationFormProps {
 }
 
 const ReservationForm = ({ selectedDate }: ReservationFormProps) => {
-  const { recommendedMethod, similarTreatments, price, loadFromLocal } =
-    useSurveyResultsStore();
+  const { loadLocal } = useSurveyResultsStore();
 
   // 페이지 로드 시 localStorage에서 값 불러오기
   useEffect(() => {
-    loadFromLocal();
-  }, [loadFromLocal]);
+    loadLocal();
+  }, [loadLocal]);
 
-  // 비용 계산 로직
-  const calculatePriceDetails = (methods: string) => {
-    if (!methods) return ''; // 값이 없으면 빈 문자열 반환
-    const methodList = methods.split(', ');
-    return methodList
-      .map((method) => `${method}: ${treatmentPrices[method] || '정보 없음'}`)
-      .join('\n');
-  };
-
-  const fields = ['추천 시술', '유사 시술', '비용', '예약일'];
-  const ans = [
-    recommendedMethod || '',
-    similarTreatments || '',
-    calculatePriceDetails(recommendedMethod || ''), // 비용 계산하여 표시
-    selectedDate || '예약일을 선택해주세요.',
-  ];
+  const fields = ['예약일'];
+  const ans = [selectedDate || '예약일을 선택해주세요.'];
 
   return (
     <form className="flex flex-col itmes-center justify-">

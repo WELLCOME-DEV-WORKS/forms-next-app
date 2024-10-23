@@ -2,7 +2,8 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import RecommendationList from '@/components/recFlow/RecommendationList';
-import { treatmentPrices } from '@/components/recFlow/TreatmentPrices';
+import { PricesList } from '@/components/recFlow/PricesList';
+import { MethodsList } from '@/components/recFlow/MethodsList';
 
 interface SurveyCompleteState {
   surveyComplete: boolean;
@@ -33,7 +34,7 @@ interface SurveyResultsState {
   recommendedMethod: string | undefined;
   similarTreatments: string | undefined;
   setSurveyResults: (answers: string[]) => void;
-  loadFromLocal: () => void; // localStorage에서 값 로드
+  loadLocal: () => void; // localStorage에서 값 로드
 }
 export const useSurveyResultsStore = create<SurveyResultsState>()(
   devtools(
@@ -73,7 +74,7 @@ export const useSurveyResultsStore = create<SurveyResultsState>()(
 
         const treatmentCost =
           recommended?.result
-            .map((treatment) => treatmentPrices[treatment] || '가격 미정')
+            .map((treatment) => PricesList[treatment] || '가격 미정')
             .join(', ') || '가격 미정';
 
         // 상태 업데이트
@@ -101,7 +102,7 @@ export const useSurveyResultsStore = create<SurveyResultsState>()(
       },
 
       // 로컬스토리지에서 값 로드
-      loadFromLocal: () => {
+      loadLocal: () => {
         const storedResults = localStorage.getItem('SurveyResults');
         if (storedResults) {
           const parsedResults = JSON.parse(storedResults);

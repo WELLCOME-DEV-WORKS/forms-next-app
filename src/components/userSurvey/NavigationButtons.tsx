@@ -46,7 +46,7 @@ const NavigationButtons = ({
         }, 1100);
         return;
       }
-      await router.push('/reservation');
+      await router.push('/recommendation');
     } else {
       onNext();
     }
@@ -70,7 +70,7 @@ const NavigationButtons = ({
         hover:text-wellcome-peach hover:bg-wellcome-pink border-wellcome-pink transition-colors duration-300"
         onClick={handleNext}
       >
-        {currentQuestionIndex === totalQuestions - 1 ? '예약' : '다음'}
+        {currentQuestionIndex === totalQuestions - 1 ? '결과' : '다음'}
       </div>
     </div>
   );
