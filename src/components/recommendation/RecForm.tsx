@@ -1,12 +1,15 @@
 import { useSurveyResultsStore } from '@/store/Store';
 import { PricesList } from '../recFlow/PricesList';
 import { useEffect } from 'react';
+import { MethodsList } from '../recFlow/MethodsList';
+
 interface FormFieldProps {
   label: string;
   ans: string;
+  text?: string; // text를 선택적 prop으로 설정
 }
 
-const FormField = ({ label, ans }: FormFieldProps) => {
+const FormField = ({ label, ans, text }: FormFieldProps) => {
   return (
     <div
       className="flex flex-col mb-8 w-full h-full items-center justify-center
@@ -20,11 +23,19 @@ const FormField = ({ label, ans }: FormFieldProps) => {
         >
           {label}
         </div>
+
         <div
           className="w-full px-16 py-9 mt-11 rounded-2xl text-center justify-center text-wellcome-pink text-xl font-bold border-2 border-rose-400 border-dashed max-md:px-5 max-md:mt-10 max-md:max-w-full"
           style={{ whiteSpace: 'pre-line' }}
         >
           {ans}
+        </div>
+        <div
+          className="
+            pt-2 w-full text-left text-wellcome-pink text-md
+             font-bold"
+        >
+          {text}
         </div>
       </div>
     </div>
@@ -43,8 +54,14 @@ const RecForm = () => {
     loadLocal();
   }, [loadLocal]);
 
-  // 모든 시술 방법 목록
-  const allTreatmentMethods = ['주사', '레이저', '필링', '고주파', '실리프팅'];
+  // MethodList에서 시술 목록 갖고오기
+  const allTreatmentMethods = Object.values(MethodsList);
+  const unselectedMethods = allTreatmentMethods.filter(
+    (method) => method !== treatmentMethod
+  );
+  const treatmentMethodsText =
+    `선택하신 시술 방법(${treatmentMethod || '없음'})외에도` +
+    `다른 시술 방법(${unselectedMethods.join(', ')}) 시술도 추천드립니다.`;
 
   // 비용 계산 로직
   const calculatePriceDetails = (methods: string) => {
@@ -60,11 +77,17 @@ const RecForm = () => {
     calculatePriceDetails(recommendedMethod || ''), // 비용 계산하여 표시
     calculatePriceDetails(similarTreatments || ''),
   ];
+  const text = [treatmentMethodsText];
 
   return (
     <form className="flex justify-center w-[85%]">
       {fields.map((field, index) => (
-        <FormField key={index} label={field} ans={ans[index]} />
+        <FormField
+          key={index}
+          label={field}
+          ans={ans[index]}
+          text={index === 1 ? treatmentMethodsText : undefined} // '그 외 시술'일 때만 text 전달
+        />
       ))}
     </form>
   );

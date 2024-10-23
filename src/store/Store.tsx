@@ -3,6 +3,7 @@ import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import RecommendationList from '@/components/recFlow/RecommendationList';
 import { PricesList } from '@/components/recFlow/PricesList';
+import { MethodsList } from '@/components/recFlow/MethodsList';
 
 interface SurveyCompleteState {
   surveyComplete: boolean;
