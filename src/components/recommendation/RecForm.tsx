@@ -28,14 +28,13 @@ const FormField = ({ label, ans, text }: FormFieldProps) => {
           className="w-full px-16 py-9 mt-11 rounded-2xl text-center justify-center text-wellcome-pink text-xl font-bold border-2 border-rose-400 border-dashed max-md:px-5 max-md:mt-10 max-md:max-w-full"
           style={{ whiteSpace: 'pre-line' }}
         >
+          <div
+            className="
+            pb-5 w-full text-left text-wellcome-magenta text-sm font-bold"
+          >
+            {text}
+          </div>
           {ans}
-        </div>
-        <div
-          className="
-            pt-2 w-full text-left text-wellcome-pink text-md
-             font-bold"
-        >
-          {text}
         </div>
       </div>
     </div>
@@ -48,6 +47,7 @@ const FormField = ({ label, ans, text }: FormFieldProps) => {
 const RecForm = () => {
   const { recommendedMethod, similarTreatments, treatmentMethod, loadLocal } =
     useSurveyResultsStore();
+  console.log('treatmentMethod', treatmentMethod);
 
   // 페이지 로드 시 localStorage에서 값 불러오기
   useEffect(() => {
@@ -60,7 +60,7 @@ const RecForm = () => {
     (method) => method !== treatmentMethod
   );
   const treatmentMethodsText =
-    `선택하신 시술 방법(${treatmentMethod || '없음'})외에도` +
+    `선택하신 시술 방법(${treatmentMethod || '없음'})외에도 ` +
     `다른 시술 방법(${unselectedMethods.join(', ')}) 시술도 추천드립니다.`;
 
   // 비용 계산 로직
