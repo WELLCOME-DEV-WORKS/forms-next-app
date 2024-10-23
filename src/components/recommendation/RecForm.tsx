@@ -1,5 +1,5 @@
 import { useSurveyResultsStore } from '@/store/Store';
-import { treatmentPrices } from '../recFlow/TreatmentPrices';
+import { PricesList } from '../recFlow/PricesList';
 import { useEffect } from 'react';
 interface FormFieldProps {
   label: string;
@@ -35,7 +35,7 @@ const FormField = ({ label, ans }: FormFieldProps) => {
 };
 
 const RecForm = () => {
-  const { recommendedMethod, similarTreatments, price, loadLocal } =
+  const { recommendedMethod, similarTreatments, treatmentMethod, loadLocal } =
     useSurveyResultsStore();
 
   // 페이지 로드 시 localStorage에서 값 불러오기
@@ -43,12 +43,15 @@ const RecForm = () => {
     loadLocal();
   }, [loadLocal]);
 
+  // 모든 시술 방법 목록
+  const allTreatmentMethods = ['주사', '레이저', '필링', '고주파', '실리프팅'];
+
   // 비용 계산 로직
   const calculatePriceDetails = (methods: string) => {
     if (!methods) return ''; // 값이 없으면 빈 문자열 반환
     const methodList = methods.split(', ');
     return methodList
-      .map((method) => `${method}: ${treatmentPrices[method] || '정보 없음'}`)
+      .map((method) => `${method}: ${PricesList[method] || '정보 없음'}`)
       .join('\n');
   };
 

@@ -2,7 +2,7 @@
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
 import RecommendationList from '@/components/recFlow/RecommendationList';
-import { treatmentPrices } from '@/components/recFlow/TreatmentPrices';
+import { PricesList } from '@/components/recFlow/PricesList';
 
 interface SurveyCompleteState {
   surveyComplete: boolean;
@@ -73,7 +73,7 @@ export const useSurveyResultsStore = create<SurveyResultsState>()(
 
         const treatmentCost =
           recommended?.result
-            .map((treatment) => treatmentPrices[treatment] || '가격 미정')
+            .map((treatment) => PricesList[treatment] || '가격 미정')
             .join(', ') || '가격 미정';
 
         // 상태 업데이트
