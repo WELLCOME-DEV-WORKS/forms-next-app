@@ -33,7 +33,7 @@ interface SurveyResultsState {
   recommendedMethod: string | undefined;
   similarTreatments: string | undefined;
   setSurveyResults: (answers: string[]) => void;
-  loadFromLocal: () => void; // localStorage에서 값 로드
+  loadLocal: () => void; // localStorage에서 값 로드
 }
 export const useSurveyResultsStore = create<SurveyResultsState>()(
   devtools(
@@ -101,7 +101,7 @@ export const useSurveyResultsStore = create<SurveyResultsState>()(
       },
 
       // 로컬스토리지에서 값 로드
-      loadFromLocal: () => {
+      loadLocal: () => {
         const storedResults = localStorage.getItem('SurveyResults');
         if (storedResults) {
           const parsedResults = JSON.parse(storedResults);

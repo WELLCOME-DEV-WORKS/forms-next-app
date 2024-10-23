@@ -36,13 +36,13 @@ interface ReservationFormProps {
 }
 
 const ReservationForm = ({ selectedDate }: ReservationFormProps) => {
-  const { recommendedMethod, similarTreatments, price, loadFromLocal } =
+  const { recommendedMethod, similarTreatments, price, loadLocal } =
     useSurveyResultsStore();
 
   // 페이지 로드 시 localStorage에서 값 불러오기
   useEffect(() => {
-    loadFromLocal();
-  }, [loadFromLocal]);
+    loadLocal();
+  }, [loadLocal]);
 
   // 비용 계산 로직
   const calculatePriceDetails = (methods: string) => {
