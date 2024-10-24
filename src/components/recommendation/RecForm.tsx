@@ -1,7 +1,7 @@
 import { useSurveyResultsStore } from '@/store/Store';
 import { PricesList } from '../recFlow/PricesList';
 import { useEffect } from 'react';
-import { MethodsList } from '../recFlow/MethodsList';
+import { getRecResults } from '@/components/recommendation/RecLogic';
 
 interface FormFieldProps {
   label: string;
@@ -32,14 +32,11 @@ const FormField = ({ label, ans }: FormFieldProps) => {
         </div>
       </div>
     </div>
-    // <div className="flex flex-col mt-12 max-w-full text-black bg-white w-[349px] max-md:mt-10">
-    //   <div className="px-9 py-4 bg-white max-md:px-5">{label}</div>
-    // </div>
   );
 };
 
 const RecForm = () => {
-  const { recommendedMethod, similarTreatments, treatmentMethod, loadLocal } =
+  const { treatmentPurpose, treatmentMethod, price, loadLocal } =
     useSurveyResultsStore();
   console.log('treatmentMethod', treatmentMethod);
 
@@ -48,10 +45,11 @@ const RecForm = () => {
     loadLocal();
   }, [loadLocal]);
 
-  // MethodList에서 시술 목록 갖고오기
-  const allTreatmentMethods = Object.values(MethodsList);
-  const unselectedMethods = allTreatmentMethods.filter(
-    (method) => method !== treatmentMethod
+  // 추천 결과 로직 호출
+  const { recommendedMethod, similarTreatments, treatmentCost } = getRecResults(
+    treatmentPurpose || '',
+    treatmentMethod || '',
+    price || ''
   );
 
   // 비용 계산 로직
