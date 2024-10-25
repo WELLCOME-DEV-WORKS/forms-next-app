@@ -4,18 +4,14 @@ import { useSurveyCompleteStore } from '@/store/Store';
 import React, { useEffect } from 'react';
 
 export const SurveyComplete = () => {
-  const surveyComplete = useSurveyCompleteStore(
-    (state) => state.surveyComplete
-  );
-  const setSurveyComplete = useSurveyCompleteStore(
-    (state) => state.setSurveyComplete
-  );
+  const {surveyComplete, setSurveyComplete} = useSurveyCompleteStore(); 
 
   useEffect(() => {
     const storedSurveyComplete = JSON.parse(
-      localStorage.getItem('SurveyComplete') || 'false'
+      localStorage.getItem('SurveyCompleteStore') || '{"state":{"surveyComplete":false}}'
     );
-    setSurveyComplete(storedSurveyComplete);
+    setSurveyComplete(storedSurveyComplete.state.surveyComplete);
+    console.log('storedSurveyComplete 체크', storedSurveyComplete);
   }, [setSurveyComplete]);
 
   const handleButtonClick = () => {

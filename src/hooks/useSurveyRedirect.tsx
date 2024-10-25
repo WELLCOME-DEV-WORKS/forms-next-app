@@ -22,9 +22,9 @@ export const useLoadSurveyComplete = () => {
 
   useEffect(() => {
     const storedSurveyComplete = JSON.parse(
-      localStorage.getItem('SurveyComplete') || 'false'
+       localStorage.getItem('SurveyCompleteStore') || '{"state":{"surveyComplete":false}}'
     );
-    setSurveyComplete(storedSurveyComplete);
+    setSurveyComplete(storedSurveyComplete.state.surveyComplete);
   }, [setSurveyComplete]);
   
   useEffect(() => {
