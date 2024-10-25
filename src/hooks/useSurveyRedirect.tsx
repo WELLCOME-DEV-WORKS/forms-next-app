@@ -21,6 +21,13 @@ export const useLoadSurveyComplete = () => {
   const { surveyComplete, setSurveyComplete } = useSurveyCompleteStore();
 
   useEffect(() => {
+    const storedSurveyComplete = JSON.parse(
+      localStorage.getItem('SurveyComplete') || 'false'
+    );
+    setSurveyComplete(storedSurveyComplete);
+  }, [setSurveyComplete]);
+  
+  useEffect(() => {
     if (surveyComplete === true) {
       console.log('초기값 로드:', surveyComplete);
       setSurveyComplete(false);
