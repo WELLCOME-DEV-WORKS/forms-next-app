@@ -36,14 +36,11 @@ const FormField = ({ label, ans }: FormFieldProps) => {
 };
 
 const RecForm = () => {
-  const { treatmentPurpose, treatmentMethod, price, loadLocal } =
+  const { treatmentPurpose, treatmentMethod, price } =
     useSurveyResultsStore();
   console.log('treatmentMethod', treatmentMethod);
 
-  // 페이지 로드 시 localStorage에서 값 불러오기
-  useEffect(() => {
-    loadLocal();
-  }, [loadLocal]);
+
 
   // 추천 결과 로직 호출
   const { recommendedMethod, similarTreatments, treatmentCost } = getRecResults(
