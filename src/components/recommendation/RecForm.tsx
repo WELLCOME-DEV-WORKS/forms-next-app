@@ -4,7 +4,7 @@ import { getRecResults } from '@/components/recommendation/RecLogic';
 
 interface FormFieldProps {
   label: string;
-  ans: (string | JSX.Element)[];
+  ans: string[];
   RecButton?: boolean;
   styleClass?: string;
 }
@@ -15,15 +15,15 @@ const FormField = ({ label, ans, RecButton, styleClass }: FormFieldProps) => (
       <div className="bg-wellcome-pink rounded-lg p-4 w-full z-10 text-center text-white text-xl font-bold">
         {label}
       </div>
-      <div className="w-full px-16 py-9 mt-11 rounded-2xl text-left justify-center items-center text-wellcome-pink text-xl font-bold border-2 border-rose-400 border-dashed leading-loose max-md:px-5 max-md:mt-10 max-md:max-w-full" style={{ whiteSpace: 'pre-line' }}>
+      <div className="w-full px-16 py-6 mt-11 rounded-2xl justify-center items-center text-wellcome-pink text-xl font-bold border-2 border-rose-400 border-dashed leading-loose max-md:px-5 max-md:mt-10 max-md:max-w-full" style={{ whiteSpace: 'pre-line' }}>
         {ans.map((item, index) => (
-          <div key={index} className="mb-2">
+          <div key={index} className="my-1 text-center">
             {item === '조건에 부합하는 상품이 없습니다.' ? (
               <span className="text-wellcome-pink">{item}</span>
             ) : RecButton ? (
               <button
                 type="button"
-                className="flex flex-row bg-wellcome-peach text-wellcome-pink font-bold py-2 px-4 rounded-lg w-full justify-center"
+                className="flex flex-row bg-wellcome-peach text-wellcome-pink font-bold py-2 px-4 rounded-lg w-full justify-center my-3"
                 onClick={() => alert(`Clicked on: ${item}`)}
               >
                 {item}
@@ -40,8 +40,6 @@ const FormField = ({ label, ans, RecButton, styleClass }: FormFieldProps) => (
 
 const RecForm = () => {
   const { treatmentPurpose, treatmentMethod, price } = useSurveyResultsStore();
-  console.log('treatmentMethod', treatmentMethod);
-
 
   // 추천 결과 로직 호출
   const { recommendedMethod, similarTreatments } = getRecResults(
@@ -51,31 +49,24 @@ const RecForm = () => {
   );
 
   // 비용 계산 로직
-  const calculatePriceDetails = (methods: string): (string | JSX.Element)[] => {
+  const treatmentPrice = (methods: string): string[] => { // 반환 타입을 string[]으로 변경
     if (!methods) return [];
     return methods.split(', ').map((method) =>
       method === '조건에 부합하는 상품이 없습니다.'
         ? method
-        : (
-            <span className="text-wellcome-pink  font-bold">
-              {method} <span>({PricesList[method] || '정보 없음'})</span>
-            </span>
-          )
+        : `${method} (${PricesList[method] || '정보 없음'})` // 문자열로 반환
     );
   };
 
-
-  const recommendedAns = calculatePriceDetails(recommendedMethod || '');
-  const similarAns = calculatePriceDetails(similarTreatments || '');
-
+  const recommendedAns = treatmentPrice(recommendedMethod || '');
+  const similarAns = treatmentPrice(similarTreatments || '');
 
   return (
-<form className="flex flex-wrap justify-center w-[85%]">
+    <form className="flex flex-wrap justify-center w-[85%]">
       <FormField label="추천 시술" ans={recommendedAns} RecButton={true} />
       <FormField label="그 외 시술" ans={similarAns} />
     </form>
   );
 };
-
 
 export default RecForm;
