@@ -23,7 +23,8 @@ const FormField = ({ label, ans, RecButton, styleClass }: FormFieldProps) => (
             ) : RecButton ? (
               <button
                 type="button"
-                className="flex flex-row bg-wellcome-peach text-wellcome-pink font-bold py-2 px-4 rounded-lg w-full justify-center my-3"
+                className="flex flex-row bg-wellcome-peach text-wellcome-pink font-bold py-2 px-4 rounded-lg w-full justify-center my-3
+                hover:text-[#FEE4E3] hover:bg-[#EA708A] transition-colors duration-300"
                 onClick={() => alert(`Clicked on: ${item}`)}
               >
                 {item}
@@ -51,7 +52,10 @@ const RecForm = () => {
   // 비용 계산 로직
   const treatmentPrice = (methods: string): string[] => { // 반환 타입을 string[]으로 변경
     if (!methods) return [];
-    return methods.split(', ').map((method) =>
+    return methods.split(', ')
+    .filter((method)=>method !=='조건에 부합하는 상품이 없습니다.')
+    
+    .map((method) =>
       method === '조건에 부합하는 상품이 없습니다.'
         ? method
         : `${method} (${PricesList[method] || '정보 없음'})` // 문자열로 반환
