@@ -1,7 +1,7 @@
 'use client';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useSurveyCompleteStore } from '@/store/Store';
+import { useSurveyCompleteStore } from '@/store/SurveyStore';
 
 export const useSurveyRedirect = () => {
   const router = useRouter();

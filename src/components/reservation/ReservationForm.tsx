@@ -1,6 +1,3 @@
-import { useSurveyResultsStore } from '@/store/Store';
-import { PricesList } from '../recFlow/PricesList';
-import { useEffect } from 'react';
 interface FormFieldProps {
   label: string;
   ans: string;

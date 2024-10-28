@@ -1,4 +1,4 @@
-import { useSurveyResultsStore } from '@/store/Store';
+import { useSurveyStore } from '@/store/SurveyStore';
 import { PricesList } from '../recFlow/PricesList';
 import { getRecResults } from '@/components/recommendation/RecLogic';
 

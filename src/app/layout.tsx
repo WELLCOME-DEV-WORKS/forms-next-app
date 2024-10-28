@@ -6,6 +6,7 @@ import '@/styles/globals.css';
 import { Inter } from 'next/font/google';
 import WellcomeHeader from '@/components/ui/WellcomeHeader';
 import WellcomeFooter from '@/components/ui/WellcomeFooter';
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export const metadata = {
   title: 'Community-fe-app',
@@ -30,6 +31,9 @@ export default function RootLayout({
       )}
     >
       <body className="min-h-screen  antialiased bg-wellcome-white">
+      {process.env.GOOGLE_ANALYTICS ? (
+					<GoogleAnalytics gaId={process.env.GOOGLE_ANALYTICS} />
+				) : null}
         <Providers>
           {/* <Navbar /> */}
           {authModal}

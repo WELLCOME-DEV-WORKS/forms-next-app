@@ -1,6 +1,6 @@
 'use client';
 
-import { useSurveyCompleteStore } from '@/store/Store';
+import { useSurveyCompleteStore } from '@/store/SurveyStore';
 import React, { useEffect } from 'react';
 
 export const SurveyComplete = () => {

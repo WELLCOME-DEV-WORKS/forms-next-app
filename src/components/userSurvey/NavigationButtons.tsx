@@ -1,10 +1,8 @@
-// import { Session } from "next-auth";
-import { useSurveyCompleteStore, useSurveyResultsStore } from '@/store/Store';
+import { useSurveyCompleteStore } from '@/store/SurveyStore';
 import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
-// import { useEffect, useState } from "react";
 
 interface NavigationButtonsProps {
   currentQuestionIndex: number;
