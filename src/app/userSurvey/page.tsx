@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import QuestionList from '@/components/userSurvey/QuestionList';
 import QuestionDisplay from '@/components/userSurvey/QuestionDisplay';
 import NavigationButtons from '@/components/userSurvey/NavigationButtons';
-import { useSurveyResultsStore } from '@/store/Store';
+import { useSurveyStore } from '@/store/SurveyStore';
 
 const UserSurvey = () => {
   const [selectedAnswer, setSelectedAnswer] = useState<string>('');
@@ -13,7 +13,7 @@ const UserSurvey = () => {
   const [savedAnswers, setSavedAnswers] = useState<string[]>([]);
 
   const questions = QuestionList();
-  const { setSurveyResults } = useSurveyResultsStore();
+  const { setSurveyResults } = useSurveyStore();
 
   const handleAnswerChange = (value: string) => {
     setSelectedAnswer(value);
