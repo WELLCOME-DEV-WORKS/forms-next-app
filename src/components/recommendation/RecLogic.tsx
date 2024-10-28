@@ -24,10 +24,13 @@ export const getRecResults = (
     )
     .map((rec) => rec.result.join(', '));
 
+
+
+    
   const treatmentCost =
     recommended?.result
-      .map((treatment) => PricesList[treatment] || '가격 미정')
-      .join(', ') || '가격 미정';
+      .map((treatment) => PricesList[treatment] || '가격 정보 없음')
+      .join(', ') || '가격 정보 없음';
 
   return {
     recommendedMethod: recommended?.result.join(', ') || '추천 시술 없음',
