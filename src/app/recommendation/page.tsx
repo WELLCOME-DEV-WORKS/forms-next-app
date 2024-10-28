@@ -2,8 +2,24 @@
 import RecForm from '@/components/recommendation/RecForm';
 import React from 'react';
 import Link from 'next/link';
+import { useSurveyResultsStore } from '@/store/Store';
+//  성환님꺼 pull받으면 useSurveyStore로 수정할 것
+import Swal from 'sweetalert2';
+
 
 const ReservationPage = () => {
+const recommendedMethod = useSurveyResultsStore((state)=> state.recommendedMethod);
+//  성환님꺼 pull받으면 useSurveyStore로 수정할 것
+
+const handleReservationClick = () => {
+  if (!recommendedMethod) {
+    Swal.fire({
+      icon: 'error',
+      text: '답변을 선택해야 진행할 수 있습니다!',
+    })}
+   return;
+  };
+
   return (
     <div className="flex flex-col items-center justify-center">
       <h1
@@ -26,14 +42,13 @@ const ReservationPage = () => {
       <h2 className="mt-1 text-2xl text-wellcome-pink font-bold">
         예약시 전문 통역사 동행 서비스를 제공합니다.
       </h2>
-      <Link href="/reservation">
         <button
+          onClick={handleReservationClick}
           className="px-11 py-3.5 my-8 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] 
         hover:text-[#EA708A] hover:bg-[#FEE4E3] transition-colors duration-300"
         >
           예약일정 보러가기
         </button>
-      </Link>
     </div>
   );
 };
