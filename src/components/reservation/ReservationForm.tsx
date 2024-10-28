@@ -36,12 +36,7 @@ interface ReservationFormProps {
 }
 
 const ReservationForm = ({ selectedDate }: ReservationFormProps) => {
-  const { loadLocal } = useSurveyResultsStore();
 
-  // 페이지 로드 시 localStorage에서 값 불러오기
-  useEffect(() => {
-    loadLocal();
-  }, [loadLocal]);
 
   const fields = ['예약일'];
   const ans = [selectedDate || '예약일을 선택해주세요.'];

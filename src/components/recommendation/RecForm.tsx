@@ -54,6 +54,7 @@ const RecForm = () => {
     useSurveyResultsStore();
   console.log('treatmentMethod', treatmentMethod);
 
+
   // 추천 결과 로직 호출
   const { recommendedMethod, similarTreatments, treatmentCost } = getRecResults(
     treatmentPurpose || '',

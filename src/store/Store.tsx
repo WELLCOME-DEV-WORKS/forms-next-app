@@ -1,6 +1,7 @@
 'use client';
 import { create } from 'zustand';
 import { devtools } from 'zustand/middleware';
+import { persist, createJSONStorage } from 'zustand/middleware'
 
 interface SurveyCompleteState {
   surveyComplete: boolean;
@@ -9,17 +10,20 @@ interface SurveyCompleteState {
 
 // Zustand 스토어 생성
 export const useSurveyCompleteStore = create<SurveyCompleteState>()(
-  devtools(
+  persist(
     (set) => ({
       surveyComplete: false,
       setSurveyComplete: (complete) => {
         set({ surveyComplete: complete }); // 상태 업데이트
-        localStorage.setItem('SurveyComplete', JSON.stringify(complete)); // 로컬 스토리지에 저장
+        // localStorage.setItem('SurveyComplete', JSON.stringify(complete)); // 로컬 스토리지에 저장
         console.log('로컬 스토리지에 저장:', complete);
       },
     }),
-    { name: 'SurveyCompleteStore' }
-  ) // 스토어 이름 설정
+    { 
+      name: 'SurveyCompleteStore',
+      storage: createJSONStorage(() => localStorage),
+    }
+  )
 );
 
 interface SurveyResultsState {
@@ -30,106 +34,88 @@ interface SurveyResultsState {
   sideEffects: string | undefined;
   recommendedMethod: string | undefined; // 여기에 recommendedMethod 추가
   similarTreatments: string | undefined; // 여기에 similarTreatments 추가
+  treatmentName: string | undefined;
+  setTreatmentName: (answers: string) => void;
   setSurveyResults: (answers: string[]) => void;
   setRecResults: (
     recommendedMethod: string,
     similarTreatments: string,
     price: string
   ) => void;
-  loadLocal: () => void; // localStorage에서 값 로드
 }
 export const useSurveyResultsStore = create<SurveyResultsState>()(
-  devtools(
-    (set) => ({
-      treatmentPurpose: undefined,
-      treatmentMethod: undefined,
-      injectionArea: undefined,
-      sideEffects: undefined,
-      price: undefined,
-      recommendedMethod: undefined,
-      similarTreatments: undefined,
+  persist(
+    devtools(
+      (set) => ({
+        treatmentPurpose: undefined,
+        treatmentMethod: undefined,
+        injectionArea: undefined,
+        sideEffects: undefined,
+        price: undefined,
+        recommendedMethod: undefined,
+        similarTreatments: undefined,
+        treatmentName: undefined,
 
-      setSurveyResults: (answers) => {
-        const treatmentPurpose = answers[0] || '기본값'; // 기본값 설정
-        const treatmentMethod =
-          answers[1] || answers[2] || answers[3] || '기타'; // 기본값 설정
-        const injectionArea = answers[4] || '기타'; // 기본값 설정
-        const sideEffects = answers[5] || '없음'; // 기본값 설정
-        const price = answers[6] || '미정'; // 기본값 설정
-
-        // 상태 업데이트
-        set({
-          treatmentPurpose,
-          treatmentMethod,
-          injectionArea,
-          sideEffects,
-          price,
-        });
-
-        // 결과를 로컬 스토리지에 키-값 형태로 저장
-        const surveyResults = {
-          treatmentPurpose,
-          treatmentMethod,
-          injectionArea,
-          sideEffects,
-          price,
-        };
-        localStorage.setItem('SurveyResults', JSON.stringify(surveyResults)); // 결과를 로컬 스토리지에 저장
-        console.log('설문 결과 저장:', surveyResults);
-      },
-
-      setRecResults: (recommendedMethod, similarTreatments, treatmentCost) => {
-        set({
-          recommendedMethod,
-          similarTreatments,
-          price: treatmentCost,
-        });
-
-        // 추천 결과도 로컬 스토리지에 저장
-        const storedRecResults = {
-          recommendedMethod,
-          similarTreatments,
-          treatmentCost,
-        };
-        localStorage.setItem('RecResults', JSON.stringify(storedRecResults)); // 로컬 스토리지에 저장
-      },
-
-      // 로컬스토리지에서 값 로드
-      loadLocal: () => {
-        const storedResults = localStorage.getItem('SurveyResults');
-        if (storedResults) {
-          const parsedResults = JSON.parse(storedResults);
+        setTreatmentName: (answers) => {
+          const treatmentName = answers;
           set({
-            treatmentPurpose: parsedResults.treatmentPurpose,
-            treatmentMethod: parsedResults.treatmentMethod,
-            injectionArea: parsedResults.injectionArea,
-            sideEffects: parsedResults.sideEffects,
-            price: parsedResults.price,
+            treatmentName,
           });
-        }
+        },
 
-        const storedRecResults = localStorage.getItem('RecResults');
-        if (storedRecResults) {
-          const parsedRecResults = JSON.parse(storedRecResults);
+        setSurveyResults: (answers) => {
+          const treatmentPurpose = answers[0] || '기본값';
+          const treatmentMethod = answers[1] || answers[2] || answers[3] || '기타';
+          const injectionArea = answers[4] || '기타';
+          const sideEffects = answers[5] || '없음';
+          const price = answers[6] || '미정';
+
           set({
-            recommendedMethod: parsedRecResults.recommendedMethod,
-            similarTreatments: parsedRecResults.similarTreatments,
-            price: parsedRecResults.treatmentCost,
+            treatmentPurpose,
+            treatmentMethod,
+            injectionArea,
+            sideEffects,
+            price,
           });
-        }
-      },
 
-      clearSurveyResults: () =>
-        set({
-          treatmentPurpose: undefined,
-          treatmentMethod: undefined,
-          recommendedMethod: undefined,
-          similarTreatments: undefined,
-          price: undefined,
-          injectionArea: undefined,
-          sideEffects: undefined,
-        }),
-    }),
-    { name: 'SurveyStore' }
+          console.log('설문 결과 저장:', {
+            treatmentPurpose,
+            treatmentMethod,
+            injectionArea,
+            sideEffects,
+            price,
+          });
+        },
+
+        setRecResults: (recommendedMethod, similarTreatments, treatmentCost) => {
+          set({
+            recommendedMethod,
+            similarTreatments,
+            price: treatmentCost,
+          });
+
+          console.log('추천 결과 저장:', {
+            recommendedMethod,
+            similarTreatments,
+            treatmentCost,
+          });
+        },
+
+        clearSurveyResults: () =>
+          set({
+            treatmentPurpose: undefined,
+            treatmentMethod: undefined,
+            recommendedMethod: undefined,
+            similarTreatments: undefined,
+            price: undefined,
+            injectionArea: undefined,
+            sideEffects: undefined,
+          }),
+      })
+    ),
+    {
+      name: 'SurveyResultsStore', // 로컬 스토리지에서 사용할 키
+      storage: createJSONStorage(() => localStorage), // JSON 형식으로 저장
+    }
   )
 );
