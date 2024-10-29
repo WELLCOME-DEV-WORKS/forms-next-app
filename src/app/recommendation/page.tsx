@@ -17,6 +17,8 @@ const handleReservationClick = () => {
     Swal.fire({
       icon: 'error',
       text: '답변을 선택해야 진행할 수 있습니다!',
+      showConfirmButton: false,
+      timer: 1350,      
     })}
    return;
   };
