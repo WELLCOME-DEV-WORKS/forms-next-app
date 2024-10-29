@@ -24,8 +24,6 @@ export const getRecResults = (
     )
     .map((rec) => rec.result.join(', '));
 
-
-
     
   const treatmentCost =
     recommended?.result
