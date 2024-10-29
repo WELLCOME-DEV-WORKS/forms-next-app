@@ -1,13 +1,16 @@
 'use client';
 import RecForm from '@/components/recommendation/RecForm';
-import React from 'react';
-import Link from 'next/link';
+import React, {useState} from 'react';
 import { useRecommendationStore } from '@/store/RecommendationStore';
 import Swal from 'sweetalert2';
+import Link from 'next/link';
 
 
 const ReservationPage = () => {
 const recommendedMethod = useRecommendationStore((state)=> state.recommendedMethod);
+const [noRecommendation, setNoRecommendation] = useState(false); // 조건 불일치 상태
+
+
 
 const handleReservationClick = () => {
   if (!recommendedMethod) {
@@ -35,18 +38,24 @@ const handleReservationClick = () => {
         추천 시술로 더욱 빛나는 변화를 경험하세요!
       </h1>
 
-      <RecForm />
+      <RecForm setNoRecommendation={setNoRecommendation}/>
 
-      <h2 className="mt-1 text-2xl text-wellcome-pink font-bold">
-        예약시 전문 통역사 동행 서비스를 제공합니다.
-      </h2>
+      {noRecommendation ? (
+        <Link href="/userSurvey" passHref>
+          <button
+            className="px-11 py-3.5 my-8 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:text-[#EA708A] hover:bg-[#FEE4E3] transition-colors duration-300"
+          >
+            다시 추천받기
+          </button>
+        </Link>
+      ) : (
         <button
           onClick={handleReservationClick}
-          className="px-11 py-3.5 my-8 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] 
-        hover:text-[#EA708A] hover:bg-[#FEE4E3] transition-colors duration-300"
+          className="px-11 py-3.5 my-8 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] hover:text-[#EA708A] hover:bg-[#FEE4E3] transition-colors duration-300"
         >
           예약일정 보러가기
         </button>
+      )}
     </div>
   );
 };
