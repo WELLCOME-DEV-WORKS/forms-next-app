@@ -2,14 +2,12 @@
 import RecForm from '@/components/recommendation/RecForm';
 import React from 'react';
 import Link from 'next/link';
-import { useSurveyResultsStore } from '@/store/Store';
-//  성환님꺼 pull받으면 useSurveyStore로 수정할 것
+import { useRecommendationStore } from '@/store/RecommendationStore';
 import Swal from 'sweetalert2';
 
 
 const ReservationPage = () => {
-const recommendedMethod = useSurveyResultsStore((state)=> state.recommendedMethod);
-//  성환님꺼 pull받으면 useSurveyStore로 수정할 것
+const recommendedMethod = useRecommendationStore((state)=> state.recommendedMethod);
 
 const handleReservationClick = () => {
   if (!recommendedMethod) {

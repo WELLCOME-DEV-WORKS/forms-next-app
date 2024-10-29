@@ -19,7 +19,7 @@ const FormField = ({ label, ans, RecButton, styleClass }: FormFieldProps) => (
       <div className="w-full px-16 py-6 mt-11 rounded-2xl justify-center items-center text-wellcome-pink text-xl font-bold border-2 border-rose-400 border-dashed leading-loose max-md:px-5 max-md:mt-10 max-md:max-w-full" style={{ whiteSpace: 'pre-line' }}>
         {ans.map((item, index) => (
           <div key={index} className="my-1 text-center">
-            {item === '조건에 부합하는 상품이 없습니다.' || !RecButton ? (
+                        {item === '조건에 부합하는 상품이 없습니다.' || !RecButton ? (
               <span className="text-wellcome-pink">{item}</span> // 조건에 부합하지 않는 경우 텍스트 표시
             ) : (
               <button
@@ -38,7 +38,7 @@ const FormField = ({ label, ans, RecButton, styleClass }: FormFieldProps) => (
 );
 
 const RecForm = () => {
-  const { treatmentPurpose, treatmentMethod, price } = useSurveyResultsStore();
+  const { treatmentPurpose, treatmentMethod, price } = useSurveyStore();
 
   // 추천 결과 로직 호출
   const { recommendedMethod, similarTreatments } = getRecResults(
@@ -54,7 +54,7 @@ const RecForm = () => {
     .split(', ')
     .filter((method) => !(excludeNoItems && method === '조건에 부합하는 상품이 없습니다.'))
     .map((method) =>
-      `${method}`
+      `${method} (평균 ${PricesList[method] || ''}원)`
     );
   };
 
