@@ -1,7 +1,8 @@
+'use client';
 import { useSurveyStore } from '@/store/SurveyStore';
 import { PricesList } from '../recFlow/PricesList';
 import { getRecResults } from '@/components/recommendation/RecLogic';
-
+import { useEffect } from 'react';
 interface FormFieldProps {
   label: string;
   ans: string[];
@@ -40,12 +41,20 @@ const FormField = ({ label, ans, RecButton, styleClass }: FormFieldProps) => (
 const RecForm = () => {
   const { treatmentPurpose, treatmentMethod, budget } = useSurveyStore();
 
+const RecForm = ({ setNoRecommendation }: RecFormProps) => {
+  const { treatmentPurpose, treatmentMethod, price } = useSurveyStore();
   // 추천 결과 로직 호출
   const { recommendedMethod, similarTreatments } = getRecResults(
     treatmentPurpose || '',
     treatmentMethod || '',
     budget || ''
   );
+
+  useEffect(() => {
+    const noMatch = recommendedMethod === '조건에 부합하는 상품이 없습니다.';
+    setNoRecommendation(noMatch); // 조건에 따라 상태 업데이트
+  }, [recommendedMethod, setNoRecommendation]);
+
 
   // 비용 계산 로직
   const treatmentPrice = (methods: string, excludeNoItems = false): string[] => { // 반환 타입을 string[]으로 변경
