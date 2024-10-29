@@ -65,9 +65,11 @@ const RecForm = ({ setNoRecommendation }: RecFormProps) => {
     .split(', ')
     .filter((method) => !(excludeNoItems && method === '조건에 부합하는 상품이 없습니다.'))
     .map((method) =>
-      `${method} (평균 ${PricesList[method] || ''}원)`
+      method === '조건에 부합하는 상품이 없습니다.'
+        ? method 
+        : `${method} (평균 ${PricesList[method] || '정보 없음'}원)` 
     );
-  };
+};
 
   const recommendedAns = treatmentPrice(recommendedMethod || '');
   const similarAns = treatmentPrice(similarTreatments || '', true);
