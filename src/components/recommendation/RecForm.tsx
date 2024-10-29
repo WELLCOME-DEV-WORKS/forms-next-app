@@ -38,13 +38,13 @@ const FormField = ({ label, ans, RecButton, styleClass }: FormFieldProps) => (
 );
 
 const RecForm = () => {
-  const { treatmentPurpose, treatmentMethod, price } = useSurveyStore();
+  const { treatmentPurpose, treatmentMethod, budget } = useSurveyStore();
 
   // 추천 결과 로직 호출
   const { recommendedMethod, similarTreatments } = getRecResults(
     treatmentPurpose || '',
     treatmentMethod || '',
-    price || ''
+    budget || ''
   );
 
   // 비용 계산 로직
