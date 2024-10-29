@@ -29,7 +29,7 @@ export const useSurveyCompleteStore = create<SurveyCompleteState>()(
 interface SurveyState {
   treatmentPurpose: string | undefined;
   treatmentMethod: string | undefined;
-  price: string | undefined;
+  budget: string | undefined;
   injectionArea: string | undefined;
   sideEffects: string | undefined;
 }
@@ -44,7 +44,7 @@ const initialSurveyState : SurveyState = {
   treatmentMethod: undefined,
   injectionArea: undefined,
   sideEffects: undefined,
-  price: undefined,
+  budget: undefined,
 }
 
 
@@ -59,14 +59,14 @@ export const useSurveyStore = create<SurveyState & SurveyAction>()(
           const treatmentMethod = answers[1] || answers[2] || answers[3] || '기타';
           const injectionArea = answers[4] || '기타';
           const sideEffects = answers[5] || '없음';
-          const price = answers[6] || '미정';
+          const budget = answers[6] || '미정';
 
           set({
             treatmentPurpose,
             treatmentMethod,
             injectionArea,
             sideEffects,
-            price,
+            budget,
           });
 
           console.log('설문 결과 저장:', {
@@ -74,7 +74,7 @@ export const useSurveyStore = create<SurveyState & SurveyAction>()(
             treatmentMethod,
             injectionArea,
             sideEffects,
-            price,
+            budget,
           });
         },
 
@@ -82,7 +82,7 @@ export const useSurveyStore = create<SurveyState & SurveyAction>()(
           set({
             treatmentPurpose: undefined,
             treatmentMethod: undefined,
-            price: undefined,
+            budget: undefined,
             injectionArea: undefined,
             sideEffects: undefined,
           }),

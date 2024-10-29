@@ -38,10 +38,8 @@ const FormField = ({ label, ans, RecButton, styleClass }: FormFieldProps) => (
   </div>
 );
 
-interface RecFormProps
-{
-  setNoRecommendation: (value: boolean) => void; // 추천 없을 때!
-}
+const RecForm = () => {
+  const { treatmentPurpose, treatmentMethod, budget } = useSurveyStore();
 
 const RecForm = ({ setNoRecommendation }: RecFormProps) => {
   const { treatmentPurpose, treatmentMethod, price } = useSurveyStore();
@@ -49,7 +47,7 @@ const RecForm = ({ setNoRecommendation }: RecFormProps) => {
   const { recommendedMethod, similarTreatments } = getRecResults(
     treatmentPurpose || '',
     treatmentMethod || '',
-    price || ''
+    budget || ''
   );
 
   useEffect(() => {

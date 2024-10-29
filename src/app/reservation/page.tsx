@@ -3,8 +3,10 @@ import Calendar from '@/components/reservation/Calendar';
 import ReservationForm from '@/components/reservation/ReservationForm';
 import React, { useState } from 'react';
 import Link from 'next/link';
+import { useSurveyStore } from '@/store/SurveyStore';
+import { useRecommendationStore } from '@/store/RecommendationStore';
 
-const RecPage = () => {
+const ReservationPage = () => {
   // 예약 날짜 상태 정의
   const [selectedDate, setSelectedDate] = useState('');
 
@@ -13,6 +15,45 @@ const RecPage = () => {
     setSelectedDate(date); // 선택된 날짜 업데이트
     console.log(date);
   };
+  const { treatmentPurpose, treatmentMethod,injectionArea, sideEffects, budget } = useSurveyStore();
+  const { recommendedTreatment, recommendedPrice} = useRecommendationStore();
+
+  const handleReservation = async () => {
+    console.log('treatmentPurpose, treatmentMethod,injectionArea, sideEffects, budget, recommendedTreatment, recommendedPrice, selectedDate', treatmentPurpose, treatmentMethod,injectionArea, sideEffects, budget, recommendedTreatment, recommendedPrice, selectedDate);
+    
+    try {
+      const res = await fetch(`/api/reservation`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          treatmentPurpose,
+          treatmentMethod,
+          injectionArea,
+          sideEffects,
+          budget,
+          recommendedTreatment, 
+          recommendedPrice,
+          selectedDate
+        }),
+      });
+  
+      console.log('res', res);
+  
+      if (res.ok) {
+        const data = await res.json();
+        alert(data.message); // 데이터의 메시지를 alert로 표시
+      } else {
+        const errorData = await res.json();
+        alert(errorData.message || '예약 중 오류가 발생했습니다. 다시 시도해주세요.'); // 오류 메시지 표시
+      }
+    } catch (error) {
+      alert('네트워크 오류가 발생했습니다. 다시 시도해주세요.'); // 네트워크 오류 처리
+      console.error('Network error:', error); // 오류 로그
+    }
+  };
+  
 
   return (
     <div className="flex  flex-col items-center justify-center ">
@@ -56,17 +97,17 @@ const RecPage = () => {
             이전
           </button>
         </Link>
-        <Link href="/reservation">
-          <button
-            className="px-11 py-3.5 my-8 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] 
-        hover:text-[#EA708A] hover:bg-[#FEE4E3] transition-colors duration-300"
-          >
-            예약하기
-          </button>
-        </Link>
+        <button
+        onClick={handleReservation}
+          className="px-11 py-3.5 my-8 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] 
+      hover:text-[#EA708A] hover:bg-[#FEE4E3] transition-colors duration-300"
+        >
+          예약하기
+        </button>
+        
       </div>
     </div>
   );
 };
 
-export default RecPage;
+export default ReservationPage;
