@@ -4,7 +4,7 @@ import ReservationForm from '@/components/reservation/ReservationForm';
 import React, { useState } from 'react';
 import Link from 'next/link';
 
-const RecPage = () => {
+const ReservationPage = () => {
   // 예약 날짜 상태 정의
   const [selectedDate, setSelectedDate] = useState('');
 
@@ -69,4 +69,4 @@ const RecPage = () => {
   );
 };
 
-export default RecPage;
+export default ReservationPage;

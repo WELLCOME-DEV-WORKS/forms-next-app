@@ -6,17 +6,17 @@ import { useRecommendationStore } from '@/store/RecommendationStore';
 import Swal from 'sweetalert2';
 
 
-const ReservationPage = () => {
-const recommendedMethod = useRecommendationStore((state)=> state.recommendedMethod);
+const RecommendationPage = () => {
+  const recommendedMethod = useRecommendationStore((state)=> state.recommendedMethod);
 
-const handleReservationClick = () => {
-  if (!recommendedMethod) {
-    Swal.fire({
-      icon: 'error',
-      text: '답변을 선택해야 진행할 수 있습니다!',
-    })}
-   return;
-  };
+  const handleReservationClick = () => {
+    if (!recommendedMethod) {
+      Swal.fire({
+        icon: 'error',
+        text: '답변을 선택해야 진행할 수 있습니다!',
+      })}
+    return;
+    };
 
   return (
     <div className="flex flex-col items-center justify-center">
@@ -51,4 +51,4 @@ const handleReservationClick = () => {
   );
 };
 
-export default ReservationPage;
+export default RecommendationPage;
