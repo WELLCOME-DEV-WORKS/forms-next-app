@@ -41,6 +41,7 @@ const FormField = ({ label, ans, RecButton, styleClass, onRecommendationSelect }
   </div>
 );
 
+
 interface RecFormProps {
   setNoRecommendation: (value: boolean) => void; // 추천 없을 때!
 }
@@ -53,7 +54,7 @@ const RecForm = ({ setNoRecommendation }: RecFormProps) => {
   const { recommendedMethod, similarTreatments } = getRecResults(
     treatmentPurpose || '',
     treatmentMethod || '',
-    price || ''
+    budget || ''
   );
 
   useEffect(() => {
