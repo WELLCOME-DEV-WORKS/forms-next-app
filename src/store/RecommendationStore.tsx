@@ -4,20 +4,20 @@ import { devtools } from 'zustand/middleware';
 import { persist, createJSONStorage } from 'zustand/middleware'
 
 interface RecommendationState {
-    recommendedMethod: string | undefined;
-    price: string | undefined;
+    recommendedTreatment: string | undefined;
+    recommendedPrice: string | undefined;
   }
   
   interface RecommendationAction {
     setRecommendation: (
-      recommendedMethod: string,
-      price: string
+      recommendedTreatment: string,
+      recommendedPrice: string
     ) => void;
   }
   
   const initialRecommendationState: RecommendationState = {
-    recommendedMethod: undefined,
-    price: undefined,
+    recommendedTreatment: undefined,
+    recommendedPrice: undefined,
   }
   
   export const useRecommendationStore = create<RecommendationState & RecommendationAction>()(
@@ -25,22 +25,22 @@ interface RecommendationState {
       devtools(
         (set) => ({
           ...initialRecommendationState,
-          setRecommendation: (recommendedMethod, treatmentCost) => {
+          setRecommendation: (recommendedTreatment, treatmentCost) => {
             set({
-              recommendedMethod,
-              price: treatmentCost,
+              recommendedTreatment,
+              recommendedPrice: treatmentCost,
             });
   
             console.log('추천 결과 저장:', {
-              recommendedMethod,
+              recommendedTreatment,
               treatmentCost,
             });
           },
   
           clearRecommendationResults: () =>
             set({
-              recommendedMethod: undefined,
-              price: undefined,
+              recommendedTreatment: undefined,
+              recommendedPrice: undefined,
             }),
         })
       ),

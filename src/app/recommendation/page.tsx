@@ -7,10 +7,10 @@ import Swal from 'sweetalert2';
 
 
 const RecommendationPage = () => {
-  const recommendedMethod = useRecommendationStore((state)=> state.recommendedMethod);
+  const { recommendedTreatment } = useRecommendationStore();
 
   const handleReservationClick = () => {
-    if (!recommendedMethod) {
+    if (!recommendedTreatment) {
       Swal.fire({
         icon: 'error',
         text: '답변을 선택해야 진행할 수 있습니다!',
