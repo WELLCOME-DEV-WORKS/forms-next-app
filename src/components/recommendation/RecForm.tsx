@@ -2,15 +2,17 @@
 import { useSurveyStore } from '@/store/SurveyStore';
 import { PricesList } from '../recFlow/PricesList';
 import { getRecResults } from '@/components/recommendation/RecLogic';
-import { useEffect } from 'react';
+import { useEffect  } from 'react';
+import { useRecommendationStore } from '@/store/RecommendationStore';
+
 interface FormFieldProps {
   label: string;
   ans: string[];
   RecButton?: boolean;
   styleClass?: string;
+  onRecommendationSelect?: (method: string) => void; // 사용자가 선택한 추천 항목!!
 }
-
-const FormField = ({ label, ans, RecButton, styleClass }: FormFieldProps) => (
+const FormField = ({ label, ans, RecButton, styleClass, onRecommendationSelect }: FormFieldProps) => (
 
   <div className={`flex flex-col mb-8 w-full h-full items-center justify-center max-lg:flex-row ${styleClass}`}>
     <div className="flex flex-col px-11 py-2 items-center justify-center w-full h-full">
@@ -20,14 +22,15 @@ const FormField = ({ label, ans, RecButton, styleClass }: FormFieldProps) => (
       <div className="w-full px-16 py-6 mt-11 rounded-2xl justify-center items-center text-wellcome-pink text-xl font-bold border-2 border-rose-400 border-dashed leading-loose max-md:px-5 max-md:mt-10 max-md:max-w-full" style={{ whiteSpace: 'pre-line' }}>
         {ans.map((item, index) => (
           <div key={index} className="my-1 text-center">
-                        {item === '조건에 부합하는 상품이 없습니다.' || !RecButton ? (
+            {item === '조건에 부합하는 상품이 없습니다.' || !RecButton ? (
               <span className="text-wellcome-pink">{item}</span> // 조건에 부합하지 않는 경우 텍스트 표시
             ) : (
               <button
-                type="button"
-                className="flex flex-row bg-wellcome-peach text-wellcome-pink font-bold py-2 px-4 rounded-lg w-full justify-center my-3 hover:text-[#FEE4E3] hover:bg-[#EA708A] transition-colors duration-300"
-                onClick={() => alert(`Clicked on: ${item}`)}
-              >
+              type="button"
+              className="flex flex-row bg-wellcome-peach text-wellcome-pink font-bold py-2 px-4 rounded-lg w-full justify-center my-3 hover:text-[#FEE4E3] hover:bg-[#EA708A] transition-colors duration-300"
+              onClick={() => 
+                onRecommendationSelect && onRecommendationSelect(item)} // 선택한 추천 항목 전달
+            >
                 {item}
               </button>
             )}
@@ -38,13 +41,14 @@ const FormField = ({ label, ans, RecButton, styleClass }: FormFieldProps) => (
   </div>
 );
 
-interface RecFormProps
-{
+interface RecFormProps {
   setNoRecommendation: (value: boolean) => void; // 추천 없을 때!
 }
 
 const RecForm = ({ setNoRecommendation }: RecFormProps) => {
   const { treatmentPurpose, treatmentMethod, price } = useSurveyStore();
+  const { setRecommendation } = useRecommendationStore(); // setRecommendation 액션 추가
+
   // 추천 결과 로직 호출
   const { recommendedMethod, similarTreatments } = getRecResults(
     treatmentPurpose || '',
@@ -59,7 +63,7 @@ const RecForm = ({ setNoRecommendation }: RecFormProps) => {
 
 
   // 비용 계산 로직
-  const treatmentPrice = (methods: string, excludeNoItems = false): string[] => { // 반환 타입을 string[]으로 변경
+  const treatmentPrice = (methods: string, excludeNoItems = false): string[] => { 
     if (!methods) return [];
     return methods
     .split(', ')
@@ -71,12 +75,22 @@ const RecForm = ({ setNoRecommendation }: RecFormProps) => {
     );
 };
 
+
   const recommendedAns = treatmentPrice(recommendedMethod || '');
   const similarAns = treatmentPrice(similarTreatments || '', true);
 
+  // 사용자가 선택한 추천시술 핸들러
+  const handleRecommendationSelect = (methodWithPrice: string) => {
+    const method = methodWithPrice.split(' ')[0]; // "써마지 (평균 346,000원)"에서 method만 추출
+    const price = PricesList[method] ? parseInt(PricesList[method].replace(/,/g, ''), 10) : undefined; // 숫자로 변환
+  
+    setRecommendation(method, price); // method와 숫자형태의 price 저장
+  };
+
+
   return (
     <form className="flex flex-wrap justify-center w-[85%]">
-      <FormField label="추천 시술" ans={recommendedAns} RecButton={true} />
+      <FormField label="추천 시술" ans={recommendedAns} RecButton={true} onRecommendationSelect={handleRecommendationSelect} />
       <FormField label="그 외 시술" ans={similarAns} />
     </form>
   );
