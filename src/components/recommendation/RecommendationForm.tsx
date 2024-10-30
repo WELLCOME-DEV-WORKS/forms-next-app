@@ -51,16 +51,16 @@ const RecommendationForm = ({ setNoRecommendation }: RecommendationFormProps) =>
   const { setRecommendation } = useRecommendationStore(); // setRecommendation 액션 추가
 
   // 추천 결과 로직 호출
-  const { recommendedTreatments, similarTreatments } = RecommendationLogic(
+  const { recommendedTreatment, similarTreatment } = RecommendationLogic(
     treatmentPurpose || '',
     treatmentMethod || '',
     budget || ''
   );
 
   useEffect(() => {
-    const noMatch = recommendedTreatments === '조건에 부합하는 상품이 없습니다.';
+    const noMatch = recommendedTreatment === '조건에 부합하는 상품이 없습니다.';
     setNoRecommendation(noMatch); // 조건에 따라 상태 업데이트
-  }, [recommendedTreatments, setNoRecommendation]);
+  }, [recommendedTreatment, setNoRecommendation]);
 
 
   // 비용 계산 로직
@@ -77,8 +77,8 @@ const RecommendationForm = ({ setNoRecommendation }: RecommendationFormProps) =>
 };
 
 
-  const recommendedAns = treatmentPrice(recommendedTreatments || '');
-  const similarAns = treatmentPrice(similarTreatments || '', true);
+  const recommendedAns = treatmentPrice(recommendedTreatment || '');
+  const similarAns = treatmentPrice(similarTreatment || '', true);
 
 // 사용자가 선택한 추천시술 핸들러
   const handleRecommendationSelect = (methodWithPrice: string) => {
