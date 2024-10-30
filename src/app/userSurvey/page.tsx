@@ -2,7 +2,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
-import QuestionList from '@/components/userSurvey/QuestionList';
+import { QuestionList } from '@/components/userSurvey/QuestionList';
 import QuestionDisplay from '@/components/userSurvey/QuestionDisplay';
 import NavigationButtons from '@/components/userSurvey/NavigationButtons';
 import { useSurveyStore } from '@/store/SurveyStore';
@@ -12,7 +12,6 @@ const UserSurvey = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [savedAnswers, setSavedAnswers] = useState<string[]>([]);
 
-  const questions = QuestionList();
   const { setSurveyResults } = useSurveyStore();
 
   const handleAnswerChange = (value: string) => {
@@ -40,7 +39,7 @@ const UserSurvey = () => {
       );
 
       // 마지막 질문에 도달한 경우
-      if (nextQuestionIndex === questions.length) {
+      if (nextQuestionIndex === QuestionList.length) {
         setSurveyResults(newAnswers); // 업데이트된 newAnswers를 사용하여 저장
         Swal.fire({
           icon: 'success',
@@ -74,7 +73,7 @@ const UserSurvey = () => {
       case 5:
         return 6;
       case 6:
-        return questions.length;
+        return QuestionList.length;
       default:
         return index;
     }
@@ -113,13 +112,13 @@ const UserSurvey = () => {
       <div className="flex flex-col w-full max-w-[1199px] max-md:max-w-full">
         <div className="flex flex-col self-center px-8 py-11 max-w-full rounded-lg shadow-xl bg-white bg-opacity-30 w-[794px] max-md:px-5 max-md:mt-10">
           <QuestionDisplay
-            questions={questions[currentQuestionIndex]}
+            questions={QuestionList[currentQuestionIndex]}
             selectedAnswer={selectedAnswer}
             onAnswerChange={handleAnswerChange}
           />
           <NavigationButtons
             currentQuestionIndex={currentQuestionIndex}
-            totalQuestions={questions.length}
+            totalQuestions={QuestionList.length}
             onNext={handleNext}
             onPrevious={handlePrevious}
           />

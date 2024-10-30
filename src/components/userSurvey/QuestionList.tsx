@@ -69,8 +69,4 @@ const questions = [
     },
 ];
 
-const QuestionList = () => {
-    return questions;
-};
-
-export default QuestionList;
+export const QuestionList = questions;
