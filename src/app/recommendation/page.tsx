@@ -16,7 +16,8 @@ useEffect(() => {
 return (
   <div className="flex flex-col items-center justify-center">
     <h1
-      className="text-4xl mb-9 font-extrabold leading-[72px] text-center"
+      className="text-4xl mb-9 font-extrabold leading-[72px] text-center
+      max-md:text-3xl max-md:leading-[52px] max-md:mb-7 max-sm:text-base max-sm:leading-[32px] max-sm:mb-4" 
       style={{
         background: 'linear-gradient(90deg, #EA708A 0%, #DA2F47 100%)',
         WebkitBackgroundClip: 'text',
