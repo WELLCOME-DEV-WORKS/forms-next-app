@@ -25,15 +25,15 @@ interface RecommendationState {
       devtools(
         (set) => ({
           ...initialRecommendationState,
-          setRecommendation: (recommendedTreatment, treatmentCost) => {
+          setRecommendation: (recommendedTreatment, recommendedPrice) => {
             set({
               recommendedTreatment,
-              recommendedPrice: treatmentCost,
+              recommendedPrice: recommendedPrice,
             });
   
             console.log('추천 결과 저장:', {
               recommendedTreatment,
-              treatmentCost,
+              recommendedPrice,
             });
           },
   

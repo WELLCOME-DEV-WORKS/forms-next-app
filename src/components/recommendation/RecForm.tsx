@@ -47,20 +47,20 @@ interface RecFormProps {
 }
 
 const RecForm = ({ setNoRecommendation }: RecFormProps) => {
-  const { treatmentPurpose, treatmentMethod, price } = useSurveyStore();
+  const { treatmentPurpose, treatmentMethod, budget } = useSurveyStore();
   const { setRecommendation } = useRecommendationStore(); // setRecommendation 액션 추가
 
   // 추천 결과 로직 호출
-  const { recommendedMethod, similarTreatments } = getRecResults(
+  const { recommendedTreatments, similarTreatments } = getRecResults(
     treatmentPurpose || '',
     treatmentMethod || '',
     budget || ''
   );
 
   useEffect(() => {
-    const noMatch = recommendedMethod === '조건에 부합하는 상품이 없습니다.';
+    const noMatch = recommendedTreatments === '조건에 부합하는 상품이 없습니다.';
     setNoRecommendation(noMatch); // 조건에 따라 상태 업데이트
-  }, [recommendedMethod, setNoRecommendation]);
+  }, [recommendedTreatments, setNoRecommendation]);
 
 
   // 비용 계산 로직
@@ -77,15 +77,16 @@ const RecForm = ({ setNoRecommendation }: RecFormProps) => {
 };
 
 
-  const recommendedAns = treatmentPrice(recommendedMethod || '');
+  const recommendedAns = treatmentPrice(recommendedTreatments || '');
   const similarAns = treatmentPrice(similarTreatments || '', true);
 
-  // 사용자가 선택한 추천시술 핸들러
+// 사용자가 선택한 추천시술 핸들러
   const handleRecommendationSelect = (methodWithPrice: string) => {
-    const method = methodWithPrice.split(' ')[0]; // "써마지 (평균 346,000원)"에서 method만 추출
-    const price = PricesList[method] ? parseInt(PricesList[method].replace(/,/g, ''), 10) : undefined; // 숫자로 변환
-  
-    setRecommendation(method, price); // method와 숫자형태의 price 저장
+    const method = methodWithPrice.split(' ')[0]; // "${method} (평균 ${PricesList[method] || '정보 없음'}원)"에서 method만 추출
+    const price = PricesList[method] 
+      ? parseInt(PricesList[method].replace(/,/g, ''), 10) 
+      : '정보 없음';  
+        setRecommendation(method, price.toString()); // price를 문자열로 변환하여 전달
   };
 
 

@@ -31,7 +31,7 @@ export const getRecResults = (
       .join(', ') || '가격 정보 없음';
 
   return {
-    recommendedMethod: recommended?.result.join(', ') || '추천 시술 없음',
+    recommendedTreatments: recommended?.result.join(', ') || '추천 시술 없음',
     similarTreatments: similarTreatments.join(', ') || '유사 시술 없음',
     treatmentCost,
   };
