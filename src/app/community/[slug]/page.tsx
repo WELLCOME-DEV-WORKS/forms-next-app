@@ -1,6 +1,5 @@
 import MiniCreatePost from "@/components/posts/MiniCreatePost";
 import PostFeed from "@/components/posts/PostFeed";
-import { INFINITE_SCROLLING_PAGINATION_RESULTS } from "@/config";
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { notFound } from "next/navigation";
@@ -18,18 +17,6 @@ const page = async ({ params }: PageProps) => {
 
   const category = await db.category.findFirst({
     where: { name: slug },
-    include: {
-      posts: {
-        include: {
-          author: true,
-          votes: true,
-          comments: true,
-          category: true,
-        },
-
-        take: INFINITE_SCROLLING_PAGINATION_RESULTS,
-      },
-    },
   });
 
   if (!category) {

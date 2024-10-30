@@ -1,5 +1,4 @@
 import { buttonVariants } from "@/components/ui/details/Button";
-import { INFINITE_SCROLLING_PAGINATION_RESULTS } from "@/config";
 import { getAuthSession } from "@/lib/auth";
 import { db } from "@/lib/db";
 import { format } from "date-fns";
@@ -16,16 +15,6 @@ const Layout = async ({
 
   const category = await db.category.findFirst({
     where: { name: slug },
-    include: {
-      posts: {
-        include: {
-          author: true,
-          votes: true,
-        },
-
-        take: INFINITE_SCROLLING_PAGINATION_RESULTS,
-      },
-    },
   });
 
   return (
