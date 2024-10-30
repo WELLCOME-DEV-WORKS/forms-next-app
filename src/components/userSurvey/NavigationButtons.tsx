@@ -19,12 +19,7 @@ const NavigationButtons = ({
   const router = useRouter();
   // const [session, setSession] = useState<Session | null>(null);
   // const [redirectToReservation, setRedirectToReservation] = useState(false);
-  const setSurveyComplete = useSurveyCompleteStore(
-    (state) => state.setSurveyComplete
-  );
-  const surveyComplete = useSurveyCompleteStore(
-    (state) => state.surveyComplete
-  );
+  const { surveyComplete, setSurveyComplete } = useSurveyCompleteStore();
 
   useEffect(() => {
     console.log('surveyComplete =>', surveyComplete);
