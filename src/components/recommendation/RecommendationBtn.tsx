@@ -7,7 +7,6 @@ interface ReservationBtnProps {
     recommendedTreatment: string | undefined;
   }
   
-
   export const RecommendationBtn = ({
     noRecommendation,
     recommendedTreatment,

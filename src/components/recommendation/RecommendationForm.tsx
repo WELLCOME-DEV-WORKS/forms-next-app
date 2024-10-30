@@ -2,7 +2,7 @@
 import { useSurveyStore } from '@/store/SurveyStore';
 import { PricesList } from '../recFlow/PricesList';
 import { RecommendationLogic } from '@/components/recommendation/RecommendationLogic';
-import { useEffect  } from 'react';
+import { useEffect, useState } from 'react';
 import { useRecommendationStore } from '@/store/RecommendationStore';
 
 interface FormFieldProps {
@@ -10,36 +10,48 @@ interface FormFieldProps {
   ans: string[];
   RecButton?: boolean;
   styleClass?: string;
-  onRecommendationSelect?: (method: string) => void; // 사용자가 선택한 추천 항목!!
+  onRecommendationSelect?: (method: string) => void; // 사용자가 선택한 추천 시술!!
 }
-const FormField = ({ label, ans, RecButton, styleClass, onRecommendationSelect }: FormFieldProps) => (
+const FormField = ({ label, ans, RecButton, onRecommendationSelect }: FormFieldProps) => {
+  const [selectedItem, setSelectedItem] = useState<string | null>(null); // 사용자가 선택한 추천 시술 상태 추가
 
-  <div className={`flex flex-col mb-8 w-full h-full items-center justify-center max-lg:flex-row ${styleClass}`}>
-    <div className="flex flex-col px-11 py-2 items-center justify-center w-full h-full">
-      <div className="bg-wellcome-pink rounded-lg p-4 w-full z-10 text-center text-white text-xl font-bold">
-        {label}
-      </div>
-      <div className="w-full px-16 py-6 mt-11 rounded-2xl justify-center items-center text-wellcome-pink text-xl font-bold border-2 border-rose-400 border-dashed leading-loose max-md:px-5 max-md:mt-10 max-md:max-w-full" style={{ whiteSpace: 'pre-line' }}>
-        {ans.map((item, index) => (
-          <div key={index} className="my-1 text-center">
-            {item === '조건에 부합하는 상품이 없습니다.' || !RecButton ? (
-              <span className="text-wellcome-pink">{item}</span> // 조건에 부합하지 않는 경우 텍스트 표시
-            ) : (
-              <button
-              type="button"
-              className="flex flex-row bg-wellcome-peach text-wellcome-pink font-bold py-2 px-4 rounded-lg w-full justify-center my-3 hover:text-[#FEE4E3] hover:bg-[#EA708A] transition-colors duration-300"
-              onClick={() => 
-                onRecommendationSelect && onRecommendationSelect(item)} // 선택한 추천 항목 전달
-            >
-                {item}
-              </button>
-            )}
-          </div>
-        ))}
+  const handleButtonClick = (item: string) => {
+    setSelectedItem(item); // 선택된 추천 시술 업데이트
+    onRecommendationSelect && onRecommendationSelect(item); // 선택한 추천 시술 전달
+  };
+
+  return (
+    <div className={`flex flex-col mb-8 w-full h-full items-center justify-center max-lg:flex-row `}>
+      <div className="flex flex-col px-11 py-2 items-center justify-center w-full h-full">
+        <div className="bg-wellcome-pink rounded-lg p-4 w-full z-10 text-center text-white text-xl font-bold">
+          {label}
+        </div>
+        <div
+          className="w-full px-16 py-6 mt-11 rounded-2xl justify-center items-center text-wellcome-pink text-xl font-bold border-2 border-rose-400 border-dashed leading-loose max-md:px-5 max-md:mt-10 max-md:max-w-full"
+          style={{ whiteSpace: 'pre-line' }}
+        >
+          {ans.map((item, index) => (
+            <div key={index} className="my-1 text-center">
+              {item === '조건에 부합하는 상품이 없습니다.' || !RecButton ? (
+                <span className="text-wellcome-pink">{item}</span> // 조건에 부합하지 않는 경우 텍스트 표시
+              ) : (
+                <button
+                  type="button"
+                  className={`flex flex-row bg-wellcome-peach text-wellcome-pink font-bold py-2 px-4 rounded-lg w-full justify-center my-3 transition-colors duration-300
+                    ${selectedItem === item ? 'bg-[#EA708A] text-[#FEE4E3]' : 'hover:text-[#FEE4E3] hover:bg-[#EA708A]'}`} // 선택된 항목 스타일 적용
+                  onClick={() => handleButtonClick(item)}
+                >
+                  {item}
+                </button>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
+
 
 
 interface RecommendationFormProps {
