@@ -79,10 +79,26 @@ const UserSurvey = () => {
         return index;
     }
   };
-
+  const getPreviousQuestionIndex = (index: number) => {
+    switch (index) {
+      case 1:
+      case 2:
+      case 3:
+        return 0;
+      case 4:
+        return 1;
+      case 5:
+        return 4;
+      case 6:
+        return 5;
+      default:
+        return index;
+    }
+  };
+  
   const handlePrevious = () => {
     if (currentQuestionIndex > 0) {
-      const prevIndex = currentQuestionIndex - 1;
+      const prevIndex = getPreviousQuestionIndex(currentQuestionIndex);
       setCurrentQuestionIndex(prevIndex);
       setSelectedAnswer(savedAnswers[prevIndex] || '');
     }
