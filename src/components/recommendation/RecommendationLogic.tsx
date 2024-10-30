@@ -14,7 +14,7 @@ export const RecommendationLogic = (
       rec.budget === price
   );
 
-  const similarTreatments = RecommendationList()
+  const similarTreatment = RecommendationList()
     .filter(
       (rec) =>
         rec.category === treatmentPurpose &&
@@ -30,8 +30,8 @@ export const RecommendationLogic = (
       .join(', ') || '가격 정보 없음';
 
   return {
-    recommendedTreatments: recommended?.result.join(', ') || '추천 시술 없음',
-    similarTreatments: similarTreatments.join(', ') || '유사 시술 없음',
+    recommendedTreatment: recommended?.result.join(', ') || '추천 시술 없음',
+    similarTreatment: similarTreatment.join(', ') || '유사 시술 없음',
     treatmentCost,
   };
 };
