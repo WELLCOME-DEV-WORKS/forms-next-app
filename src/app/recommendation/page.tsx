@@ -6,18 +6,18 @@ import Swal from 'sweetalert2';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 
-const ReservationPage = () => {
+const RecommendationPage = () => {
   const router = useRouter();
-const recommendedMethod = useRecommendationStore((state)=> state.recommendedMethod);
+const recommendedTreatment = useRecommendationStore((state)=> state.recommendedTreatment);
 const [noRecommendation, setNoRecommendation] = useState(false); // 조건 불일치 상태
 
 useEffect(() => {
-  console.log("사용자가 클릭한 추천시술:", recommendedMethod); // recommendedMethod가 변경될 때마다 출력
-}, [recommendedMethod]);
+  console.log("사용자가 클릭한 추천시술:", recommendedTreatment); // recommendedMethod가 변경될 때마다 출력
+}, [recommendedTreatment]);
 
 
 const handleReservationClick = useCallback(() => {
-  if (!recommendedMethod) {
+  if (!recommendedTreatment) {
     Swal.fire({
       icon: 'error',
       text: '답변을 선택해야 진행할 수 있습니다!',
@@ -27,7 +27,7 @@ const handleReservationClick = useCallback(() => {
     return;
   }
   router.push('/reservation'); // recommendedMethod가 존재할 경우에만 페이지 이동
-}, [recommendedMethod, router]);
+}, [recommendedTreatment, router]);
 
 const recommendationButton = useMemo(() => {
   return noRecommendation ? (
