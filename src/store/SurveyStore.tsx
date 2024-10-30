@@ -36,7 +36,6 @@ interface SurveyState {
 
 interface SurveyAction {
   setSurveyResults: (answers: string[]) => void;
-  
 }
 
 const initialSurveyState : SurveyState = {

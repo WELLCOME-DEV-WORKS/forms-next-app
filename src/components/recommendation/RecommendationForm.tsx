@@ -1,7 +1,7 @@
 'use client';
 import { useSurveyStore } from '@/store/SurveyStore';
 import { PricesList } from '../recFlow/PricesList';
-import { getRecResults } from '@/components/recommendation/RecLogic';
+import { RecommendationLogic } from '@/components/recommendation/RecommendationLogic';
 import { useEffect  } from 'react';
 import { useRecommendationStore } from '@/store/RecommendationStore';
 
@@ -42,16 +42,16 @@ const FormField = ({ label, ans, RecButton, styleClass, onRecommendationSelect }
 );
 
 
-interface RecFormProps {
+interface RecommendationFormProps {
   setNoRecommendation: (value: boolean) => void; // 추천 없을 때!
 }
 
-const RecForm = ({ setNoRecommendation }: RecFormProps) => {
+const RecommendationForm = ({ setNoRecommendation }: RecommendationFormProps) => {
   const { treatmentPurpose, treatmentMethod, budget } = useSurveyStore();
   const { setRecommendation } = useRecommendationStore(); // setRecommendation 액션 추가
 
   // 추천 결과 로직 호출
-  const { recommendedTreatments, similarTreatments } = getRecResults(
+  const { recommendedTreatments, similarTreatments } = RecommendationLogic(
     treatmentPurpose || '',
     treatmentMethod || '',
     budget || ''
@@ -98,4 +98,4 @@ const RecForm = ({ setNoRecommendation }: RecFormProps) => {
   );
 };
 
-export default RecForm;
+export default RecommendationForm;

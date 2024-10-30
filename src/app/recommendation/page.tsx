@@ -1,5 +1,5 @@
 'use client';
-import RecForm from '@/components/recommendation/RecForm';
+import RecommendationForm from '@/components/recommendation/RecommendationForm';
 import React, { useState, useCallback, useMemo, useEffect} from 'react';
 import { useRecommendationStore } from '@/store/RecommendationStore';
 import Swal from 'sweetalert2';
@@ -12,7 +12,7 @@ const recommendedTreatment = useRecommendationStore((state)=> state.recommendedT
 const [noRecommendation, setNoRecommendation] = useState(false); // 조건 불일치 상태
 
 useEffect(() => {
-  console.log("사용자가 클릭한 추천시술:", recommendedTreatment); // recommendedMethod가 변경될 때마다 출력
+  console.log("사용자가 클릭한 추천시술:", recommendedTreatment); // recommendedTreatment가 변경될 때마다 출력
 }, [recommendedTreatment]);
 
 
@@ -26,7 +26,7 @@ const handleReservationClick = useCallback(() => {
     });
     return;
   }
-  router.push('/reservation'); // recommendedMethod가 존재할 경우에만 페이지 이동
+  router.push('/reservation'); // recommendedTreatment가 존재할 경우에만 페이지 이동
 }, [recommendedTreatment, router]);
 
 const recommendationButton = useMemo(() => {
@@ -66,7 +66,7 @@ return (
       추천 시술로 더욱 빛나는 변화를 경험하세요!
     </h1>
 
-    <RecForm setNoRecommendation={setNoRecommendation} />
+    <RecommendationForm setNoRecommendation={setNoRecommendation} />
 
     {recommendationButton}
   </div>
