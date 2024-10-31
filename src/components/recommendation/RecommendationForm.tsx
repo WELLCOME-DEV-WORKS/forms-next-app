@@ -30,7 +30,7 @@ const FormField = ({ label, ans, RecButton, onRecommendationSelect }: FormFieldP
           {label}
         </div>
         <div
-          className="w-full px-16 py-6 mt-11 rounded-2xl justify-center items-center text-wellcome-pink text-xl font-bold border-2 border-rose-400 border-dashed leading-loose 
+          className="w-full px-16 py-6 mt-11 rounded-2xl justify-center items-center text-wellcome-pink text-base font-bold border-2 border-rose-400 border-dashed leading-loose 
           max-md:px-5 max-md:mt-10 max-md:max-w-full max-md:text-base max-sm:text-md"
           style={{ whiteSpace: 'pre-line' }}
         >
@@ -44,7 +44,7 @@ const FormField = ({ label, ans, RecButton, onRecommendationSelect }: FormFieldP
                 ) : (
                   <button
                     type="button"
-                    className={`flex flex-row font-bold py-2 px-4 rounded-lg w-full justify-center my-3 transition-colors duration-300
+                    className={`flex flex-row font-bold py-2 px-4 rounded-lg w-full justify-center my-4 transition-colors duration-300
                     ${isSelected ? 'bg-[#EA708A] text-[#ffffff]' : 'bg-wellcome-peach text-wellcome-pink hover:text-[#ffffff] hover:bg-[#EA708A]'}`}
                     onClick={() => handleButtonClick(item)}
                   >
