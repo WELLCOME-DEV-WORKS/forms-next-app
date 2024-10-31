@@ -9,22 +9,27 @@ const treatments = [
 
 const MyPage = () => {
         return (
-            <main className="flex overflow-hidden flex-col items-center px-20 pt-2.5 pb-20 text-xl text-center bg-white max-md:px-5">
-              <div className="flex flex-col w-full max-w-[1199px] max-md:max-w-full">
-                <section className="flex flex-col self-center mt-16 ml-9 max-w-full w-[838px] max-md:mt-10">
-                  <h2 className="self-center text-4xl">
+            <main className="flex flex-col items-center px-20  text-xl text-center bg-wellcome-white max-md:px-5">
+              <div className="flex flex-col w-full max-w-[1199px] max-md:max-w-full p-8 bg-white rounded-lg shadow-xl">
+                <section className="flex flex-col self-center mt-16  max-w-full w-[838px] max-md:mt-10">
+                  <h2 className="self-center text-4xl font-extrabold"
+                  style={{
+                    background: 'linear-gradient(90deg, #EA708A 0%, #DA2F47 100%)',
+                    WebkitBackgroundClip: 'text',
+                    backgroundClip: 'text',
+                    color: 'transparent',
+                    display: 'inline-block',
+                    textShadow: '0px 4px 3.5px rgba(0, 0, 0, 0.25)',
+                  }}>
                     마이페이지
                   </h2>
                   {treatments.map((item, index) => (
                     <React.Fragment key={index}>
                       <TreatmentCard treatment={item.treatment} date={item.date} />
-                      <div className="self-start -mt-4 ml-24 font-extrabold text-white max-md:ml-2.5">
-                        추천 시술
-                      </div>
                     </React.Fragment>
                   ))}
                   <button 
-                    className="self-end mt-24 text-base text-zinc-400 max-md:mt-10"
+                    className="self-end text-sm opacity-30 mt-24 text-zinc-400 max-md:mt-10"
                     tabIndex={0}
                   >
                     회원탈퇴를 하시겠습니까?

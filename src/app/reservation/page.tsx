@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { useSurveyStore } from '@/store/SurveyStore';
 import { useRecommendationStore } from '@/store/RecommendationStore';
+import { useMutation } from '@tanstack/react-query';
 
 const ReservationPage = () => {
   // 예약 날짜 상태 정의
@@ -18,10 +19,11 @@ const ReservationPage = () => {
   const { treatmentPurpose, treatmentMethod,injectionArea, sideEffects, budget } = useSurveyStore();
   const { recommendedTreatment, recommendedPrice} = useRecommendationStore();
 
-  const handleReservation = async () => {
-    console.log('treatmentPurpose, treatmentMethod,injectionArea, sideEffects, budget, recommendedTreatment, recommendedPrice, selectedDate', treatmentPurpose, treatmentMethod,injectionArea, sideEffects, budget, recommendedTreatment, recommendedPrice, selectedDate);
-    
-    try {
+
+  const mutation = useMutation({
+    mutationFn: async () => {
+      // console.log('treatmentPurpose, treatmentMethod,injectionArea, sideEffects, budget, recommendedTreatment, recommendedPrice, selectedDate', treatmentPurpose, treatmentMethod,injectionArea, sideEffects, budget, recommendedTreatment, recommendedPrice, selectedDate);
+  
       const res = await fetch(`/api/reservation`, {
         method: 'POST',
         headers: {
@@ -41,17 +43,28 @@ const ReservationPage = () => {
   
       console.log('res', res);
   
-      if (res.ok) {
-        const data = await res.json();
-        alert(data.message); // 데이터의 메시지를 alert로 표시
-      } else {
+      if (!res.ok) {
         const errorData = await res.json();
         alert(errorData.message || '예약 중 오류가 발생했습니다. 다시 시도해주세요.'); // 오류 메시지 표시
       }
-    } catch (error) {
-      alert('네트워크 오류가 발생했습니다. 다시 시도해주세요.'); // 네트워크 오류 처리
-      console.error('Network error:', error); // 오류 로그
-    }
+      console.log('통신완료');
+      
+      return res.json();
+    },
+    onSuccess: (data) => {
+      alert(data.message); // 성공 메시지 표시
+    },
+    onError: (error: unknown) => {
+      if (error instanceof Error) {
+        alert(error.message || '예약 중 오류가 발생했습니다. 다시 시도해주세요.'); // 오류 메시지 표시
+      } else {
+        alert('예약 중 오류가 발생했습니다. 다시 시도해주세요.'); // 기본 오류 메시지
+      }
+    },
+  })
+  
+  const handleReservation = () => {
+    mutation.mutate(); // 예약 요청 실행
   };
   
 
