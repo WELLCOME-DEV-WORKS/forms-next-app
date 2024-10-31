@@ -20,9 +20,21 @@ export const RecommendationLogic = (
         rec.category === treatmentPurpose &&
         rec.budget === price &&
         rec.method !== treatmentMethod
+        
     )
-    .map((rec) => rec.result.join(', '));
+    .map((rec) => rec.result.join(', '))
+    .filter((result)=> result.length > 0)
 
+const recommendedTreatment = 
+( recommended?.result && recommended.result.length > 0) 
+? recommended.result.join(', ') 
+: '조건에 부합하는 상품이 없습니다.'
+
+
+const similarTreatmentResult =
+similarTreatment.length > 0
+? similarTreatment.join(', ')
+: '조건에 부합하는 상품이 없습니다.'
     
   const treatmentCost =
     recommended?.result
@@ -30,8 +42,8 @@ export const RecommendationLogic = (
       .join(', ') || '가격 정보 없음';
 
   return {
-    recommendedTreatment: recommended?.result.join(', ') || '추천 시술 없음',
-    similarTreatment: similarTreatment.join(', ') || '유사 시술 없음',
+    recommendedTreatment,
+    similarTreatment: similarTreatmentResult,
     treatmentCost,
   };
 };

@@ -30,7 +30,7 @@ const FormField = ({ label, ans, RecButton, onRecommendationSelect }: FormFieldP
           {label}
         </div>
         <div
-          className="w-full px-16 py-6 mt-11 rounded-2xl justify-center items-center text-wellcome-pink text-xl font-bold border-2 border-rose-400 border-dashed leading-loose 
+          className="w-full px-16 py-6 mt-11 rounded-2xl justify-center items-center text-wellcome-pink text-base font-bold border-2 border-rose-400 border-dashed leading-loose 
           max-md:px-5 max-md:mt-10 max-md:max-w-full max-md:text-base max-sm:text-md"
           style={{ whiteSpace: 'pre-line' }}
         >
@@ -44,8 +44,8 @@ const FormField = ({ label, ans, RecButton, onRecommendationSelect }: FormFieldP
                 ) : (
                   <button
                     type="button"
-                    className={`flex flex-row font-bold py-2 px-4 rounded-lg w-full justify-center my-3 transition-colors duration-300
-                    ${isSelected ? 'bg-[#EA708A] text-[#FEE4E3]' : 'bg-wellcome-peach text-wellcome-pink hover:text-[#FEE4E3] hover:bg-[#EA708A]'}`}
+                    className={`flex flex-row font-bold py-2 px-4 rounded-lg w-full justify-center my-4 transition-colors duration-300
+                    ${isSelected ? 'bg-[#EA708A] text-[#ffffff]' : 'bg-wellcome-peach text-wellcome-pink hover:text-[#ffffff] hover:bg-[#EA708A]'}`}
                     onClick={() => handleButtonClick(item)}
                   >
                     {item}
@@ -80,21 +80,20 @@ const RecommendationForm = ({ setNoRecommendation }: RecommendationFormProps) =>
   }, [recommendedTreatment, setNoRecommendation]);
 
   // 비용 계산 로직
-  const treatmentPrice = (methods: string, excludeNoItems = false): string[] => { 
+  const treatmentPrice = (methods: string): string[] => { 
     if (!methods) return [];
     return methods
       .split(', ')
-      .filter((method) => !(excludeNoItems && method === '조건에 부합하는 상품이 없습니다.'))
       .map((method) =>
         method === '조건에 부합하는 상품이 없습니다.'
           ? method 
           : `${method} (평균 ${PricesList[method] || '정보 없음'}원)` 
       );
   };
-
+  
   const recommendedAns = treatmentPrice(recommendedTreatment || '');
-  const similarAns = treatmentPrice(similarTreatment || '', true);
-
+  const similarAns = treatmentPrice(similarTreatment || '');
+  
   // 사용자가 선택한 추천 시술 핸들러
   const handleRecommendationSelect = (methodWithPrice: string) => {
     const method = methodWithPrice.split(' ')[0];
