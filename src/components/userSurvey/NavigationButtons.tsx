@@ -39,7 +39,10 @@ const NavigationButtons = ({
         }, 1100);
         return;
       }
-      await router.push('/recommendation');
+      setTimeout(async () => {
+        await router.push('/recommendation');
+      }, 1300);
+      // await router.push('/recommendation');
     } else {
       onNext();
     }
