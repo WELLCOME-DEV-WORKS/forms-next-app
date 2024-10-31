@@ -209,3 +209,13 @@ fullcalendar 커스텀
 .fc-daygrid-day-frame.fc-scrollgrid-sync-inner {
   @apply h-[4.1rem];
 }
+
+/** 
+sweet alert2 커스텀
+**/
+.swal2-popup .swal2-loader {
+  border-top-color: #EA708A !important; /* 로딩 아이콘의 윗부분 색상 */
+  border-right-color: #EA708A !important; /* 로딩 아이콘의 오른쪽 부분 색상 */
+  border-bottom-color: #EA708A !important; /* 로딩 아이콘의 아랫부분 색상 */
+  border-left-color: #FEE4E3 !important; /* 원하는 색상 */
+}

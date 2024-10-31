@@ -44,10 +44,21 @@ const UserSurvey = () => {
       if (nextQuestionIndex === QuestionList.length) {
         setSurveyResults(newAnswers); // 업데이트된 newAnswers를 사용하여 저장
         Swal.fire({
-          icon: 'success',
-          text: '설문이 제출되었습니다!',
+          title: '추천드릴 시술을 찾아보는 중이에요!',
           showConfirmButton: false,
-          timer: 1000,
+          customClass: {
+            title: 'text-xl max-md:text-base',
+            actions: 'max-md:mt-0',
+            },
+          timer: 2000,
+          didOpen: () => {
+            Swal.showLoading(); // 열리면서 로딩 아이콘 표시
+          },
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            console.log("타이머에 의해 창이 닫혔습니다.");
+            // 여기서 추가로 필요한 로직을 넣을 수 있습니다.
+          }
         });
         // 다음 버튼 로직
       } else if (nextQuestionIndex !== undefined) {
