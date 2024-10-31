@@ -5,23 +5,27 @@ interface TreatmentCardProps {
     date: string;
 }
 
+const Style = {
+  title : 'px-16 py-5 font-extrabold bg-rose-400 rounded max-md:px-5 text-center',
+  text : 'my-auto text-center max-md:w-full  text-wellcome-pink font-bold' 
+}
+ 
 export const TreatmentCard = ({ treatment, date }: TreatmentCardProps) => {
   return (
-    <section className="flex flex-col pt-3 pr-4 pb-20 pl-8 mt-16 w-full text-white bg-white rounded-2xl border-2 border-rose-400 border-dashed max-md:pl-5 max-md:mt-10 max-md:max-w-full">
-    
-      <div className="flex flex-row max-md:flex-col gap-5 justify-between mt-14 max-w-full w-full">
-        <div className="px-16 py-5 font-extrabold bg-rose-400 rounded max-md:px-5 text-center">
+    <section className="flex flex-col my-6 w-full text-white bg-white rounded-2xl border-2 border-rose-400 border-dashed  max-md:max-w-full">
+      <div className="flex flex-row max-md:flex-col gap-6 justify-between px-4 py-8 max-w-full w-full">
+        <div className={Style.title}>
           추천 시술
         </div>
-        <div className="my-auto text-black text-center max-md:w-full">
+        <div className={Style.text}>
           {treatment}
         </div>
         <div className="flex flex-row max-md:flex-col bg-rose-400 rounded max-md:w-full">
-          <div className="px-16 py-5 bg-rose-400 rounded max-md:px-5 text-center">
+          <div className={Style.title}>
             예약 일정
           </div>
         </div>
-        <div className="my-auto text-black text-center max-md:w-full">
+        <div className={Style.text}>
           {date}
         </div>
       </div>
