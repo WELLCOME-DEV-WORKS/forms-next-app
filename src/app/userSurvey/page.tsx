@@ -28,13 +28,11 @@ const UserSurvey = () => {
       return;
     }
 
-
- 
     // 선택한 답변을 저장
     setSavedAnswers((prev) => {
       const newAnswers = [...prev];
       newAnswers[currentQuestionIndex] = selectedAnswer; // 현재 질문 인덱스에 답변 저장
-      console.log('선택한 답변:', selectedAnswer);
+
       const nextQuestionIndex = getNextQuestionIndex(
         currentQuestionIndex,
         selectedAnswer
