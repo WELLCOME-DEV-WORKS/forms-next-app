@@ -41,7 +41,7 @@ const RecommendationList = (): Recommendation[] => {
       category: '주름 개선, 윤곽 개선, 리프팅',
       method: '실리프팅',
       budget: '10만원 이하',
-      result: ['조건에 부합하는 상품이 없습니다.'],
+      result: [],
     },
     {
       category: '주름 개선, 윤곽 개선, 리프팅',
@@ -95,7 +95,7 @@ const RecommendationList = (): Recommendation[] => {
       category: '피부결 개선, 모공 축소, 잡티 제거',
       method: '주사',
       budget: '10만원 이하',
-      result: ['조건에 부합하는 상품이 없습니다.'],
+      result: [],
     },
     {
       category: '피부결 개선, 모공 축소, 잡티 제거',
