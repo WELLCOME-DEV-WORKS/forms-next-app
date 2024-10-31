@@ -15,9 +15,12 @@ const SurveyAnswer = ({
   checked,
 }: SurveyAnswerProps) => {
   return (
-    <div className="flex items-center p-4 w-full gap-5 mt-5 bg-wellcome-peach rounded-lg  text-wellcome-pink text-base
-     hover:text-[#FEE4E3] hover:bg-[#EA708A] transition-colors duration-300
-    ">
+    <div
+    className={`flex items-center p-4 w-full gap-5 mt-5 rounded-lg text-base 
+    ${checked ? 'bg-[#EA708A] text-[#FEE4E3]' : 'bg-wellcome-peach text-wellcome-pink'}
+    hover:text-[#FEE4E3] hover:bg-[#EA708A] transition-colors duration-300`}
+    onClick={() => onChange(answer)} // 전체 div 클릭 시 체크 변경
+  >
       <input
         id={value}
         name={name}
@@ -26,12 +29,14 @@ const SurveyAnswer = ({
         onChange={() => {
           console.log("이거 클릭했지!! : ", answer); // 체크된 값을 콘솔에 출력
           onChange(answer);
-        }}
+                  }}
         checked={checked}
-        className="shrink-0 w-5 h-5 bg-white rounded-full border-solid border-[3px] border-zinc-800 cursor-pointer "
+        className="absolute opacity-0 shrink-0 w-0 h-0 bg-white rounded-full border-solid border-[3px] border-zinc-800 cursor-pointer "
       />
-      <label htmlFor={value} className="align-middle cursor-pointer">
+      <label htmlFor={value} className="flex cursor-pointer items-center justify-center">
+        <p className="">
         {answer}
+        </p>
       </label>
     </div>
   );
