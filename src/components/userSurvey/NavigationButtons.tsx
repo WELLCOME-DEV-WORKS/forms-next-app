@@ -60,7 +60,7 @@ const NavigationButtons = ({
       </div>
       <div
         className="px-10 py-3.5 text-wellcome-pink bg-white rounded border-2 border-wellcome-pink border-solid max-md:px-5 cursor-pointer
-        hover:text-wellcome-peach hover:bg-wellcome-pink border-wellcome-pink transition-colors duration-300"
+        hover:text-[#ffffff] hover:bg-wellcome-pink border-wellcome-pink transition-colors duration-300"
         onClick={handleNext}
       >
         {currentQuestionIndex === totalQuestions - 1 ? '결과' : '다음'}

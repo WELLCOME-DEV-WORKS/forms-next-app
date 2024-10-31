@@ -45,7 +45,7 @@ const FormField = ({ label, ans, RecButton, onRecommendationSelect }: FormFieldP
                   <button
                     type="button"
                     className={`flex flex-row font-bold py-2 px-4 rounded-lg w-full justify-center my-3 transition-colors duration-300
-                    ${isSelected ? 'bg-[#EA708A] text-[#FEE4E3]' : 'bg-wellcome-peach text-wellcome-pink hover:text-[#FEE4E3] hover:bg-[#EA708A]'}`}
+                    ${isSelected ? 'bg-[#EA708A] text-[#ffffff]' : 'bg-wellcome-peach text-wellcome-pink hover:text-[#ffffff] hover:bg-[#EA708A]'}`}
                     onClick={() => handleButtonClick(item)}
                   >
                     {item}
