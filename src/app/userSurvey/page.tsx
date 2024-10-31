@@ -47,13 +47,13 @@ const UserSurvey = () => {
           showConfirmButton: false,
           timer: 1000,
         });
-        // 여기서 제출 로직 추가
+        // 다음 버튼 로직
       } else if (nextQuestionIndex !== undefined) {
-        // nextQuestionIndex가 undefined가 아닐 경우에만 상태 업데이트
         setCurrentQuestionIndex(nextQuestionIndex);
+        setSelectedAnswer('');
       }
 
-      return newAnswers; // 상태 업데이트
+      return newAnswers;
     });
   };
 
