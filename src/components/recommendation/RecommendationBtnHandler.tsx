@@ -1,13 +1,13 @@
 import { useRouter } from 'next/navigation';
 import Swal from 'sweetalert2';
-import { useCallback } from 'react';
 
+// '예약하러가기' 버튼 핸들러
 export const RecommendationBtnHandler = (
   recommendedTreatment: string | undefined
 ) => {
   const router = useRouter();
 
-  const handleReservationClick = useCallback(() => {
+  const handleReservationClick = () => {
     if (!recommendedTreatment) {
       Swal.fire({
         icon: 'error',
@@ -18,8 +18,7 @@ export const RecommendationBtnHandler = (
       return;
     }
     router.push('/reservation');
-  }, [recommendedTreatment, router]);
-
+  };
   return { handleReservationClick };
 };
 
