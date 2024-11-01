@@ -29,14 +29,15 @@ const FormField = ({
   return (
     <div className="flex flex-col mb-8 w-full h-full items-center justify-center max-lg:flex-row">
       <div className="flex flex-col  py-2 items-center justify-center w-full h-full">
-        <div className="bg-wellcome-pink rounded-lg p-4 w-full z-10 text-center text-white text-xl font-bold
+        <div
+          className="bg-wellcome-pink rounded-lg p-4 w-full z-10 text-center text-white text-xl font-bold
         max-md:text-base
         "
         >
           {label}
         </div>
         <div
-          className="w-full px-16 py-6 mt-11 rounded-2xl justify-center items-center text-wellcome-pink text-base font-bold border-2 border-rose-400 border-dashed leading-loose 
+          className="w-full px-16 py-6 mt-11 rounded-2xl justify-center items-center text-wellcome-pink text-base font-bold border-2 border-wellcome-pink border-dashed leading-loose 
           max-md:px-5 max-md:mt-10 max-md:max-w-full max-md:text-base max-sm:text-md"
           style={{ whiteSpace: 'pre-line' }}
         >
