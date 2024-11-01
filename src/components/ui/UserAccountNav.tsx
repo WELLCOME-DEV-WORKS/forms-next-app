@@ -23,7 +23,9 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
       <DropdownMenuTrigger>
         <UserAvatar
           user={{ name: user.name || null, image: user.image || null }}
-          className="h-11 w-11 items-center justify-center"
+          className="h-11 w-11 items-center justify-center
+           max-sm:h-8 max-sm:w-8
+          "
         />
       </DropdownMenuTrigger>
       <DropdownMenuContent className="bg-white" align="end">
