@@ -3,7 +3,6 @@ import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 
-
 interface NavigationButtonsProps {
   currentQuestionIndex: number;
   totalQuestions: number;
@@ -53,7 +52,7 @@ const NavigationButtons = ({
       <div
         className="
         px-10 py-3.5 text-wellcome-pink bg-white rounded border-2 border-wellcome-pink border-solid max-md:px-5 cursor-pointer
-        hover:text-[#ffffff] hover:bg-wellcome-pink border-wellcome-pink transition-colors duration-300
+        hover:text-[#ffffff] hover:bg-wellcome-pink transition-colors duration-300
         "
         onClick={onPrevious}
         style={{
@@ -66,7 +65,6 @@ const NavigationButtons = ({
       <div
         className="px-10 py-3.5 text-white bg-wellcome-pink rounded max-md:px-5 cursor-pointer
         hover:text-[#EA708A] hover:bg-[#FEE4E3] transition-colors duration-300"
-        
         onClick={handleNext}
       >
         {currentQuestionIndex === totalQuestions - 1 ? '결과' : '다음'}

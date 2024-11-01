@@ -16,7 +16,7 @@ const QuestionDisplay = ({
   return (
     <>
       <SurveyQuestion question={questions.question} />
-      <div className="flex flex-col px-16 py-9 mt-11 w-full font-bold text-black bg-white rounded-2xl border-2 border-rose-400 border-dashed max-md:px-5 max-md:mt-10 max-md:max-w-full">
+      <div className="flex flex-col px-16 py-9 mt-11 w-full font-bold text-black bg-white rounded-2xl border-2 border-wellcome-pink border-dashed max-md:px-5 max-md:mt-10 max-md:max-w-full">
         <div className="flex flex-col items-center justify-center">
           {questions.answers.map((answer, index) => (
             <SurveyAnswer
