@@ -39,6 +39,9 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
         </div>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
+          <Link href="/mypage">Mypage</Link>
+        </DropdownMenuItem>
+        {/* <DropdownMenuItem asChild>
           <Link href="/">Feed</Link>
         </DropdownMenuItem>
 
@@ -48,7 +51,7 @@ const UserAccountNav: FC<UserAccountNavProps> = ({ user }) => {
 
         <DropdownMenuItem asChild>
           <Link href="/settings">Settings</Link>
-        </DropdownMenuItem>
+        </DropdownMenuItem> */}
         <DropdownMenuSeparator />
         <DropdownMenuItem
           className="cursor-pointer"
