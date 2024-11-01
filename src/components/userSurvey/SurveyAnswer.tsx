@@ -19,10 +19,10 @@ const SurveyAnswer = ({
       className={`w-full m-2 rounded-lg 
     ${
       checked
-        ? 'bg-wellcome-pink text-[#ffffff]'
+        ? 'bg-[#ffd6a1] text-[#DA2F47]'
         : 'bg-wellcome-peach text-wellcome-pink'
     }
-    hover:text-[#ffffff] hover:bg-[#EA708A] transition-colors duration-300`}
+    hover:text-[#DA2F47] hover:bg-[#ffd6a1] transition-colors duration-300`}
       onClick={() => onChange(answer)} // 전체 div 클릭 시 체크 변경
     >
       <input

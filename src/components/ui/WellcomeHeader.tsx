@@ -14,7 +14,7 @@ const WellcomeHeader = async () => {
   return (
     <header
       className="flex gap-5 justify-between w-full bg-wellcome-white text-center whitespace-nowrap  max-md:max-w-full px-20
-    max-sm:px-0 max-md:px-0
+    max-sm:px-6 max-md:px-6
     "
     >
       {/* 로고 폰트 적용 링크 */}
