@@ -25,11 +25,15 @@ const WellcomeHeader = async () => {
         rel="stylesheet"
       />
       <Link href="/">
-        <div className="flex gap-7 p-2.5 text-xl font-extrabold text-wellcome-pink">
+        <div
+          className="flex gap-2 p-2.5 text-xl font-extrabold text-wellcome-pink
+        max-sm:gap-1"
+        >
           <img
             loading="lazy"
             src="logo.webp"
-            className="object-contain shrink-0 aspect-[1.95] w-[78px]"
+            className="object-contain shrink-0 aspect-[1.95] w-[65px]
+            max-md:w-[45px] max-sm:w-[25px]"
             alt="Well-come logo"
           />
           <div className="my-auto basis-auto font-museo ">Well-Come</div>
