@@ -27,9 +27,9 @@ const SurveyAnswer = ({
         type="checkbox"
         value={value}
         onChange={() => {
-          console.log("이거 클릭했지!! : ", answer); // 체크된 값을 콘솔에 출력
+          console.log('이거 클릭했지!! : ', answer); // 체크된 값을 콘솔에 출력
           onChange(answer);
-                  }}
+        }}
         checked={checked}
         className="absolute opacity-0 shrink-0 w-0 h-0 bg-white rounded-full border-solid border-[3px] border-zinc-800 cursor-pointer "
       />

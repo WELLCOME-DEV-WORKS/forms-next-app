@@ -1,5 +1,5 @@
-interface SurveyQuestionProps  {
-    question: string
+interface SurveyQuestionProps {
+  question: string;
 }
 
 const SurveyQuestion = ({question}: SurveyQuestionProps ) => {
