@@ -12,7 +12,12 @@ interface FormFieldProps {
   onRecommendationSelect?: (method: string) => void;
 }
 
-const FormField = ({ label, ans, RecButton, onRecommendationSelect }: FormFieldProps) => {
+const FormField = ({
+  label,
+  ans,
+  RecButton,
+  onRecommendationSelect,
+}: FormFieldProps) => {
   const [selectedItem, setSelectedItem] = useState<string | null>(null); // 선택된 추천 시술 상태
 
   const handleButtonClick = (item: string) => {
@@ -24,9 +29,11 @@ const FormField = ({ label, ans, RecButton, onRecommendationSelect }: FormFieldP
   return (
     <div className="flex flex-col mb-8 w-full h-full items-center justify-center max-lg:flex-row">
       <div className="flex flex-col px-11 py-2 items-center justify-center w-full h-full">
-        <div className="bg-wellcome-pink rounded-lg p-4 w-full z-10 text-center text-white text-xl font-bold
+        <div
+          className="bg-wellcome-pink rounded-lg p-4 w-full z-10 text-center text-white text-xl font-bold
         max-md:text-base
-        ">
+        "
+        >
           {label}
         </div>
         <div
@@ -45,7 +52,11 @@ const FormField = ({ label, ans, RecButton, onRecommendationSelect }: FormFieldP
                   <button
                     type="button"
                     className={`flex flex-row font-bold py-2 px-4 rounded-lg w-full justify-center my-4 transition-colors duration-300
-                    ${isSelected ? 'bg-[#EA708A] text-[#ffffff]' : 'bg-wellcome-peach text-wellcome-pink hover:text-[#ffffff] hover:bg-[#EA708A]'}`}
+                    ${
+                      isSelected
+                        ? 'bg-[#ffd6a1] text-[#DA2F47]'
+                        : 'bg-wellcome-peach text-wellcome-pink hover:text-[#DA2F47] hover:bg-[#ffd6a1]'
+                    }`}
                     onClick={() => handleButtonClick(item)}
                   >
                     {item}
@@ -64,7 +75,9 @@ interface RecommendationFormProps {
   setNoRecommendation: (value: boolean) => void;
 }
 
-const RecommendationForm = ({ setNoRecommendation }: RecommendationFormProps) => {
+const RecommendationForm = ({
+  setNoRecommendation,
+}: RecommendationFormProps) => {
   const { treatmentPurpose, treatmentMethod, budget } = useSurveyStore();
   const { setRecommendation } = useRecommendationStore();
 
@@ -76,43 +89,44 @@ const RecommendationForm = ({ setNoRecommendation }: RecommendationFormProps) =>
   );
 
   useEffect(() => {
-    setNoRecommendation(recommendedTreatment === '조건에 부합하는 상품이 없습니다.');
+    setNoRecommendation(
+      recommendedTreatment === '조건에 부합하는 상품이 없습니다.'
+    );
   }, [recommendedTreatment, setNoRecommendation]);
 
   // 비용 계산 로직
-  const treatmentPrice = (methods: string): string[] => { 
+  const treatmentPrice = (methods: string): string[] => {
     if (!methods) return [];
     return methods
       .split(', ')
       .map((method) =>
         method === '조건에 부합하는 상품이 없습니다.'
-          ? method 
-          : `${method} (평균 ${PricesList[method] || '정보 없음'}원)` 
+          ? method
+          : `${method} (평균 ${PricesList[method] || '정보 없음'}원)`
       );
   };
-  
+
   const recommendedAns = treatmentPrice(recommendedTreatment || '');
   const similarAns = treatmentPrice(similarTreatment || '');
-  
+
   // 사용자가 선택한 추천 시술 핸들러
   const handleRecommendationSelect = (methodWithPrice: string) => {
     const method = methodWithPrice.split(' ')[0];
-    const price = PricesList[method] 
-      ? parseInt(PricesList[method].replace(/,/g, ''), 10) 
-      : '정보 없음';  
+    const price = PricesList[method]
+      ? parseInt(PricesList[method].replace(/,/g, ''), 10)
+      : '정보 없음';
     setRecommendation(method, price.toString());
   };
 
   return (
     <form className="flex flex-wrap justify-center w-[85%]">
-      <FormField 
-      label="추천 시술" 
-      ans={recommendedAns} 
-      RecButton={true} 
-      onRecommendationSelect={handleRecommendationSelect} />
-      <FormField 
-      label="그 외 시술" 
-      ans={similarAns} />
+      <FormField
+        label="추천 시술"
+        ans={recommendedAns}
+        RecButton={true}
+        onRecommendationSelect={handleRecommendationSelect}
+      />
+      <FormField label="그 외 시술" ans={similarAns} />
     </form>
   );
 };
