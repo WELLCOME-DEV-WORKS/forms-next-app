@@ -2,6 +2,7 @@ import { useSurveyCompleteStore } from '@/store/SurveyStore';
 import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
+import LoadingAlert from './LoadingAlert';
 
 
 interface NavigationButtonsProps {
@@ -31,18 +32,16 @@ const NavigationButtons = ({
 
     if (currentQuestionIndex === totalQuestions - 1) {
       onNext();
-      // 로컬스토리지에 결과 저장 로직 추가
+
       if (!session) {
         setSurveyComplete(true);
-        setTimeout(async () => {
           await router.push('/sign-in');
-        }, 1100);
         return;
       }
-      setTimeout(async () => {
-        await router.push('/recommendation');
-      }, 1300);
-      // await router.push('/recommendation');
+      
+      await LoadingAlert();
+ 
+      await router.push('/recommendation');
     } else {
       onNext();
     }
