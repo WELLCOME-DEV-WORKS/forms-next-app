@@ -98,24 +98,24 @@ const ReservationPage = () => {
           <Calendar onDateSelect={handleDateSelect} />
         </div>
       </div>
-      <h2 className="mt-12 text-2xl text-wellcome-pink font-bold">
+      <h2 className="mt-12 text-2xl max-md:text-xl px-2 text-wellcome-pink font-bold">
         예약 시 전문 통역사 동행하여 상담이 진행됩니다!
       </h2>
       <div className="flex justify-center gap-5 self-center max-w-full text-center">
         <Link href="/recommendation">
           <button
-            className="px-11 py-3.5 my-8 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] 
-        hover:text-[#EA708A] hover:bg-[#FEE4E3] transition-colors duration-300"
+            className=" px-8 py-3.5 my-8 text-2xl max-md:text-xl font-medium  text-wellcome-pink bg-white rounded border-2 border-wellcome-pink border-solid max-md:px-5 cursor-pointer
+        hover:text-[#ffffff] hover:bg-wellcome-pink border-wellcome-pink transition-colors duration-300"
           >
             이전
           </button>
         </Link>
         <button
         onClick={handleReservation}
-          className="px-11 py-3.5 my-8 text-2xl font-medium text-center text-white bg-wellcome-pink rounded-[44px] shadow-[0px_4px_4px_rgba(0,0,0,0.25)] 
-      hover:text-[#EA708A] hover:bg-[#FEE4E3] transition-colors duration-300"
+          className="px-8 py-3.5 my-8 text-2xl max-md:text-xl text-white bg-wellcome-pink rounded max-md:px-5 cursor-pointer
+         hover:bg-wellcome-magenta transition-colors duration-300"
         >
-          예약하기
+          예약
         </button>
         
       </div>

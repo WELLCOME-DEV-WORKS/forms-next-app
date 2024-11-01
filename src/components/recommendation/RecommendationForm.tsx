@@ -28,9 +28,8 @@ const FormField = ({
 
   return (
     <div className="flex flex-col mb-8 w-full h-full items-center justify-center max-lg:flex-row">
-      <div className="flex flex-col px-11 py-2 items-center justify-center w-full h-full">
-        <div
-          className="bg-wellcome-pink rounded-lg p-4 w-full z-10 text-center text-white text-xl font-bold
+      <div className="flex flex-col  py-2 items-center justify-center w-full h-full">
+        <div className="bg-wellcome-pink rounded-lg p-4 w-full z-10 text-center text-white text-xl font-bold
         max-md:text-base
         "
         >
